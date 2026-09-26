@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=DM+Sans:wght@400;500;600&display=swap">
 
   <!-- arquivo de estilos que vamos criar na próxima etapa -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -47,20 +47,22 @@
     </nav>
 
     <!-- botão que troca entre modo claro e modo escuro e salva a escolha no local storage -->
-    <button class="botao-tema" type="button" aria-label="Ativar modo escuro" aria-pressed="false">
+    <div class="botoes-cabecalho">
+      <button class="botao-tema" type="button" aria-label="Ativar modo escuro" aria-pressed="false">
       <span class="botao-tema-bolinha" aria-hidden="true"></span>
-    </button>
+      </button>
 
-    <!-- botão que liga o player ao vivo -->
-    <button class="botao botao-escuro botao-ouvir" type="button" data-acao="tocar">
-      <span class="ponto-ao-vivo" aria-hidden="true"></span>
-      Ouça ao vivo
-    </button>
-
+      <!-- botão que liga o player ao vivo -->
+      <button class="botao botao-escuro botao-ouvir" type="button" data-acao="tocar">
+        <span class="ponto-ao-vivo" aria-hidden="true"></span>
+        Ouça ao vivo
+      </button>
+    
     <!-- botão do menu que só aparece no celular -->
     <button class="botao-menu-celular" type="button" aria-label="Abrir menu" aria-expanded="false">
       <span class="icone icone-menu" aria-hidden="true"></span>
     </button>
+    </div>
 
   </header>
 
@@ -582,6 +584,6 @@
   </dialog>
 
   <!-- arquivo de javascript que vamos criar depois para player carrossel programação e modo escuro -->
-  <script src="js/script.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
