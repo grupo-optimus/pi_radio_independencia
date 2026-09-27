@@ -51,6 +51,14 @@
       <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
 
+    <symbol id="icone-chevron-esquerda" viewBox="0 0 24 24">
+      <path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icone-chevron-direita" viewBox="0 0 24 24">
+      <path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
     <symbol id="icone-mapa" viewBox="0 0 24 24">
       <path d="M12 21s6-6.1 6-11A6 6 0 0 0 6 10c0 4.9 6 11 6 11Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
       <circle cx="12" cy="10" r="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/>
@@ -352,10 +360,10 @@
         <!-- setas para voltar e avançar o carrossel -->
         <div class="carrossel-setas">
           <button class="seta seta-voltar" type="button" aria-label="Ver membros anteriores" data-carrossel="voltar">
-            <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-seta-esquerda"></use></svg>
+            <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-chevron-esquerda"></use></svg>
           </button>
           <button class="seta seta-avancar" type="button" aria-label="Ver próximos membros" data-carrossel="avancar">
-            <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-seta-direita"></use></svg>
+            <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-chevron-direita"></use></svg>
           </button>
         </div>
       </div>
@@ -365,14 +373,14 @@
 
         <!-- card de membro da equipe com foto nome cargo e programa -->
         <li class="membro">
-          <img class="membro-foto" src="img/equipe/valdecir.jpg" alt="Valdecir Gonçalves, o Xi">
+          <img class="membro-foto" src="img/equipe/valdecir-xi.jpg" alt="Valdecir Gonçalves, o Xi">
           <h3 class="membro-nome">Valdecir Gonçalves "Xi"</h3>
           <p class="membro-cargo">Locutor e Comercial</p>
           <span class="membro-programa">Amanhecer na Costa Oeste</span>
         </li>
 
         <li class="membro">
-          <img class="membro-foto" src="img/equipe/jeferson.jpg" alt="Jeferson Luis, o Black">
+          <img class="membro-foto" src="img/equipe/jeferson-black.jpg" alt="Jeferson Luis, o Black">
           <h3 class="membro-nome">Jeferson Luis "Black"</h3>
           <p class="membro-cargo">Produtor e Locutor</p>
           <span class="membro-programa">Show da Tarde</span>
@@ -393,7 +401,7 @@
         </li>
 
         <li class="membro">
-          <img class="membro-foto" src="img/equipe/valdir.jpg" alt="Valdir Henrique Brod">
+          <img class="membro-foto" src="img/equipe/valdir-brod.jpg" alt="Valdir Henrique Brod">
           <h3 class="membro-nome">Valdir Henrique Brod</h3>
           <p class="membro-cargo">Locutor</p>
           <span class="membro-programa">Encontro de Bandas</span>
@@ -522,14 +530,10 @@
   <!-- rodapé com logo navegação sintonize contato e direitos -->
   <footer class="rodape">
 
-    <!-- logo e frase da rádio -->
+    <!-- logo quadrada branca e frase da rádio -->
     <div class="rodape-marca">
       <a class="logo" href="#inicio" aria-label="Rádio Independência 92,7 FM, página inicial">
-        <span class="logo-selo">92,7</span>
-        <span class="logo-texto">
-          <strong class="logo-nome">Independência</strong>
-          <span class="logo-slogan">A Rádio da Família</span>
-        </span>
+        <img class="rodape-logo" src="img/logos/logo-branca.svg" alt="">
       </a>
       <p>No ar desde 1978 levando informação e companhia para toda a Região Oeste do Paraná.</p>
     </div>
