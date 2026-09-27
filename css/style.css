@@ -18,6 +18,7 @@
     --fonte-texto: "DM Sans", sans-serif;
 
     --largura-conteudo: 1200px;
+    --espacamento-secao: 96px;
 }
 
 *,
@@ -32,6 +33,13 @@ body {
     font-family: var(--fonte-texto);
     color: var(--cor-texto);
     background-color: var(--cor-fundo);
+}
+
+/* botões e campos usam a fonte da página em vez da fonte padrão do navegador */
+button,
+input,
+textarea {
+    font: inherit;
 }
 
 .cabecalho {
@@ -259,6 +267,11 @@ body {
     transform: scale(1.05);
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
+}
+
+/* botão que ocupa a largura toda, usado nos formulários de pedido */
+.botao-largo {
+    width: 100%;
 }
 
 .ponto-ao-vivo {
@@ -536,6 +549,303 @@ body {
     white-space: nowrap;
 }
 
+/* seções de baixo: conteúdo de 1200px no meio, com a mesma margem lateral do cabeçalho e do hero */
+.numeros-lista,
+.programacao .secao-topo,
+.aviso,
+.quem-somos,
+.equipe,
+.pedido,
+.contato {
+    width: min(100% - 48px, var(--largura-conteudo));
+    margin-inline: auto;
+}
+
+/* título das seções: rótulo verde em cima e o título grande, com o que tiver do lado (abas, setas) alinhado embaixo */
+.secao-topo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.secao-rotulo {
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cor-verde);
+}
+
+.secao-titulo {
+    font-family: var(--fonte-titulo);
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+/* faixa preta dos números: 180px de altura, 4 colunas de 300px separadas por uma linha de 84px */
+.numeros {
+    background-color: var(--cor-texto);
+    color: var(--cor-fundo);
+}
+
+.numeros-lista {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 48px 0;
+    list-style: none;
+}
+
+/* a coluna tem a altura da linha divisória, o texto fica centralizado nela */
+.numero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 84px;
+}
+
+.numero + .numero {
+    padding-left: 32px;
+    border-left: 1px solid var(--cor-borda-escura);
+}
+
+.numero-valor {
+    font-family: var(--fonte-titulo);
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.numero-verde {
+    color: var(--cor-verde-brilhante);
+}
+
+.numero-legenda {
+    margin-top: 6px;
+    font-size: 15px;
+    line-height: 1.3;
+    color: var(--cor-texto-apagado);
+}
+
+/* programação: sem largura fixa para os cards rolarem de lado até a borda da tela (580px de altura no figma) */
+.programacao {
+    padding: var(--espacamento-secao) 0 51px;
+}
+
+/* a margem de baixo alinha a base das abas com a base do título, igual ao figma */
+.abas {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 3px;
+}
+
+.aba {
+    height: 40px;
+    padding: 0 18px;
+    border: 1px solid var(--cor-borda-clara);
+    border-radius: 999px;
+    background-color: transparent;
+    color: var(--cor-texto);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* no figma a aba escolhida tem mais espaço dos lados que as outras */
+.aba[aria-selected="true"] {
+    padding: 0 24px;
+    border-color: var(--cor-texto);
+    background-color: var(--cor-texto);
+    color: var(--cor-fundo);
+}
+
+/* linha do tempo: os cards ficam lado a lado e rolam na horizontal */
+/* o espaço de cima é onde ficam a linha, as bolinhas e o marcador de agora */
+/* o primeiro card começa alinhado com o título, o padding da esquerda é a mesma conta do hero */
+.linha-programas {
+    display: flex;
+    gap: 16px;
+    padding: 125px 24px 12px max(24px, calc((100% - var(--largura-conteudo)) / 2));
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--cor-borda-clara) transparent;
+    list-style: none;
+}
+
+/* card do programa: 232x184 no figma, o horário em cima e o locutor sempre embaixo */
+/* o padding de baixo maior deixa o lugar da barra de andamento */
+.programa {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 232px;
+    min-height: 184px;
+    padding: 19px 19px 41px;
+    border: 1px solid var(--cor-borda-clara);
+    border-radius: 20px;
+    background-color: var(--cor-fundo);
+}
+
+/* pedaço da linha do tempo em cima do card, vai até o card seguinte */
+.programa::before {
+    content: "";
+    position: absolute;
+    top: -35px;
+    left: -1px;
+    width: calc(100% + 18px);
+    height: 2px;
+    background-color: var(--cor-borda-clara);
+}
+
+/* bolinha do horário: preta nos que já passaram, verde no que está no ar e vazada nos próximos */
+.programa::after {
+    content: "";
+    position: absolute;
+    top: -40px;
+    left: -1px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--cor-texto);
+}
+
+.programa.no-ar ~ .programa::after {
+    border: 2px solid var(--cor-texto-suave);
+    background-color: var(--cor-fundo);
+}
+
+.programa-horario {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--cor-texto-suave);
+}
+
+.programa-nome {
+    margin-top: 14px;
+    font-family: var(--fonte-titulo);
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.programa-locutor {
+    margin-top: auto;
+    font-size: 14px;
+    line-height: 1.3;
+    color: var(--cor-texto-suave);
+}
+
+/* programa no ar: card verde com o texto branco */
+.programa.no-ar {
+    border-color: var(--cor-verde);
+    background-color: var(--cor-verde);
+    color: var(--cor-fundo);
+}
+
+.programa.no-ar .programa-horario,
+.programa.no-ar .programa-locutor {
+    color: inherit;
+}
+
+.programa.no-ar::after {
+    top: -44px;
+    left: -3px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--cor-verde);
+}
+
+/* marcador "agora" em cima da bolinha verde, ligado nela por um risquinho */
+.agora-marcador {
+    position: absolute;
+    top: -85px;
+    left: 7px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 28px;
+    padding: 0 12px;
+    border-radius: 999px;
+    background-color: var(--cor-verde);
+    color: var(--cor-fundo);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.agora-marcador::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: currentColor;
+}
+
+.agora-marcador::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 2px;
+    height: 13px;
+    margin-left: -1px;
+    background-color: var(--cor-verde);
+}
+
+.selo-no-ar {
+    position: absolute;
+    top: 15px;
+    right: 19px;
+    display: flex;
+    align-items: center;
+    height: 24px;
+    padding: 0 11px;
+    border-radius: 999px;
+    background-color: var(--cor-fundo);
+    color: var(--cor-verde);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* barra de andamento do programa, o js vai mudar a largura da parte branca conforme o horário */
+.programa-progresso {
+    position: absolute;
+    right: 19px;
+    bottom: 23px;
+    left: 19px;
+    height: 4px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+}
+
+.programa-progresso-barra {
+    display: block;
+    width: 45%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: var(--cor-fundo);
+}
+
+.aviso {
+    margin-top: 20px;
+    font-size: 13px;
+    line-height: 1.3;
+    color: var(--cor-texto-suave);
+}
+
 .pular-conteudo {
     position: absolute;
     left: -9999px;
@@ -716,5 +1026,46 @@ body {
     .player-controles .botao-contorno-claro {
         flex-basis: 100%;
         margin-left: 0;
+    }
+
+    /* seções de baixo com 20px de margem, igual ao hero */
+    .numeros-lista,
+    .programacao .secao-topo,
+    .aviso,
+    .quem-somos,
+    .equipe,
+    .pedido,
+    .contato {
+        width: calc(100% - 40px);
+    }
+
+    /* números em 2 colunas e 2 linhas, sem as linhas divisórias (228px de altura no figma) */
+    .numeros-lista {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px 16px;
+        padding: 35px 0 37px;
+    }
+
+    .numero {
+        height: auto;
+    }
+
+    .numero + .numero {
+        padding-left: 0;
+        border-left: 0;
+    }
+
+    .numero-valor {
+        font-size: 38px;
+    }
+
+    .numero-legenda {
+        margin-top: 2px;
+        font-size: 14px;
+    }
+
+    .linha-programas {
+        padding-right: 20px;
+        padding-left: 20px;
     }
 }
