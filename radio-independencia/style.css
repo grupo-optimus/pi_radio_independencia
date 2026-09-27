@@ -196,12 +196,126 @@ body {
     background-color: #000000;
 }
 
+.botao-verde {
+    background-color: var(--cor-verde);
+    color: var(--cor-fundo);
+}
+
+.botao-verde:hover {
+    transform: scale(1.05);
+    filter: brightness(0.9);
+}
+
+.botao-contorno {
+    border: 2px solid var(--cor-texto);
+    background-color: transparent;
+    color: var(--cor-texto);
+    transition: transform 0.6s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+/* no hover o contorno enche de preto e o texto fica branco */
+.botao-contorno:hover {
+    transform: scale(1.05);
+    background-color: var(--cor-texto);
+    color: var(--cor-fundo);
+}
+
 .ponto-ao-vivo {
     width: 8px;
     height: 8px;
     border-radius: 50%;
     background-color: var(--cor-vermelho);
     display: inline-block;
+}
+
+/* tri??ngulo do play feito com clip-path, usa a cor do texto (currentColor) */
+.icone-play::before {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 14px;
+    margin-left: 3px; /* empurra um pouco pra direita pra parecer centralizado */
+    background-color: currentColor;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+/* hero: texto na esquerda e card do player na direita (card tem 520px no figma) */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 520px;
+    gap: 80px;
+    align-items: center;
+    min-height: 640px;
+    padding: 64px max(24px, calc((100% - var(--largura-conteudo)) / 2));
+}
+
+.selo-ao-vivo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    border-radius: 999px;
+    background-color: var(--cor-verde-claro);
+    color: var(--cor-verde);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.hero-titulo {
+    margin-top: 24px;
+    font-family: var(--fonte-titulo);
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1.05;
+}
+
+.destaque {
+    color: var(--cor-verde);
+}
+
+.hero-descricao {
+    max-width: 530px;
+    margin-top: 24px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--cor-texto-suave);
+}
+
+.hero-botoes {
+    display: flex;
+    gap: 16px;
+    margin-top: 48px;
+}
+
+/* os bot??es do hero s??o maiores que o do cabe??alho */
+.hero-botoes .botao {
+    height: 56px;
+    font-size: 16px;
+}
+
+/* ouvir agora: a bolinha do play encosta quase na borda esquerda (200px de largura no figma) */
+.hero-botoes .botao-verde {
+    gap: 12px;
+    padding: 0 48px 0 8px;
+}
+
+.hero-botoes .botao-contorno {
+    padding: 0 34px;
+}
+
+/* no bot??o verde o play fica numa bolinha branca */
+.botao-verde .icone-play {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: var(--cor-fundo);
+    color: var(--cor-verde);
 }
 
 .pular-conteudo {
