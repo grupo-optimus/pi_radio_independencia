@@ -1,30 +1,41 @@
-* {
+/* cores fontes e medidas tiradas do figma */
+:root {
+    --cor-fundo: #ffffff;
+    --cor-texto: #111111;
+    --cor-texto-suave: #5e6a64;
+    --cor-verde: #0c8a40; /* verde provisório, trocar pelo hex exato do logo */
+    --cor-verde-claro: #eef6f1;
+    --cor-vermelho: #e63946;
+
+    --fonte-titulo: "Bricolage Grotesque", sans-serif;
+    --fonte-texto: "DM Sans", sans-serif;
+
+    --largura-conteudo: 1200px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-header {
-    display: flex;
-    align-items: center;
+body {
+    font-family: var(--fonte-texto);
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
 }
 
 .cabecalho {
-     background: linear-gradient(
-        to bottom,
-        #098f4a -15%,
-        #90c2a7 100%
-    );
-    box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.48);
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    height: 88px;
+    padding: 0 max(24px, calc((100% - var(--largura-conteudo)) / 2));
+    background-color: var(--cor-fundo);
     position: relative;
     z-index: 10;
-
-    padding: 20px;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    font-size: 24px;
-    color: #333;
-    text-decoration: none;
-    gap: 200px;
 }
 
 .logo {
@@ -35,12 +46,19 @@ header {
     color: inherit;
 }
 
-.logo-selo {
-    width: 50px;
-    height: 50px;
+.logo-imagem {
+    display: block;
+    height: 56px;
+    width: auto;
+}
 
-    background-color: #0fb864;
-    color: white;
+.logo-selo {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+
+    background-color: var(--cor-verde);
+    color: var(--cor-fundo);
 
     border-radius: 50%;
 
@@ -48,8 +66,9 @@ header {
     align-items: center;
     justify-content: center;
 
-    font-size: 18px;
-    font-weight: bold;
+    font-family: var(--fonte-titulo);
+    font-size: 14px;
+    font-weight: 800;
 }
 
 .logo-texto {
@@ -58,34 +77,45 @@ header {
 }
 
 .logo-nome {
-    color: white;
+    font-family: var(--fonte-titulo);
     font-size: 20px;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--cor-texto);
 }
 
 .logo-slogan {
-    color: #ececec;
-    font-size: 12px;
+    font-size: 13px;
+    color: var(--cor-texto-suave);
     margin-top: 2px;
 }
 
 .menu {
-    font-size: 15px;
     margin-left: auto;
-    padding-left: 20px;
-    justify-content: flex-end;
+}
 
-    padding: 10px 0;
+.menu-lista {
+    list-style: none;
+    display: flex;
+    gap: 36px;
 }
 
 .menu a {
+    font-size: 15px;
+    font-weight: 500;
     text-decoration: none;
-    color: white;
+    color: var(--cor-texto);
     position: relative;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
+/* link da seção atual fica verde e sublinhado igual ao hover */
+.menu a:hover,
+.menu a[aria-current="page"] {
+    color: var(--cor-verde);
+}
+
 .menu a:hover {
-    color: #06f083;
     transform: scale(1.11);
 }
 
@@ -93,81 +123,85 @@ header {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -4px;
+    bottom: -8px;
     width: 100%;
     height: 2px;
-    background-color: #06f083;
+    background-color: var(--cor-verde);
     transform: scaleX(0);
     transform-origin: center; /* <- aqui é a chave: cresce a partir do meio */
     transition: transform 0.3s ease;
 }
 
-.menu a:hover::after {
+.menu a:hover::after,
+.menu a[aria-current="page"]::after {
     transform: scaleX(1);
 }
 
-.menu a:hover::after {
-    width: 100%;
-}
-
-.menu-lista {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
-
 .botao-tema {
-    width: 50px;
-    height: 23px;
-    border: none;
-    border-radius: 20px;
-    background-color: #5ff5577e;
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    width: 52px;
+    height: 28px;
     padding: 3px;
+    border: none;
+    border-radius: 999px;
+    background-color: var(--cor-texto-suave);
+    cursor: pointer;
 }
 
 .botao-tema-bolinha {
     display: block;
-    width: 17px;
-    height: 17px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
-    background-color: rgb(211, 255, 225);
+    background-color: var(--cor-fundo);
 }
 
 .botoes-cabecalho {
-    justify-content: flex-end;
     display: flex;
     align-items: center;
-    gap: 80px;
+    gap: 28px;
+}
+
+/* o botão do menu só aparece no celular, entra na etapa do responsivo */
+.botao-menu-celular {
+    display: none;
 }
 
 .botao {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 30px;
-  font-weight: 600;
-  cursor: pointer;
-  font-size: 14px;
-  transition: transform 0.6s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 44px;
+    padding: 0 28px;
+    border: none;
+    border-radius: 999px;
+    font-family: var(--fonte-texto);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.6s ease;
 }
 
 .botao-escuro {
-  background-color: #1a1a1a;
-  color: #ffffff;
+    background-color: var(--cor-texto);
+    color: var(--cor-fundo);
 }
 
 .botao-escuro:hover {
     transform: scale(1.11);
-
-  background-color: #000000;
+    background-color: #000000;
 }
 
 .ponto-ao-vivo {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #e63946; /* vermelho */
-  display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--cor-vermelho);
+    display: inline-block;
 }
 
 .pular-conteudo {
