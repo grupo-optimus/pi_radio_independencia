@@ -1,0 +1,27 @@
+# arquivos que o windows e o mac criam sozinhos nas pastas
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.DS_Store
+._*
+
+# configurações pessoais de editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# arquivos temporários do office e do onedrive
+~$*
+*.tmp
+
+# worktrees e configurações locais do claude code
+.claude/worktrees/
+.claude/settings.local.json
+
+# dependências e logs, caso o projeto passe a usar node
+node_modules/
+*.log
+
+# variáveis de ambiente com senhas ou chaves
+.env
