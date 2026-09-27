@@ -16,8 +16,8 @@ desktop.ini
 *.tmp
 
 # worktrees e configurações locais do claude code
-.claude/worktrees/
-.claude/settings.local.json
+**/.claude/worktrees/
+**/.claude/settings.local.json
 
 # dependências e logs, caso o projeto passe a usar node
 node_modules/

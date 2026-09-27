@@ -7,8 +7,10 @@
   <title>Rádio Independência 92,7 FM | A Rádio da Família</title>
   <meta name="description" content="Rádio Independência 92,7 FM, a rádio mais ouvida da Região Oeste do Paraná. Ouça ao vivo, veja a programação e peça sua música.">
 
-  <!-- ícone da aba do navegador -->
-  <link rel="icon" href="img/favicon.png">
+  <!-- ícone da aba do navegador e do atalho no celular -->
+  <link rel="icon" href="img/logos/favicon.ico" sizes="32x32">
+  <link rel="icon" href="img/logos/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/logos/apple-touch-icon.png">
 
   <!-- fontes do projeto Bricolage Grotesque nos títulos e DM Sans nos textos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -112,11 +114,7 @@
 
     <!-- logo da rádio que leva para o início -->
     <a class="logo" href="#inicio" aria-label="Rádio Independência 92,7 FM, página inicial">
-      <span class="logo-selo">92,7</span>
-      <span class="logo-texto">
-        <strong class="logo-nome">Independência</strong>
-        <span class="logo-slogan">A Rádio da Família</span>
-      </span>
+      <img class="logo-imagem" src="img/logos/logo-horizontal.svg" alt="">
     </a>
 
     <!-- menu principal com links para as seções da página -->
@@ -183,8 +181,9 @@
       <article class="player-card" aria-label="Player ao vivo">
 
         <!-- foto do locutor que está no ar com selo ao vivo por cima -->
+        <!-- a foto muda conforme o horário da programação -->
         <figure class="player-card-foto">
-          <img src="img/ao-vivo/locutor-no-ar.jpg" alt="Locutor no estúdio da Rádio Independência">
+          <img src="img/equipe/jeferson-black.jpg" alt="Locutor no estúdio da Rádio Independência" data-foto-atual>
           <span class="selo-vermelho">Ao vivo</span>
         </figure>
 
