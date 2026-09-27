@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-tema="claro">
+<head>
+  <!-- configurações básicas da página -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rádio Independência 92,7 FM | A Rádio da Família</title>
+  <meta name="description" content="Rádio Independência 92,7 FM, a rádio mais ouvida da Região Oeste do Paraná. Ouça ao vivo, veja a programação e peça sua música.">
+
+  <!-- ícone da aba do navegador -->
+  <link rel="icon" href="img/favicon.png">
+
+  <!-- fontes do projeto Bricolage Grotesque nos títulos e DM Sans nos textos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=DM+Sans:wght@400;500;600&display=swap">
+
+  <!-- arquivo de estilos que vamos criar na próxima etapa -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Ícones usados pela interface -->
+  <svg class="sprite-icones" aria-hidden="true" focusable="false"
+       style="position:absolute;width:0;height:0;overflow:hidden;">
+    <symbol id="icone-play" viewBox="0 0 24 24">
+      <path d="M8 5.8v12.4L18 12 8 5.8Z" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icone-volume" viewBox="0 0 24 24">
+      <path d="M4 9h4l4-4v14l-4-4H4V9Z" fill="currentColor"/>
+      <path d="M15 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M17.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icone-menu" viewBox="0 0 24 24">
+      <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icone-fechar" viewBox="0 0 24 24">
+      <path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icone-seta-esquerda" viewBox="0 0 24 24">
+      <path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icone-seta-direita" viewBox="0 0 24 24">
+      <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icone-mapa" viewBox="0 0 24 24">
+      <path d="M12 21s6-6.1 6-11A6 6 0 0 0 6 10c0 4.9 6 11 6 11Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <circle cx="12" cy="10" r="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    </symbol>
+
+    <symbol id="icone-telefone" viewBox="0 0 24 24">
+      <path d="M7.2 4.5 10 7.3 8.3 9a13 13 0 0 0 6.7 6.7l1.7-1.7 2.8 2.8-1.8 2.1c-.7.8-2 1.1-3 .7A16.9 16.9 0 0 1 4.4 7.6c-.4-1 .0-2.3.7-3l2.1-1.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icone-whatsapp" viewBox="0 0 24 24">
+      <path d="M12 4.2a7.6 7.6 0 0 0-6.5 11.6L4.3 20l4.3-1.1A7.7 7.7 0 1 0 12 4.2Z" fill="none" stroke="currentColor" stroke-width="1.7"/>
+      <path d="M9.1 8.6c.2-.4.4-.4.8-.4h.3c.2 0 .4.1.5.4l.7 1.6c.1.3.1.5-.1.7l-.6.7c.6 1 1.4 1.8 2.5 2.4l.7-.6c.2-.2.4-.2.7-.1l1.5.7c.3.1.4.3.4.5v.3c0 .4-.1.6-.4.8-.4.3-1 .5-1.5.4-1.4-.3-2.9-1.2-4.1-2.4-1.2-1.2-2.1-2.7-2.4-4.1-.1-.5.1-1.1.4-1.5Z" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icone-email" viewBox="0 0 24 24">
+      <rect x="3.5" y="5.5" width="17" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="m5 7 7 5 7-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icone-instagram" viewBox="0 0 24 24">
+      <rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <circle cx="17.1" cy="6.9" r="1" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icone-facebook" viewBox="0 0 24 24">
+      <path d="M13.4 20v-7h2.4l.4-2.8h-2.8V8.4c0-.8.2-1.4 1.4-1.4h1.5V4.4c-.7-.1-1.3-.2-2-.2-2.5 0-4.1 1.5-4.1 4.2v1.8H7.7V13h2.5v7h3.2Z" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icone-youtube" viewBox="0 0 24 24">
+      <path d="M20.2 8.1a2.4 2.4 0 0 0-1.7-1.7C17 6 12 6 12 6s-5 0-6.5.4A2.4 2.4 0 0 0 3.8 8.1C3.4 9.6 3.4 12 3.4 12s0 2.4.4 3.9a2.4 2.4 0 0 0 1.7 1.7C7 18 12 18 12 18s5 0 6.5-.4a2.4 2.4 0 0 0 1.7-1.7c.4-1.5.4-3.9.4-3.9s0-2.4-.4-3.9Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <path d="m10.2 9.5 4.2 2.5-4.2 2.5v-5Z" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icone-musica" viewBox="0 0 24 24">
+      <path d="M9 18V6l9-2v12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <circle cx="6.5" cy="18" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <circle cx="15.5" cy="16" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    </symbol>
+
+    <symbol id="icone-check" viewBox="0 0 24 24">
+      <path d="m5 12.5 4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icone-sol" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M12 2.8v2M12 19.2v2M21.2 12h-2M4.8 12h-2M18.5 5.5l-1.4 1.4M6.9 17.1l-1.4 1.4M18.5 18.5l-1.4-1.4M6.9 6.9 5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icone-lua" viewBox="0 0 24 24">
+      <path d="M18.2 15.8A7.3 7.3 0 0 1 8.2 5.8 7.6 7.6 0 1 0 18.2 15.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+
+
+  <!-- link escondido para quem navega pelo teclado pular direto ao conteúdo -->
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- cabeçalho com logo menu botão de tema e botão ouça ao vivo -->
+  <header class="cabecalho">
+
+    <!-- logo da rádio que leva para o início -->
+    <a class="logo" href="#inicio" aria-label="Rádio Independência 92,7 FM, página inicial">
+      <span class="logo-selo">92,7</span>
+      <span class="logo-texto">
+        <strong class="logo-nome">Independência</strong>
+        <span class="logo-slogan">A Rádio da Família</span>
+      </span>
+    </a>
+
+    <!-- menu principal com links para as seções da página -->
+    <nav class="menu" aria-label="Menu principal">
+      <ul class="menu-lista">
+        <li><a href="#inicio" aria-current="page">Início</a></li>
+        <li><a href="#quem-somos">Quem Somos</a></li>
+        <li><a href="#programacao">Programação</a></li>
+        <li><a href="#equipe">Equipe</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <!-- botão que troca entre modo claro e modo escuro e salva a escolha no local storage -->
+    <button class="botao-tema" type="button" aria-label="Ativar modo escuro" aria-pressed="false">
+      <span class="botao-tema-bolinha" aria-hidden="true">
+        <svg class="tema-icone" viewBox="0 0 24 24" focusable="false">
+          <use href="#icone-sol"></use>
+        </svg>
+      </span>
+    </button>
+
+    <!-- botão que liga o player ao vivo -->
+    <button class="botao botao-escuro botao-ouvir" type="button" data-acao="tocar">
+      <span class="ponto-ao-vivo" aria-hidden="true"></span>
+      Ouça ao vivo
+    </button>
+
+    <!-- botão do menu que só aparece no celular -->
+    <button class="botao-menu-celular" type="button" aria-label="Abrir menu" aria-expanded="false">
+      <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-menu"></use></svg>
+    </button>
+
+  </header>
+
+  <!-- conteúdo principal da página -->
+  <main id="conteudo">
+
+    <!-- seção inicial com título texto botões e card do player -->
+    <section class="hero" id="inicio">
+
+      <!-- lado esquerdo com selo ao vivo título texto e botões -->
+      <div class="hero-texto">
+        <p class="selo-ao-vivo">
+          <span class="ponto-ao-vivo" aria-hidden="true"></span>
+          Ao vivo em Medianeira PR
+        </p>
+
+        <h1 class="hero-titulo">A rádio mais ouvida da <span class="destaque">Região Oeste</span> do Paraná</h1>
+
+        <p class="hero-descricao">Há mais de 45 anos levando informação, música e companhia para a sua casa. Somos a Rádio da Família, agora em 92,7 FM.</p>
+
+        <!-- botões ouvir agora e nossa história -->
+        <div class="hero-botoes">
+          <button class="botao botao-verde" type="button" data-acao="tocar">
+            <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-play"></use></svg>
+            Ouvir agora
+          </button>
+          <a class="botao botao-contorno" href="historia.html">Nossa história</a>
+        </div>
+      </div>
+
+      <!-- card do player ao vivo com foto do locutor programa atual play e volume -->
+      <article class="player-card" aria-label="Player ao vivo">
+
+        <!-- foto do locutor que está no ar com selo ao vivo por cima -->
+        <figure class="player-card-foto">
+          <img src="img/ao-vivo/locutor-no-ar.jpg" alt="Locutor no estúdio da Rádio Independência">
+          <span class="selo-vermelho">Ao vivo</span>
+        </figure>
+
+        <!-- informações do programa que está tocando -->
+        <div class="player-card-info">
+          <p class="player-card-rotulo">Tocando agora em 92,7 FM</p>
+          <h2 class="player-card-programa" data-programa-atual>Show da Tarde</h2>
+          <p class="player-card-locutor" data-locutor-atual>com Jeferson "Black"</p>
+        </div>
+
+        <!-- controles do player com play volume e peça uma música -->
+        <div class="player-controles">
+          <button class="botao-play" type="button" data-acao="tocar" aria-label="Tocar rádio ao vivo">
+            <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-play"></use></svg>
+          </button>
+
+          <!-- controle de volume -->
+          <label class="volume">
+            <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-volume"></use></svg>
+            <span class="volume-rotulo">Volume</span>
+            <input class="volume-barra" type="range" min="0" max="100" value="70" data-volume>
+          </label>
+
+          <!-- botão que abre a janela de pedido de música -->
+          <button class="botao botao-contorno-claro" type="button" data-abrir-modal="modal-pedido">Peça uma música</button>
+        </div>
+
+      </article>
+    </section>
+
+    <!-- faixa preta com os números da rádio -->
+    <section class="numeros" aria-label="A rádio em números">
+      <ul class="numeros-lista">
+        <li class="numero">
+          <strong class="numero-valor">1978</strong>
+          <span class="numero-legenda">No ar desde</span>
+        </li>
+        <li class="numero">
+          <strong class="numero-valor numero-verde">92,7</strong>
+          <span class="numero-legenda">FM em Medianeira</span>
+        </li>
+        <li class="numero">
+          <strong class="numero-valor">1º</strong>
+          <span class="numero-legenda">Em audiência na região</span>
+        </li>
+        <li class="numero">
+          <strong class="numero-valor">+45</strong>
+          <span class="numero-legenda">Anos de história</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- programação do dia em linha do tempo baseada no horário -->
+    <section class="programacao" id="programacao" aria-labelledby="programacao-titulo">
+
+      <!-- título da seção com abas dos dias -->
+      <div class="secao-topo">
+        <div>
+          <p class="secao-rotulo">Programação</p>
+          <h2 class="secao-titulo" id="programacao-titulo">Hoje na Independência</h2>
+        </div>
+
+        <!-- abas para trocar entre dias da semana sábado e domingo -->
+        <div class="abas" role="tablist" aria-label="Dias da programação">
+          <button class="aba" type="button" role="tab" aria-selected="true" data-dia="semana">Seg a Sex</button>
+          <button class="aba" type="button" role="tab" aria-selected="false" data-dia="sabado">Sábado</button>
+          <button class="aba" type="button" role="tab" aria-selected="false" data-dia="domingo">Domingo</button>
+        </div>
+      </div>
+
+      <!-- marcador que mostra a hora atual na linha do tempo -->
+      <p class="agora-marcador" data-hora-atual>Agora 15:20</p>
+
+      <!-- lista de programas em ordem de horário -->
+      <!-- o programa no ar recebe a classe no-ar e o javascript marca pelo horário -->
+      <ol class="linha-programas" data-dia-lista="semana">
+        <li class="programa" data-inicio="06:00" data-fim="09:00">
+          <time class="programa-horario">06:00 às 09:00</time>
+          <h3 class="programa-nome">Amanhecer na Costa Oeste</h3>
+          <p class="programa-locutor">Valdecir "Xi"</p>
+        </li>
+        <li class="programa" data-inicio="09:00" data-fim="12:00">
+          <time class="programa-horario">09:00 às 12:00</time>
+          <h3 class="programa-nome">Programa Livre</h3>
+          <p class="programa-locutor">Valdecir "Xi"</p>
+        </li>
+        <li class="programa" data-inicio="12:00" data-fim="13:00">
+          <time class="programa-horario">12:00 às 13:00</time>
+          <h3 class="programa-nome">Costa Oeste News</h3>
+          <p class="programa-locutor">João Hermes</p>
+        </li>
+        <li class="programa no-ar" data-inicio="14:00" data-fim="17:00" aria-current="true">
+          <time class="programa-horario">14:00 às 17:00</time>
+          <span class="selo-no-ar">No ar</span>
+          <h3 class="programa-nome">Show da Tarde</h3>
+          <p class="programa-locutor">Jeferson "Black"</p>
+          <!-- barra que mostra quanto do programa já passou -->
+          <span class="programa-progresso" aria-hidden="true"><span class="programa-progresso-barra"></span></span>
+        </li>
+        <li class="programa" data-inicio="17:00" data-fim="18:00">
+          <time class="programa-horario">17:00 às 18:00</time>
+          <h3 class="programa-nome">Serranópolis em Destaque</h3>
+          <p class="programa-locutor">Neilor de C.</p>
+        </li>
+        <li class="programa" data-inicio="18:00" data-fim="19:00">
+          <time class="programa-horario">18:00 às 19:00</time>
+          <h3 class="programa-nome">Encontro de Bandas</h3>
+          <p class="programa-locutor">Valdir H. Brod</p>
+        </li>
+      </ol>
+
+      <!-- aviso temporário até chegar a grade real da rádio -->
+      <p class="aviso">Horários ilustrativos, aguardando a grade real da rádio.</p>
+    </section>
+
+    <!-- seção quem somos com resumo da história foto e linha do tempo -->
+    <section class="quem-somos" id="quem-somos" aria-labelledby="quem-somos-titulo">
+
+      <!-- lado esquerdo com texto link para a página de história e foto -->
+      <div class="quem-somos-texto">
+        <p class="secao-rotulo">Quem Somos</p>
+        <h2 class="secao-titulo" id="quem-somos-titulo">Nossa história</h2>
+        <p>A Rádio Independência nasceu em 4 de dezembro de 1978, em Medianeira, e em pouco tempo levou sua programação para toda a Região Oeste do Paraná. Informação, jornalismo responsável e prestação de serviço, com uma equipe que virou família de quem ouve.</p>
+
+        <!-- link para a página separada com a história completa -->
+        <a class="link-verde" href="historia.html">Conheça a história completa <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-seta-direita"></use></svg></a>
+
+        <!-- foto histórica da rádio -->
+        <img class="quem-somos-foto" src="img/historia/foto-historica.jpg" alt="Foto histórica da Rádio Independência">
+      </div>
+
+      <!-- linha do tempo resumida da rádio -->
+      <ol class="linha-tempo">
+        <li class="marco">
+          <span class="marco-ano">1978</span>
+          <h3 class="marco-titulo">Nasce a Rádio Independência</h3>
+          <p class="marco-texto">Começa em 1020 AM, em Medianeira.</p>
+        </li>
+        <li class="marco">
+          <span class="marco-ano">2000</span>
+          <h3 class="marco-titulo">"A Rádio da Família"</h3>
+          <p class="marco-texto">Novo proprietário, Moacir José Hanzen, adota o slogan.</p>
+        </li>
+        <li class="marco">
+          <span class="marco-ano">2021</span>
+          <h3 class="marco-titulo">Estreia no FM</h3>
+          <p class="marco-texto">A Independência passa a operar em 92,7 FM.</p>
+        </li>
+        <li class="marco marco-atual">
+          <span class="marco-ano">Hoje</span>
+          <h3 class="marco-titulo">Maior audiência da região</h3>
+          <p class="marco-texto">A rádio mais ouvida do Oeste do Paraná.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- carrossel com fotos da equipe -->
+    <section class="equipe" id="equipe" aria-labelledby="equipe-titulo">
+
+      <!-- título da seção com setas do carrossel -->
+      <div class="secao-topo">
+        <div>
+          <p class="secao-rotulo">Equipe</p>
+          <h2 class="secao-titulo" id="equipe-titulo">Vozes que fazem a Independência</h2>
+        </div>
+
+        <!-- setas para voltar e avançar o carrossel -->
+        <div class="carrossel-setas">
+          <button class="seta seta-voltar" type="button" aria-label="Ver membros anteriores" data-carrossel="voltar">
+            <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-seta-esquerda"></use></svg>
+          </button>
+          <button class="seta seta-avancar" type="button" aria-label="Ver próximos membros" data-carrossel="avancar">
+            <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-seta-direita"></use></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- trilho do carrossel com os cards da equipe -->
+      <ul class="carrossel" data-carrossel-trilho>
+
+        <!-- card de membro da equipe com foto nome cargo e programa -->
+        <li class="membro">
+          <img class="membro-foto" src="img/equipe/valdecir.jpg" alt="Valdecir Gonçalves, o Xi">
+          <h3 class="membro-nome">Valdecir Gonçalves "Xi"</h3>
+          <p class="membro-cargo">Locutor e Comercial</p>
+          <span class="membro-programa">Amanhecer na Costa Oeste</span>
+        </li>
+
+        <li class="membro">
+          <img class="membro-foto" src="img/equipe/jeferson.jpg" alt="Jeferson Luis, o Black">
+          <h3 class="membro-nome">Jeferson Luis "Black"</h3>
+          <p class="membro-cargo">Produtor e Locutor</p>
+          <span class="membro-programa">Show da Tarde</span>
+        </li>
+
+        <li class="membro">
+          <img class="membro-foto" src="img/equipe/joao-hermes.jpg" alt="João Hermes">
+          <h3 class="membro-nome">João Hermes</h3>
+          <p class="membro-cargo">Jornalista</p>
+          <span class="membro-programa">Costa Oeste News</span>
+        </li>
+
+        <li class="membro">
+          <img class="membro-foto" src="img/equipe/neilor.jpg" alt="Neilor de C.">
+          <h3 class="membro-nome">Neilor de C.</h3>
+          <p class="membro-cargo">Locutor</p>
+          <span class="membro-programa">Serranópolis em Destaque</span>
+        </li>
+
+        <li class="membro">
+          <img class="membro-foto" src="img/equipe/valdir.jpg" alt="Valdir Henrique Brod">
+          <h3 class="membro-nome">Valdir Henrique Brod</h3>
+          <p class="membro-cargo">Locutor</p>
+          <span class="membro-programa">Encontro de Bandas</span>
+        </li>
+
+      </ul>
+
+      <!-- bolinhas que mostram em qual parte do carrossel o usuário está -->
+      <div class="carrossel-pontos" aria-hidden="true">
+        <span class="ponto ativo"></span>
+        <span class="ponto"></span>
+        <span class="ponto"></span>
+      </div>
+    </section>
+
+    <!-- seção verde de pedido de música com texto whatsapp e formulário -->
+    <section class="pedido" id="peca-uma-musica" aria-labelledby="pedido-titulo">
+
+      <!-- lado esquerdo com chamada e link do whatsapp -->
+      <div class="pedido-texto">
+        <p class="secao-rotulo">Peça uma música</p>
+        <h2 class="secao-titulo" id="pedido-titulo">Qual música não pode faltar no seu dia?</h2>
+        <p>Mande seu pedido com um recado. A gente toca pra você e pra quem você quiser.</p>
+
+        <!-- link que abre conversa no whatsapp da rádio -->
+        <p class="pedido-whatsapp-rotulo">Prefere o WhatsApp?</p>
+        <a class="pedido-whatsapp" href="https://wa.me/5545999358890" target="_blank" rel="noopener">(45) 9 9935-8890 <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-seta-direita"></use></svg></a>
+      </div>
+
+      <!-- formulário de pedido de música -->
+      <form class="formulario" id="form-pedido-secao" data-form-pedido>
+        <label class="campo">
+          <span class="campo-rotulo">Seu nome</span>
+          <input type="text" name="nome" placeholder="Ex.: Maria, de Medianeira" required>
+        </label>
+
+        <label class="campo">
+          <span class="campo-rotulo">Música e artista</span>
+          <input type="text" name="musica" placeholder="Ex.: Evidências, Chitãozinho & Xororó" required>
+        </label>
+
+        <label class="campo">
+          <span class="campo-rotulo">Recado (opcional)</span>
+          <textarea name="recado" rows="3" placeholder="Manda um abraço pra…"></textarea>
+        </label>
+
+        <button class="botao botao-escuro botao-largo" type="submit">Enviar pedido</button>
+      </form>
+    </section>
+
+    <!-- seção de contato completo com cards redes sociais e mapa -->
+    <section class="contato" id="contato" aria-labelledby="contato-titulo">
+
+      <!-- título e texto da seção -->
+      <div class="contato-topo">
+        <p class="secao-rotulo">Contato</p>
+        <h2 class="secao-titulo" id="contato-titulo">Fale com a Independência</h2>
+        <p>Participe da programação, anuncie sua empresa ou tire suas dúvidas.</p>
+      </div>
+
+      <!-- lado esquerdo com os cards de contato e redes sociais -->
+      <div class="contato-infos">
+
+        <!-- card com endereço da rádio -->
+        <address class="card-contato">
+          <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-mapa"></use></svg>
+          <h3 class="card-contato-titulo">Endereço</h3>
+          <p>Av. Pedro Soccol, 452</p>
+          <p class="card-contato-extra">São Cristóvão, Medianeira PR</p>
+        </address>
+
+        <!-- card com telefones fixos -->
+        <div class="card-contato">
+          <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-telefone"></use></svg>
+          <h3 class="card-contato-titulo">Telefones</h3>
+          <p><a href="tel:+554532641713">(45) 3264-1713</a></p>
+          <p><a href="tel:+554532641635">(45) 3264-1635</a></p>
+        </div>
+
+        <!-- card com whatsapp -->
+        <div class="card-contato">
+          <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-whatsapp"></use></svg>
+          <h3 class="card-contato-titulo">WhatsApp</h3>
+          <p><a href="https://wa.me/5545999358890" target="_blank" rel="noopener">(45) 9 9935-8890</a></p>
+          <p class="card-contato-extra">Pedidos de música e recados</p>
+        </div>
+
+        <!-- card com e-mail do comercial -->
+        <div class="card-contato">
+          <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-email"></use></svg>
+          <h3 class="card-contato-titulo">E-mail</h3>
+          <p><a href="mailto:dep.comercial1020@hotmail.com">dep.comercial1020@hotmail.com</a></p>
+          <p class="card-contato-extra">Departamento comercial</p>
+        </div>
+
+        <!-- redes sociais da rádio -->
+        <div class="redes">
+          <p class="redes-titulo">Siga a rádio</p>
+          <ul class="redes-lista">
+            <!-- os links reais das redes entram aqui -->
+            <li><a href="#" aria-label="Instagram"><svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-instagram"></use></svg></a></li>
+            <li><a href="#" aria-label="Facebook"><svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-facebook"></use></svg></a></li>
+            <li><a href="#" aria-label="YouTube"><svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-youtube"></use></svg></a></li>
+          </ul>
+          <p class="redes-usuario">@radio.independencia</p>
+        </div>
+      </div>
+
+      <!-- lado direito com mapa e botão como chegar -->
+      <div class="mapa">
+        <!-- mapa do google maps incorporado entra aqui -->
+        <div class="mapa-area" data-mapa></div>
+
+        <div class="mapa-info">
+          <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-mapa"></use></svg>
+          <p class="mapa-nome">Rádio Independência 92,7 FM</p>
+          <p class="mapa-endereco">Av. Pedro Soccol, 452, São Cristóvão, Medianeira PR</p>
+          <!-- botão que abre a rota no google maps -->
+          <a class="botao botao-verde" href="https://www.google.com/maps/search/?api=1&query=Av.+Pedro+Soccol,+452,+Medianeira,+PR" target="_blank" rel="noopener">Como chegar</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- rodapé com logo navegação sintonize contato e direitos -->
+  <footer class="rodape">
+
+    <!-- logo e frase da rádio -->
+    <div class="rodape-marca">
+      <a class="logo" href="#inicio" aria-label="Rádio Independência 92,7 FM, página inicial">
+        <span class="logo-selo">92,7</span>
+        <span class="logo-texto">
+          <strong class="logo-nome">Independência</strong>
+          <span class="logo-slogan">A Rádio da Família</span>
+        </span>
+      </a>
+      <p>No ar desde 1978 levando informação e companhia para toda a Região Oeste do Paraná.</p>
+    </div>
+
+    <!-- coluna de navegação -->
+    <nav class="rodape-coluna" aria-label="Navegação do rodapé">
+      <h2 class="rodape-titulo">Navegação</h2>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#quem-somos">Quem Somos</a></li>
+        <li><a href="#programacao">Programação</a></li>
+        <li><a href="#equipe">Equipe</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <!-- coluna sintonize -->
+    <div class="rodape-coluna">
+      <h2 class="rodape-titulo">Sintonize</h2>
+      <ul>
+        <li><button class="link-rodape" type="button" data-acao="tocar">Ouvir ao vivo</button></li>
+        <li>92,7 FM em Medianeira</li>
+        <li><a href="historia.html">História da rádio</a></li>
+      </ul>
+    </div>
+
+    <!-- coluna de contato -->
+    <div class="rodape-coluna">
+      <h2 class="rodape-titulo">Contato</h2>
+      <ul>
+        <li><a href="https://wa.me/5545999358890" target="_blank" rel="noopener">(45) 9 9935-8890</a></li>
+        <li><a href="tel:+554532641713">(45) 3264-1713</a></li>
+        <li><a href="mailto:dep.comercial1020@hotmail.com">dep.comercial1020@hotmail.com</a></li>
+        <li>Av. Pedro Soccol, 452</li>
+        <li>Medianeira PR</li>
+      </ul>
+    </div>
+
+    <!-- linha final com direitos -->
+    <p class="rodape-direitos">© 2026 Rádio Independência 92,7 FM. A Rádio da Família. Medianeira PR</p>
+  </footer>
+
+  <!-- player fixo no rodapé da tela que aparece em todas as páginas -->
+  <aside class="player-fixo" aria-label="Player ao vivo">
+
+    <!-- botão de tocar e pausar -->
+    <button class="botao-play" type="button" data-acao="tocar" aria-label="Tocar rádio ao vivo">
+      <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-play"></use></svg>
+    </button>
+
+    <!-- informações do programa no ar -->
+    <div class="player-fixo-info">
+      <p class="player-fixo-rotulo"><span class="ponto-ao-vivo" aria-hidden="true"></span> Ao vivo em 92,7 FM</p>
+      <p class="player-fixo-programa" data-programa-atual>Show da Tarde</p>
+      <p class="player-fixo-locutor" data-locutor-atual>com Jeferson Luis "Black"</p>
+    </div>
+
+    <!-- controle de volume do player fixo -->
+    <label class="volume">
+      <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-volume"></use></svg>
+      <span class="volume-rotulo">Volume</span>
+      <input class="volume-barra" type="range" min="0" max="100" value="70" data-volume>
+    </label>
+
+    <!-- botão que abre a janela de pedido de música -->
+    <button class="botao botao-verde" type="button" data-abrir-modal="modal-pedido">
+      <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-musica"></use></svg>
+      Peça uma música
+    </button>
+  </aside>
+
+  <!-- áudio do streaming ao vivo -->
+  <!-- o link do streaming da rádio entra no src -->
+  <audio id="radio-audio" src="" preload="none"></audio>
+
+  <!-- janela de pedido de música que abre pelos botões peça uma música -->
+  <dialog class="modal" id="modal-pedido" aria-labelledby="modal-pedido-titulo">
+
+    <!-- topo da janela com título e botão de fechar -->
+    <div class="modal-topo">
+      <div>
+        <p class="secao-rotulo">Peça uma música</p>
+        <h2 class="modal-titulo" id="modal-pedido-titulo">O que você quer ouvir?</h2>
+      </div>
+      <button class="modal-fechar" type="button" aria-label="Fechar" data-fechar-modal>
+        <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-fechar"></use></svg>
+      </button>
+    </div>
+
+    <p class="modal-texto">Seu pedido chega ao estúdio da 92,7. Aproveite e mande um recado para alguém especial.</p>
+
+    <!-- formulário do pedido dentro da janela -->
+    <form class="formulario" id="form-pedido-modal" data-form-pedido>
+
+      <!-- nome e cidade lado a lado -->
+      <div class="campos-lado-a-lado">
+        <label class="campo">
+          <span class="campo-rotulo">Seu nome</span>
+          <input type="text" name="nome" placeholder="Ex.: Maria" required>
+        </label>
+        <label class="campo">
+          <span class="campo-rotulo">Cidade ou bairro</span>
+          <input type="text" name="cidade" placeholder="Ex.: Medianeira, Centro">
+        </label>
+      </div>
+
+      <label class="campo">
+        <span class="campo-rotulo">Música e artista</span>
+        <input type="text" name="musica" placeholder="Ex.: Evidências, Chitãozinho & Xororó" required>
+      </label>
+
+      <label class="campo">
+        <span class="campo-rotulo">Recado (opcional)</span>
+        <textarea name="recado" rows="3" placeholder="Manda um abraço pra…"></textarea>
+      </label>
+
+      <button class="botao botao-verde botao-largo" type="submit">Enviar pedido</button>
+
+      <!-- separador entre as duas opções de envio -->
+      <p class="separador-ou">ou</p>
+
+      <!-- botão que manda o mesmo pedido pelo whatsapp -->
+      <button class="botao botao-contorno botao-largo" type="button" data-enviar-whatsapp>
+        <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-whatsapp"></use></svg>
+        Enviar pelo WhatsApp
+      </button>
+    </form>
+  </dialog>
+
+  <!-- janela de confirmação que aparece depois do pedido enviado -->
+  <dialog class="modal modal-sucesso" id="modal-sucesso" aria-labelledby="modal-sucesso-titulo">
+    <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-check"></use></svg>
+    <h2 class="modal-titulo" id="modal-sucesso-titulo">Pedido enviado!</h2>
+    <p class="modal-texto">Fica ligado na 92,7 FM: seu pedido chegou ao estúdio. Obrigado por fazer parte da Rádio da Família.</p>
+    <button class="botao botao-verde botao-largo" type="button" data-fechar-modal>Voltar a ouvir</button>
+  </dialog>
+
+  <!-- arquivo de javascript que vamos criar depois para player carrossel programação e modo escuro -->
+  <script src="js/script.js" defer></script>
+</body>
+</html>
