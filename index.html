@@ -510,19 +510,25 @@
         </div>
       </div>
 
-      <!-- lado direito com mapa e botão como chegar -->
       <div class="mapa">
-        <!-- mapa do google maps incorporado entra aqui -->
-        <div class="mapa-area" data-mapa></div>
-
-        <div class="mapa-info">
-          <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-mapa"></use></svg>
-          <p class="mapa-nome">Rádio Independência 92,7 FM</p>
-          <p class="mapa-endereco">Av. Pedro Soccol, 452, São Cristóvão, Medianeira PR</p>
-          <!-- botão que abre a rota no google maps -->
-          <a class="botao botao-verde" href="https://www.google.com/maps/search/?api=1&query=Av.+Pedro+Soccol,+452,+Medianeira,+PR" target="_blank" rel="noopener">Como chegar</a>
+        <div class="mapa-area" data-mapa>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.3764919280957!2d-54.10318348824787!3d-25.29155182733644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f6aca6b723f9a3%3A0x88fcc2d68d2ae6f3!2sAv.%20Pedro%20Soccol%2C%20452%20-%20S%C3%A3o%20Cristov%C3%A3o%2C%20Medianeira%20-%20PR%2C%2085884-000!5e0!3m2!1spt-BR!2sbr!4v1790551244500!5m2!1spt-BR!2sbr"
+            width="600"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
         </div>
       </div>
+
+      <div class="mapa-info">
+        <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-mapa"></use></svg>
+        <p class="mapa-nome">Rádio Independência 92,7 FM</p>
+        <p class="mapa-endereco">Av. Pedro Soccol, 452, São Cristóvão, Medianeira PR</p>
+        <a class="botao botao-verde" href="https://www.google.com/maps/search/?api=1&query=Av.+Pedro+Soccol,+452,+Medianeira,+PR" target="_blank" rel="noopener">Como chegar</a>
+    </div>
     </section>
 
   </main>

@@ -30,6 +30,10 @@
     padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--fonte-texto);
     color: var(--cor-texto);
@@ -1274,63 +1278,51 @@ a {
 
 /* mapa: enquanto o google maps não entra, fica o desenho do figma com as ruas claras */
 .mapa {
-    position: relative;
-    min-height: 320px;
-    border-radius: 20px;
-    background:
-        linear-gradient(var(--cor-verde-claro), var(--cor-verde-claro)) 0 119px / 100% 10px no-repeat,
-        linear-gradient(var(--cor-verde-claro), var(--cor-verde-claro)) 154px 0 / 10px 100% no-repeat,
-        linear-gradient(var(--cor-verde-claro), var(--cor-verde-claro)) 385px 0 / 10px 100% no-repeat,
-        var(--cor-verde-acinzentado);
-    overflow: hidden;
+  display: flex;
+  gap: 24px;
+  align-items: stretch; /* faz os dois filhos terem a mesma altura */
 }
 
 .mapa-area {
-    position: absolute;
-    inset: 0;
+  flex: 1.5; /* mapa ocupa mais espaço que as infos */
+  min-height: 350px;
+  border-radius: 12px;
+  overflow: hidden; /* arredonda as bordas do iframe também */
 }
 
-/* card branco com o endereço e o botão, em cima do mapa */
+.mapa-area iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .mapa-info {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    left: 20px;
-    padding: 16px;
-    border-radius: 16px;
-    background-color: var(--cor-fundo);
-    box-shadow: 0 8px 24px rgba(17, 17, 17, 0.12);
-}
-
-/* o ícone de mapa vira o pino verde no meio do mapa */
-.mapa-info .icone-svg {
-    position: absolute;
-    bottom: calc(100% + 91px);
-    left: 50%;
-    width: 64px;
-    height: 64px;
-    margin-left: -32px;
-    padding: 16px;
-    border: 4px solid var(--cor-fundo);
-    border-radius: 50%;
-    background-color: var(--cor-verde);
-    color: var(--cor-fundo);
-    box-shadow: 0 4px 12px rgba(17, 17, 17, 0.15);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
 }
 
 .mapa-nome {
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 1.3;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 
 .mapa-endereco {
-    margin-top: 2px;
-    font-size: 13px;
-    line-height: 1.3;
-    color: var(--cor-texto-suave);
+  color: #555;
 }
 
+/* no celular, empilha o mapa em cima e as infos embaixo */
+@media (max-width: 768px) {
+  .mapa {
+    flex-direction: column;
+  }
+
+  .mapa-area {
+    min-height: 280px;
+  }
+}
 /* no figma o como chegar é preto */
 .mapa-info .botao-verde {
     height: 48px;
