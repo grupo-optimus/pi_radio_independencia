@@ -254,9 +254,6 @@
         </div>
       </div>
 
-      <!-- marcador que mostra a hora atual na linha do tempo -->
-      <p class="agora-marcador" data-hora-atual>Agora 15:20</p>
-
       <!-- lista de programas em ordem de horário -->
       <!-- o programa no ar recebe a classe no-ar e o javascript marca pelo horário -->
       <ol class="linha-programas" data-dia-lista="semana">
@@ -276,6 +273,8 @@
           <p class="programa-locutor">João Hermes</p>
         </li>
         <li class="programa no-ar" data-inicio="14:00" data-fim="17:00" aria-current="true">
+          <!-- marcador que mostra a hora atual na linha do tempo, fica em cima do programa no ar e o javascript leva ele junto com a classe no-ar -->
+          <p class="agora-marcador" data-hora-atual>Agora 15:20</p>
           <time class="programa-horario">14:00 às 17:00</time>
           <span class="selo-no-ar">No ar</span>
           <h3 class="programa-nome">Show da Tarde</h3>
