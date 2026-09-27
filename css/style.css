@@ -6,6 +6,7 @@
     --cor-verde: #0c8a40; /* verde provisório, trocar pelo hex exato do logo */
     --cor-verde-claro: #eef6f1;
     --cor-vermelho: #e5484d;
+    --cor-borda-clara: #e3e8e5;
 
     /* cores do card do player (fundo preto) */
     --cor-verde-brilhante: #6fd39a;
@@ -36,7 +37,7 @@ body {
 .cabecalho {
     display: flex;
     align-items: center;
-    gap: 64px;
+    gap: 28px;
     height: 88px;
     padding: 0 max(24px, calc((100% - var(--largura-conteudo)) / 2));
     background-color: var(--cor-fundo);
@@ -96,8 +97,10 @@ body {
     margin-top: 2px;
 }
 
+/* o menu vai pra direita e fica a 64px do botão de tema (36 de margem + 28 do gap do cabeçalho) */
 .menu {
     margin-left: auto;
+    margin-right: 36px;
 }
 
 .menu-lista {
@@ -164,15 +167,33 @@ body {
     background-color: var(--cor-fundo);
 }
 
-.botoes-cabecalho {
-    display: flex;
-    align-items: center;
-    gap: 28px;
+/* sol verde dentro da bolinha do botão de tema */
+.tema-icone {
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin: 3px;
+    color: var(--cor-verde);
 }
 
-/* o botão do menu só aparece no celular, entra na etapa do responsivo */
+/* o botão do menu só aparece no tablet e no celular (ver o responsivo no fim do arquivo) */
 .botao-menu-celular {
     display: none;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--cor-borda-clara);
+    border-radius: 50%;
+    background-color: transparent;
+    color: var(--cor-texto);
+    cursor: pointer;
+}
+
+.botao-menu-celular .icone-svg {
+    width: 20px;
+    height: 20px;
 }
 
 .botao {
@@ -248,15 +269,13 @@ body {
     display: inline-block;
 }
 
-/* triângulo do play feito com clip-path, usa a cor do texto (currentColor) */
-.icone-play::before {
-    content: "";
-    display: block;
-    width: 12px;
-    height: 14px;
-    margin-left: 3px; /* empurra um pouco pra direita pra parecer centralizado */
-    background-color: currentColor;
-    clip-path: polygon(0 0, 100% 50%, 0 100%);
+/* ícones em svg: o desenho de cada um fica no sprite no começo do index.html e usa a cor do texto (currentColor) */
+.icone-svg {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
 }
 
 /* hero: texto na esquerda e card do player na direita (card tem 520px no figma) */
@@ -325,14 +344,11 @@ body {
     padding: 0 34px;
 }
 
-/* no botão verde o play fica numa bolinha branca */
-.botao-verde .icone-play {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* no ouvir agora o play fica numa bolinha branca, o padding deixa o triângulo com uns 12px */
+.hero-botoes .botao-verde .icone-svg {
     width: 40px;
     height: 40px;
-    flex-shrink: 0;
+    padding: 6px;
     border-radius: 50%;
     background-color: var(--cor-fundo);
     color: var(--cor-verde);
@@ -438,10 +454,10 @@ body {
     filter: brightness(0.9);
 }
 
-/* no play redondo o triângulo é maior que no botão do hero */
-.botao-play .icone-play::before {
-    width: 16px;
-    height: 18px;
+/* no play redondo o triângulo é maior que no botão do hero (uns 15x18) */
+.botao-play .icone-svg {
+    width: 36px;
+    height: 36px;
 }
 
 /* o texto "Volume" fica embaixo da barra, por isso o position relative */
@@ -449,23 +465,19 @@ body {
     position: relative;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 6px;
 }
 
-/* alto-falante feito com clip-path: um retângulo com um cone do lado */
-.icone-volume {
-    display: block;
-    flex-shrink: 0;
-    width: 12px;
-    height: 18px;
-    background-color: currentColor;
-    clip-path: polygon(0 24%, 50% 24%, 100% 0, 100% 100%, 50% 76%, 0 76%);
+.volume .icone-svg {
+    width: 24px;
+    height: 24px;
 }
 
+/* começa junto com a barra: 24px do alto-falante + 6px de gap */
 .volume-rotulo {
     position: absolute;
     top: calc(100% + 2px);
-    left: 24px;
+    left: 30px;
     font-size: 11px;
     color: var(--cor-texto-apagado);
 }
@@ -534,8 +546,27 @@ body {
     top: 10px;
 }
 
-/* responsivo: tablet, o card do player desce pra baixo do texto */
+/* responsivo: tablet, o menu vira o botão de três risquinhos e o card do player desce pra baixo do texto */
 @media (max-width: 1024px) {
+    /* os links e o ouça ao vivo não cabem mais, o menu vai abrir pelo botão (js depois) */
+    .menu,
+    .botao-ouvir {
+        display: none;
+    }
+
+    /* sem o menu, o botão de tema vai pra direita e fica a 12px do botão do menu */
+    .cabecalho {
+        gap: 12px;
+    }
+
+    .botao-tema {
+        margin-left: auto;
+    }
+
+    .botao-menu-celular {
+        display: flex;
+    }
+
     .hero {
         grid-template-columns: 1fr;
         gap: 32px;
@@ -549,6 +580,16 @@ body {
 
 /* responsivo: celular, medidas do frame mobile de 390px do figma */
 @media (max-width: 600px) {
+    .cabecalho {
+        height: 64px;
+        padding: 0 20px;
+        border-bottom: 1px solid var(--cor-borda-clara);
+    }
+
+    .logo-imagem {
+        height: 40px;
+    }
+
     .hero {
         padding: 28px 20px 40px;
     }
@@ -581,15 +622,22 @@ body {
         padding: 0;
     }
 
+    .hero-botoes .botao-verde {
+        gap: 8px;
+    }
+
     .hero-botoes .botao-contorno {
         border-width: 1.5px;
     }
 
     /* no celular o play vai depois do texto e sem a bolinha branca */
-    .hero-botoes .icone-play {
+    /* o desenho do play tem uma sobra do lado direito dentro do svg, a margem negativa compensa pra ficar centralizado */
+    .hero-botoes .botao-verde .icone-svg {
         order: 1;
-        width: auto;
-        height: auto;
+        width: 28px;
+        height: 28px;
+        margin-right: -6px;
+        padding: 0;
         background-color: transparent;
         color: inherit;
     }
@@ -636,9 +684,9 @@ body {
         height: 56px;
     }
 
-    .botao-play .icone-play::before {
-        width: 14px;
-        height: 16px;
+    .botao-play .icone-svg {
+        width: 32px;
+        height: 32px;
     }
 
     /* no figma do celular não aparece o texto "Volume", mas ele continua lá pro leitor de tela */

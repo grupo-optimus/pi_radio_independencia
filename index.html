@@ -18,9 +18,93 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=DM+Sans:wght@400;500;600&display=swap">
 
   <!-- arquivo de estilos que vamos criar na próxima etapa -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <!-- Ícones usados pela interface -->
+  <svg class="sprite-icones" aria-hidden="true" focusable="false"
+       style="position:absolute;width:0;height:0;overflow:hidden;">
+    <symbol id="icone-play" viewBox="0 0 24 24">
+      <path d="M8 5.8v12.4L18 12 8 5.8Z" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icone-volume" viewBox="0 0 24 24">
+      <path d="M4 9h4l4-4v14l-4-4H4V9Z" fill="currentColor"/>
+      <path d="M15 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M17.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icone-menu" viewBox="0 0 24 24">
+      <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icone-fechar" viewBox="0 0 24 24">
+      <path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icone-seta-esquerda" viewBox="0 0 24 24">
+      <path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icone-seta-direita" viewBox="0 0 24 24">
+      <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icone-mapa" viewBox="0 0 24 24">
+      <path d="M12 21s6-6.1 6-11A6 6 0 0 0 6 10c0 4.9 6 11 6 11Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <circle cx="12" cy="10" r="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    </symbol>
+
+    <symbol id="icone-telefone" viewBox="0 0 24 24">
+      <path d="M7.2 4.5 10 7.3 8.3 9a13 13 0 0 0 6.7 6.7l1.7-1.7 2.8 2.8-1.8 2.1c-.7.8-2 1.1-3 .7A16.9 16.9 0 0 1 4.4 7.6c-.4-1 .0-2.3.7-3l2.1-1.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icone-whatsapp" viewBox="0 0 24 24">
+      <path d="M12 4.2a7.6 7.6 0 0 0-6.5 11.6L4.3 20l4.3-1.1A7.7 7.7 0 1 0 12 4.2Z" fill="none" stroke="currentColor" stroke-width="1.7"/>
+      <path d="M9.1 8.6c.2-.4.4-.4.8-.4h.3c.2 0 .4.1.5.4l.7 1.6c.1.3.1.5-.1.7l-.6.7c.6 1 1.4 1.8 2.5 2.4l.7-.6c.2-.2.4-.2.7-.1l1.5.7c.3.1.4.3.4.5v.3c0 .4-.1.6-.4.8-.4.3-1 .5-1.5.4-1.4-.3-2.9-1.2-4.1-2.4-1.2-1.2-2.1-2.7-2.4-4.1-.1-.5.1-1.1.4-1.5Z" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icone-email" viewBox="0 0 24 24">
+      <rect x="3.5" y="5.5" width="17" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="m5 7 7 5 7-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icone-instagram" viewBox="0 0 24 24">
+      <rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <circle cx="17.1" cy="6.9" r="1" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icone-facebook" viewBox="0 0 24 24">
+      <path d="M13.4 20v-7h2.4l.4-2.8h-2.8V8.4c0-.8.2-1.4 1.4-1.4h1.5V4.4c-.7-.1-1.3-.2-2-.2-2.5 0-4.1 1.5-4.1 4.2v1.8H7.7V13h2.5v7h3.2Z" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icone-youtube" viewBox="0 0 24 24">
+      <path d="M20.2 8.1a2.4 2.4 0 0 0-1.7-1.7C17 6 12 6 12 6s-5 0-6.5.4A2.4 2.4 0 0 0 3.8 8.1C3.4 9.6 3.4 12 3.4 12s0 2.4.4 3.9a2.4 2.4 0 0 0 1.7 1.7C7 18 12 18 12 18s5 0 6.5-.4a2.4 2.4 0 0 0 1.7-1.7c.4-1.5.4-3.9.4-3.9s0-2.4-.4-3.9Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <path d="m10.2 9.5 4.2 2.5-4.2 2.5v-5Z" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icone-musica" viewBox="0 0 24 24">
+      <path d="M9 18V6l9-2v12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <circle cx="6.5" cy="18" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <circle cx="15.5" cy="16" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    </symbol>
+
+    <symbol id="icone-check" viewBox="0 0 24 24">
+      <path d="m5 12.5 4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icone-sol" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M12 2.8v2M12 19.2v2M21.2 12h-2M4.8 12h-2M18.5 5.5l-1.4 1.4M6.9 17.1l-1.4 1.4M18.5 18.5l-1.4-1.4M6.9 6.9 5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icone-lua" viewBox="0 0 24 24">
+      <path d="M18.2 15.8A7.3 7.3 0 0 1 8.2 5.8 7.6 7.6 0 1 0 18.2 15.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+
 
   <!-- link escondido para quem navega pelo teclado pular direto ao conteúdo -->
   <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
@@ -45,22 +129,24 @@
     </nav>
 
     <!-- botão que troca entre modo claro e modo escuro e salva a escolha no local storage -->
-    <div class="botoes-cabecalho">
-      <button class="botao-tema" type="button" aria-label="Ativar modo escuro" aria-pressed="false">
-      <span class="botao-tema-bolinha" aria-hidden="true"></span>
-      </button>
+    <button class="botao-tema" type="button" aria-label="Ativar modo escuro" aria-pressed="false">
+      <span class="botao-tema-bolinha" aria-hidden="true">
+        <svg class="tema-icone" viewBox="0 0 24 24" focusable="false">
+          <use href="#icone-sol"></use>
+        </svg>
+      </span>
+    </button>
 
-      <!-- botão que liga o player ao vivo -->
-      <button class="botao botao-escuro botao-ouvir" type="button" data-acao="tocar">
-        <span class="ponto-ao-vivo" aria-hidden="true"></span>
-        Ouça ao vivo
-      </button>
-    
+    <!-- botão que liga o player ao vivo -->
+    <button class="botao botao-escuro botao-ouvir" type="button" data-acao="tocar">
+      <span class="ponto-ao-vivo" aria-hidden="true"></span>
+      Ouça ao vivo
+    </button>
+
     <!-- botão do menu que só aparece no celular -->
     <button class="botao-menu-celular" type="button" aria-label="Abrir menu" aria-expanded="false">
-      <span class="icone icone-menu" aria-hidden="true"></span>
+      <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-menu"></use></svg>
     </button>
-    </div>
 
   </header>
 
@@ -84,7 +170,7 @@
         <!-- botões ouvir agora e nossa história -->
         <div class="hero-botoes">
           <button class="botao botao-verde" type="button" data-acao="tocar">
-            <span class="icone icone-play" aria-hidden="true"></span>
+            <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-play"></use></svg>
             Ouvir agora
           </button>
           <a class="botao botao-contorno" href="historia.html">Nossa história</a>
@@ -111,12 +197,12 @@
         <!-- controles do player com play volume e peça uma música -->
         <div class="player-controles">
           <button class="botao-play" type="button" data-acao="tocar" aria-label="Tocar rádio ao vivo">
-            <span class="icone icone-play" aria-hidden="true"></span>
+            <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-play"></use></svg>
           </button>
 
           <!-- controle de volume -->
           <label class="volume">
-            <span class="icone icone-volume" aria-hidden="true"></span>
+            <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-volume"></use></svg>
             <span class="volume-rotulo">Volume</span>
             <input class="volume-barra" type="range" min="0" max="100" value="70" data-volume>
           </label>
@@ -223,7 +309,7 @@
         <p>A Rádio Independência nasceu em 4 de dezembro de 1978, em Medianeira, e em pouco tempo levou sua programação para toda a Região Oeste do Paraná. Informação, jornalismo responsável e prestação de serviço, com uma equipe que virou família de quem ouve.</p>
 
         <!-- link para a página separada com a história completa -->
-        <a class="link-verde" href="historia.html">Conheça a história completa <span aria-hidden="true">→</span></a>
+        <a class="link-verde" href="historia.html">Conheça a história completa <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-seta-direita"></use></svg></a>
 
         <!-- foto histórica da rádio -->
         <img class="quem-somos-foto" src="img/historia/foto-historica.jpg" alt="Foto histórica da Rádio Independência">
@@ -267,10 +353,10 @@
         <!-- setas para voltar e avançar o carrossel -->
         <div class="carrossel-setas">
           <button class="seta seta-voltar" type="button" aria-label="Ver membros anteriores" data-carrossel="voltar">
-            <span class="icone icone-seta-esquerda" aria-hidden="true"></span>
+            <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-seta-esquerda"></use></svg>
           </button>
           <button class="seta seta-avancar" type="button" aria-label="Ver próximos membros" data-carrossel="avancar">
-            <span class="icone icone-seta-direita" aria-hidden="true"></span>
+            <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-seta-direita"></use></svg>
           </button>
         </div>
       </div>
@@ -335,7 +421,7 @@
 
         <!-- link que abre conversa no whatsapp da rádio -->
         <p class="pedido-whatsapp-rotulo">Prefere o WhatsApp?</p>
-        <a class="pedido-whatsapp" href="https://wa.me/5545999358890" target="_blank" rel="noopener">(45) 9 9935-8890 <span aria-hidden="true">→</span></a>
+        <a class="pedido-whatsapp" href="https://wa.me/5545999358890" target="_blank" rel="noopener">(45) 9 9935-8890 <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-seta-direita"></use></svg></a>
       </div>
 
       <!-- formulário de pedido de música -->
@@ -374,7 +460,7 @@
 
         <!-- card com endereço da rádio -->
         <address class="card-contato">
-          <span class="icone icone-mapa" aria-hidden="true"></span>
+          <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-mapa"></use></svg>
           <h3 class="card-contato-titulo">Endereço</h3>
           <p>Av. Pedro Soccol, 452</p>
           <p class="card-contato-extra">São Cristóvão, Medianeira PR</p>
@@ -382,7 +468,7 @@
 
         <!-- card com telefones fixos -->
         <div class="card-contato">
-          <span class="icone icone-telefone" aria-hidden="true"></span>
+          <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-telefone"></use></svg>
           <h3 class="card-contato-titulo">Telefones</h3>
           <p><a href="tel:+554532641713">(45) 3264-1713</a></p>
           <p><a href="tel:+554532641635">(45) 3264-1635</a></p>
@@ -390,7 +476,7 @@
 
         <!-- card com whatsapp -->
         <div class="card-contato">
-          <span class="icone icone-whatsapp" aria-hidden="true"></span>
+          <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-whatsapp"></use></svg>
           <h3 class="card-contato-titulo">WhatsApp</h3>
           <p><a href="https://wa.me/5545999358890" target="_blank" rel="noopener">(45) 9 9935-8890</a></p>
           <p class="card-contato-extra">Pedidos de música e recados</p>
@@ -398,7 +484,7 @@
 
         <!-- card com e-mail do comercial -->
         <div class="card-contato">
-          <span class="icone icone-email" aria-hidden="true"></span>
+          <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-email"></use></svg>
           <h3 class="card-contato-titulo">E-mail</h3>
           <p><a href="mailto:dep.comercial1020@hotmail.com">dep.comercial1020@hotmail.com</a></p>
           <p class="card-contato-extra">Departamento comercial</p>
@@ -409,9 +495,9 @@
           <p class="redes-titulo">Siga a rádio</p>
           <ul class="redes-lista">
             <!-- os links reais das redes entram aqui -->
-            <li><a href="#" aria-label="Instagram"><span class="icone icone-instagram" aria-hidden="true"></span></a></li>
-            <li><a href="#" aria-label="Facebook"><span class="icone icone-facebook" aria-hidden="true"></span></a></li>
-            <li><a href="#" aria-label="YouTube"><span class="icone icone-youtube" aria-hidden="true"></span></a></li>
+            <li><a href="#" aria-label="Instagram"><svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-instagram"></use></svg></a></li>
+            <li><a href="#" aria-label="Facebook"><svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-facebook"></use></svg></a></li>
+            <li><a href="#" aria-label="YouTube"><svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-youtube"></use></svg></a></li>
           </ul>
           <p class="redes-usuario">@radio.independencia</p>
         </div>
@@ -423,7 +509,7 @@
         <div class="mapa-area" data-mapa></div>
 
         <div class="mapa-info">
-          <span class="icone icone-mapa" aria-hidden="true"></span>
+          <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-mapa"></use></svg>
           <p class="mapa-nome">Rádio Independência 92,7 FM</p>
           <p class="mapa-endereco">Av. Pedro Soccol, 452, São Cristóvão, Medianeira PR</p>
           <!-- botão que abre a rota no google maps -->
@@ -492,7 +578,7 @@
 
     <!-- botão de tocar e pausar -->
     <button class="botao-play" type="button" data-acao="tocar" aria-label="Tocar rádio ao vivo">
-      <span class="icone icone-play" aria-hidden="true"></span>
+      <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-play"></use></svg>
     </button>
 
     <!-- informações do programa no ar -->
@@ -504,14 +590,14 @@
 
     <!-- controle de volume do player fixo -->
     <label class="volume">
-      <span class="icone icone-volume" aria-hidden="true"></span>
+      <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-volume"></use></svg>
       <span class="volume-rotulo">Volume</span>
       <input class="volume-barra" type="range" min="0" max="100" value="70" data-volume>
     </label>
 
     <!-- botão que abre a janela de pedido de música -->
     <button class="botao botao-verde" type="button" data-abrir-modal="modal-pedido">
-      <span class="icone icone-musica" aria-hidden="true"></span>
+      <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-musica"></use></svg>
       Peça uma música
     </button>
   </aside>
@@ -530,7 +616,7 @@
         <h2 class="modal-titulo" id="modal-pedido-titulo">O que você quer ouvir?</h2>
       </div>
       <button class="modal-fechar" type="button" aria-label="Fechar" data-fechar-modal>
-        <span class="icone icone-fechar" aria-hidden="true"></span>
+        <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-fechar"></use></svg>
       </button>
     </div>
 
@@ -568,7 +654,7 @@
 
       <!-- botão que manda o mesmo pedido pelo whatsapp -->
       <button class="botao botao-contorno botao-largo" type="button" data-enviar-whatsapp>
-        <span class="icone icone-whatsapp" aria-hidden="true"></span>
+        <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-whatsapp"></use></svg>
         Enviar pelo WhatsApp
       </button>
     </form>
@@ -576,13 +662,13 @@
 
   <!-- janela de confirmação que aparece depois do pedido enviado -->
   <dialog class="modal modal-sucesso" id="modal-sucesso" aria-labelledby="modal-sucesso-titulo">
-    <span class="icone icone-check" aria-hidden="true"></span>
+    <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-check"></use></svg>
     <h2 class="modal-titulo" id="modal-sucesso-titulo">Pedido enviado!</h2>
     <p class="modal-texto">Fica ligado na 92,7 FM: seu pedido chegou ao estúdio. Obrigado por fazer parte da Rádio da Família.</p>
     <button class="botao botao-verde botao-largo" type="button" data-fechar-modal>Voltar a ouvir</button>
   </dialog>
 
   <!-- arquivo de javascript que vamos criar depois para player carrossel programação e modo escuro -->
-  <script src="script.js" defer></script>
+  <script src="js/script.js" defer></script>
 </body>
 </html>
