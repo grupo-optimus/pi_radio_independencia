@@ -5,7 +5,13 @@
     --cor-texto-suave: #5e6a64;
     --cor-verde: #0c8a40; /* verde provisório, trocar pelo hex exato do logo */
     --cor-verde-claro: #eef6f1;
-    --cor-vermelho: #e63946;
+    --cor-vermelho: #e5484d;
+
+    /* cores do card do player (fundo preto) */
+    --cor-verde-brilhante: #6fd39a;
+    --cor-cinza-escuro: #1f1f1f;
+    --cor-borda-escura: #2a2a2a;
+    --cor-texto-apagado: #9a9a9a;
 
     --fonte-titulo: "Bricolage Grotesque", sans-serif;
     --fonte-texto: "DM Sans", sans-serif;
@@ -220,6 +226,20 @@ body {
     color: var(--cor-fundo);
 }
 
+/* contorno branco para usar em cima de fundo escuro */
+.botao-contorno-claro {
+    border: 1.5px solid var(--cor-fundo);
+    background-color: transparent;
+    color: var(--cor-fundo);
+    transition: transform 0.6s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.botao-contorno-claro:hover {
+    transform: scale(1.05);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
 .ponto-ao-vivo {
     width: 8px;
     height: 8px;
@@ -228,7 +248,7 @@ body {
     display: inline-block;
 }
 
-/* tri??ngulo do play feito com clip-path, usa a cor do texto (currentColor) */
+/* triângulo do play feito com clip-path, usa a cor do texto (currentColor) */
 .icone-play::before {
     content: "";
     display: block;
@@ -289,7 +309,7 @@ body {
     margin-top: 48px;
 }
 
-/* os bot??es do hero s??o maiores que o do cabe??alho */
+/* os botões do hero são maiores que o do cabeçalho */
 .hero-botoes .botao {
     height: 56px;
     font-size: 16px;
@@ -305,7 +325,7 @@ body {
     padding: 0 34px;
 }
 
-/* no bot??o verde o play fica numa bolinha branca */
+/* no botão verde o play fica numa bolinha branca */
 .botao-verde .icone-play {
     display: flex;
     align-items: center;
@@ -316,6 +336,192 @@ body {
     border-radius: 50%;
     background-color: var(--cor-fundo);
     color: var(--cor-verde);
+}
+
+/* card do player: fundo preto com cantos bem arredondados (520x512 no figma) */
+.player-card {
+    padding: 16px;
+    border-radius: 28px;
+    background-color: var(--cor-texto);
+    color: var(--cor-fundo);
+}
+
+/* área da foto, o selo ao vivo fica por cima */
+.player-card-foto {
+    position: relative;
+    height: 236px;
+    border-radius: 18px;
+    overflow: hidden;
+    background-color: var(--cor-cinza-escuro);
+}
+
+/* as fotos da equipe são quadradas, o cover corta sem esticar e o 25% deixa o rosto aparecendo */
+.player-card-foto img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+}
+
+.selo-vermelho {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: flex;
+    align-items: center;
+    height: 28px;
+    padding: 0 18px;
+    border-radius: 999px;
+    background-color: var(--cor-vermelho);
+    color: var(--cor-fundo);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* programa e locutor, com a linha divisória embaixo */
+.player-card-info {
+    margin: 0 24px;
+    padding: 24px 0 20px;
+    border-bottom: 1px solid var(--cor-borda-escura);
+}
+
+.player-card-rotulo {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cor-verde-brilhante);
+}
+
+.player-card-programa {
+    margin-top: 8px;
+    font-family: var(--fonte-titulo);
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.player-card-locutor {
+    margin-top: 6px;
+    font-size: 15px;
+    color: var(--cor-texto-apagado);
+}
+
+/* play, volume e peça uma música na mesma linha */
+.player-controles {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 24px;
+}
+
+.botao-play {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--cor-verde);
+    color: var(--cor-fundo);
+    cursor: pointer;
+    transition: transform 0.6s ease;
+}
+
+.botao-play:hover {
+    transform: scale(1.05);
+    filter: brightness(0.9);
+}
+
+/* no play redondo o triângulo é maior que no botão do hero */
+.botao-play .icone-play::before {
+    width: 16px;
+    height: 18px;
+}
+
+/* o texto "Volume" fica embaixo da barra, por isso o position relative */
+.volume {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* alto-falante feito com clip-path: um retângulo com um cone do lado */
+.icone-volume {
+    display: block;
+    flex-shrink: 0;
+    width: 12px;
+    height: 18px;
+    background-color: currentColor;
+    clip-path: polygon(0 24%, 50% 24%, 100% 0, 100% 100%, 50% 76%, 0 76%);
+}
+
+.volume-rotulo {
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 24px;
+    font-size: 11px;
+    color: var(--cor-texto-apagado);
+}
+
+/* barra de volume: tira o visual padrão do navegador e desenha trilho e bolinha */
+.volume-barra {
+    appearance: none;
+    width: 150px;
+    height: 16px;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* chrome e edge: a parte branca vai até o valor, o js vai atualizar o --volume quando mexer */
+.volume-barra::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(to right, var(--cor-fundo) var(--volume, 70%), var(--cor-borda-escura) var(--volume, 70%));
+}
+
+.volume-barra::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    margin-top: -6px; /* centraliza a bolinha de 16px no trilho de 4px */
+    border-radius: 50%;
+    background-color: var(--cor-fundo);
+}
+
+/* firefox: tem a parte cheia pronta (progress) */
+.volume-barra::-moz-range-track {
+    height: 4px;
+    border-radius: 999px;
+    background-color: var(--cor-borda-escura);
+}
+
+.volume-barra::-moz-range-progress {
+    height: 4px;
+    border-radius: 999px;
+    background-color: var(--cor-fundo);
+}
+
+.volume-barra::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--cor-fundo);
+}
+
+/* peça uma música vai pro canto direito do card */
+.player-controles .botao-contorno-claro {
+    height: 48px;
+    margin-left: auto;
+    padding: 0 13px;
+    white-space: nowrap;
 }
 
 .pular-conteudo {
