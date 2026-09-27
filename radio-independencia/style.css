@@ -533,3 +533,140 @@ body {
     left: 10px;
     top: 10px;
 }
+
+/* responsivo: tablet, o card do player desce pra baixo do texto */
+@media (max-width: 1024px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        min-height: auto;
+    }
+
+    .player-card {
+        max-width: 520px;
+    }
+}
+
+/* responsivo: celular, medidas do frame mobile de 390px do figma */
+@media (max-width: 600px) {
+    .hero {
+        padding: 28px 20px 40px;
+    }
+
+    .selo-ao-vivo {
+        padding: 8px 14px;
+    }
+
+    .hero-titulo {
+        margin-top: 22px;
+        font-size: 38px;
+        line-height: 1.08;
+    }
+
+    .hero-descricao {
+        margin-top: 17px;
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
+    /* botões um embaixo do outro ocupando a largura toda */
+    .hero-botoes {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .hero-botoes .botao-verde,
+    .hero-botoes .botao-contorno {
+        padding: 0;
+    }
+
+    .hero-botoes .botao-contorno {
+        border-width: 1.5px;
+    }
+
+    /* no celular o play vai depois do texto e sem a bolinha branca */
+    .hero-botoes .icone-play {
+        order: 1;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        color: inherit;
+    }
+
+    .player-card {
+        padding: 12px;
+        border-radius: 24px;
+    }
+
+    .player-card-foto {
+        height: 200px;
+        border-radius: 16px;
+    }
+
+    .selo-vermelho {
+        top: 12px;
+        left: 12px;
+        padding: 0 12px;
+    }
+
+    .player-card-info {
+        margin: 0 8px;
+        padding: 16px 0 18px;
+    }
+
+    .player-card-programa {
+        font-size: 28px;
+    }
+
+    .player-card-locutor {
+        margin-top: 8px;
+        font-size: 14px;
+    }
+
+    /* o peça uma música quebra pra linha de baixo */
+    .player-controles {
+        flex-wrap: wrap;
+        gap: 16px;
+        padding: 16px 8px 8px;
+    }
+
+    .botao-play {
+        width: 56px;
+        height: 56px;
+    }
+
+    .botao-play .icone-play::before {
+        width: 14px;
+        height: 16px;
+    }
+
+    /* no figma do celular não aparece o texto "Volume", mas ele continua lá pro leitor de tela */
+    .volume-rotulo {
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+    }
+
+    .volume-barra {
+        width: 120px;
+    }
+
+    .volume-barra::-webkit-slider-thumb {
+        width: 14px;
+        height: 14px;
+        margin-top: -5px;
+    }
+
+    .volume-barra::-moz-range-thumb {
+        width: 14px;
+        height: 14px;
+    }
+
+    .player-controles .botao-contorno-claro {
+        flex-basis: 100%;
+        margin-left: 0;
+    }
+}
