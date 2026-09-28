@@ -54,14 +54,6 @@ body {
     font-weight: 600;
 }
 
-.menu a.menu-link-ativo {
-    color: var(--cor-verde);
-}
-
-.menu a.menu-link-ativo::after {
-    transform: scaleX(1);
-}
-
 /* =========================
    HERO
    ========================= */
@@ -264,6 +256,45 @@ body {
 
 .historia-player .volume-barra {
     width: 78px;
+    height: 14px;
+}
+
+/* o card da história é claro: a barra usa as cores do player fixo, e não a parte branca do card escuro da home */
+.historia-player .volume-barra::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, var(--cor-texto) var(--volume, 70%), var(--cor-borda-verde) var(--volume, 70%));
+}
+
+.historia-player .volume-barra::-webkit-slider-thumb {
+    width: 14px;
+    height: 14px;
+    margin-top: -5px; /* centraliza a bolinha de 14px no trilho de 4px */
+    background-color: var(--cor-texto);
+}
+
+.historia-player .volume-barra::-moz-range-track {
+    background-color: var(--cor-borda-verde);
+}
+
+.historia-player .volume-barra::-moz-range-progress {
+    background-color: var(--cor-texto);
+}
+
+.historia-player .volume-barra::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background-color: var(--cor-texto);
+}
+
+.historia-player .volume.mudo .icone-svg {
+    color: var(--cor-texto-suave);
+}
+
+.historia-player .volume.mudo .volume-barra::-webkit-slider-thumb {
+    background-color: var(--cor-texto-suave);
+}
+
+.historia-player .volume.mudo .volume-barra::-moz-range-thumb {
+    background-color: var(--cor-texto-suave);
 }
 
 .historia-player .volume-rotulo {

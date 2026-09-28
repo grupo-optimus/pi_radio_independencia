@@ -190,6 +190,12 @@ function atualizarPlayerNoAr() {
 
     // sem foto aparece a logo branca da rádio (a classe sem-foto deixa ela inteira no meio)
     const foto = document.querySelector("[data-foto-atual]");
+
+    // a página de história não troca a foto do card, então para aqui
+    if (!foto) {
+        return;
+    }
+
     const caminhoFoto = programa.foto || "img/logos/logo-branca.svg";
 
     if (foto.getAttribute("src") !== caminhoFoto) {
@@ -290,13 +296,21 @@ abas.forEach(function (aba) {
 });
 
 // ao abrir o site: player com quem está no ar e a aba do dia de hoje (sábado e domingo abrem nas suas abas)
+// o if evita erro nas páginas que não têm a linha do tempo da programação
 atualizarPlayerNoAr();
-escolherAba(diaDeHoje());
+
+if (listaProgramas) {
+    escolherAba(diaDeHoje());
+}
 
 // a cada minuto atualiza o player e a aba aberta (programa no ar, marcador "Agora" e barrinha)
 // a rolagem da linha do tempo é guardada antes para não voltar pro começo
 setInterval(function () {
     atualizarPlayerNoAr();
+
+    if (!listaProgramas) {
+        return;
+    }
 
     const abaAberta = document.querySelector('.aba[aria-selected="true"]');
     const rolagem = listaProgramas.scrollLeft;
@@ -352,16 +366,19 @@ function atualizarCarrossel() {
     setaAvancar.setAttribute("aria-disabled", noFim);
 }
 
-setaVoltar.addEventListener("click", function () {
-    trilhoEquipe.scrollBy({ left: -passoCarrossel(), behavior: "smooth" });
-});
+// o if evita erro nas páginas que não têm o carrossel da equipe
+if (trilhoEquipe) {
+    setaVoltar.addEventListener("click", function () {
+        trilhoEquipe.scrollBy({ left: -passoCarrossel(), behavior: "smooth" });
+    });
 
-setaAvancar.addEventListener("click", function () {
-    trilhoEquipe.scrollBy({ left: passoCarrossel(), behavior: "smooth" });
-});
+    setaAvancar.addEventListener("click", function () {
+        trilhoEquipe.scrollBy({ left: passoCarrossel(), behavior: "smooth" });
+    });
 
-// arrastando, pelas setas ou mudando o tamanho da tela, as bolinhas e as setas acompanham
-trilhoEquipe.addEventListener("scroll", atualizarCarrossel);
-window.addEventListener("resize", atualizarCarrossel);
+    // arrastando, pelas setas ou mudando o tamanho da tela, as bolinhas e as setas acompanham
+    trilhoEquipe.addEventListener("scroll", atualizarCarrossel);
+    window.addEventListener("resize", atualizarCarrossel);
 
-atualizarCarrossel();
+    atualizarCarrossel();
+}
