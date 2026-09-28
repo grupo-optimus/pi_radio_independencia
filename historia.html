@@ -8,6 +8,11 @@
   <title>Nossa história | Rádio Independência 92,7 FM</title>
   <meta name="description" content="Conheça a história da Rádio Independência, da 1020 AM ao 92,7 FM, em Medianeira e toda a Região Oeste do Paraná.">
 
+  <!-- modo escuro: aplica o tema salvo (ou o do sistema, se a pessoa nunca escolheu) antes de pintar a página, assim ela não pisca branca -->
+  <script>
+    document.documentElement.dataset.tema = localStorage.getItem("ri-tema") || (matchMedia("(prefers-color-scheme: dark)").matches ? "escuro" : "claro");
+  </script>
+
   <!-- ícones do site -->
   <link rel="icon" href="img/logos/favicon.ico" sizes="32x32">
   <link rel="icon" href="img/logos/favicon.svg" type="image/svg+xml">
@@ -97,8 +102,10 @@
   <!-- cabeçalho compartilhado com a home -->
   <header class="cabecalho">
 
+    <!-- a versão com letras brancas aparece no modo escuro -->
     <a class="logo" href="index.html#inicio" aria-label="Rádio Independência 92,7 FM, página inicial">
-      <img class="logo-imagem" src="img/logos/logo-horizontal.svg" alt="">
+      <img class="logo-imagem logo-modo-claro" src="img/logos/logo-horizontal.svg" alt="">
+      <img class="logo-imagem logo-modo-escuro" src="img/logos/logo-horizontal-branca.svg" alt="">
     </a>
 
     <!-- menu com as seções da própria página de história -->
@@ -112,10 +119,14 @@
       </ul>
     </nav>
 
+    <!-- botão de tema: sol no modo claro e lua no escuro -->
     <button class="botao-tema" type="button" aria-label="Ativar modo escuro" aria-pressed="false">
       <span class="botao-tema-bolinha" aria-hidden="true">
-        <svg class="tema-icone" viewBox="0 0 24 24" focusable="false">
+        <svg class="tema-icone tema-icone-sol" viewBox="0 0 24 24" focusable="false">
           <use href="#icone-sol"></use>
+        </svg>
+        <svg class="tema-icone tema-icone-lua" viewBox="0 0 24 24" focusable="false">
+          <use href="#icone-lua"></use>
         </svg>
       </span>
     </button>

@@ -7,6 +7,11 @@
   <title>Rádio Independência 92,7 FM | A Rádio da Família</title>
   <meta name="description" content="Rádio Independência 92,7 FM, a rádio mais ouvida da Região Oeste do Paraná. Ouça ao vivo, veja a programação e peça sua música.">
 
+  <!-- modo escuro: aplica o tema salvo (ou o do sistema, se a pessoa nunca escolheu) antes de pintar a página, assim ela não pisca branca -->
+  <script>
+    document.documentElement.dataset.tema = localStorage.getItem("ri-tema") || (matchMedia("(prefers-color-scheme: dark)").matches ? "escuro" : "claro");
+  </script>
+
   <!-- ícone da aba do navegador e do atalho no celular -->
   <link rel="icon" href="img/logos/favicon.ico" sizes="32x32">
   <link rel="icon" href="img/logos/favicon.svg" type="image/svg+xml">
@@ -130,9 +135,10 @@
   <!-- cabeçalho com logo menu botão de tema e botão ouça ao vivo -->
   <header class="cabecalho">
 
-    <!-- logo da rádio que leva para o início -->
+    <!-- logo da rádio que leva para o início (a versão com letras brancas aparece no modo escuro) -->
     <a class="logo" href="#inicio" aria-label="Rádio Independência 92,7 FM, página inicial">
-      <img class="logo-imagem" src="img/logos/logo-horizontal.svg" alt="">
+      <img class="logo-imagem logo-modo-claro" src="img/logos/logo-horizontal.svg" alt="">
+      <img class="logo-imagem logo-modo-escuro" src="img/logos/logo-horizontal-branca.svg" alt="">
     </a>
 
     <!-- menu principal com links para as seções da página -->
@@ -147,10 +153,14 @@
     </nav>
 
     <!-- botão que troca entre modo claro e modo escuro e salva a escolha no local storage -->
+    <!-- a bolinha mostra o sol no modo claro e a lua no escuro (o css escolhe qual aparece) -->
     <button class="botao-tema" type="button" aria-label="Ativar modo escuro" aria-pressed="false">
       <span class="botao-tema-bolinha" aria-hidden="true">
-        <svg class="tema-icone" viewBox="0 0 24 24" focusable="false">
+        <svg class="tema-icone tema-icone-sol" viewBox="0 0 24 24" focusable="false">
           <use href="#icone-sol"></use>
+        </svg>
+        <svg class="tema-icone tema-icone-lua" viewBox="0 0 24 24" focusable="false">
+          <use href="#icone-lua"></use>
         </svg>
       </span>
     </button>
