@@ -378,6 +378,12 @@ a {
     object-position: center 25%;
 }
 
+/* programa sem foto de locutor: a logo branca da rádio aparece inteira no meio do fundo cinza */
+.player-card-foto.sem-foto img {
+    object-fit: contain;
+    padding: 40px;
+}
+
 .selo-vermelho {
     position: absolute;
     top: 16px;
@@ -714,7 +720,8 @@ a {
     background-color: var(--cor-borda-clara);
 }
 
-/* bolinha do horário: preta nos que já passaram, verde no que está no ar e vazada nos próximos */
+/* bolinha do horário: vazada nos próximos, preta nos que já passaram e verde no que está no ar */
+/* o js coloca as classes ja-passou e no-ar conforme o horário */
 .programa::after {
     content: "";
     position: absolute;
@@ -722,13 +729,14 @@ a {
     left: -1px;
     width: 12px;
     height: 12px;
+    border: 2px solid var(--cor-texto-suave);
     border-radius: 50%;
-    background-color: var(--cor-texto);
+    background-color: var(--cor-fundo);
 }
 
-.programa.no-ar ~ .programa::after {
-    border: 2px solid var(--cor-texto-suave);
-    background-color: var(--cor-fundo);
+.programa.ja-passou::after {
+    border: none;
+    background-color: var(--cor-texto);
 }
 
 .programa-horario {
@@ -770,6 +778,7 @@ a {
     left: -3px;
     width: 20px;
     height: 20px;
+    border: none;
     background-color: var(--cor-verde);
 }
 
@@ -812,6 +821,17 @@ a {
     height: 13px;
     margin-left: -1px;
     background-color: var(--cor-verde);
+}
+
+/* no primeiro programa do dia o marcador abre pra direita, centralizado ele sairia da tela no celular */
+.programa:first-child .agora-marcador {
+    left: -8px;
+    transform: none;
+}
+
+/* o risquinho continua em cima da bolinha verde, alinhado com a bolinha branca do marcador */
+.programa:first-child .agora-marcador::after {
+    left: 15px;
 }
 
 .selo-no-ar {
