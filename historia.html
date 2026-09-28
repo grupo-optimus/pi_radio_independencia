@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-tema="claro">
+
+<head>
+  <!-- configurações básicas da página -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nossa história | Rádio Independência 92,7 FM</title>
+  <meta name="description" content="Conheça a história da Rádio Independência, da 1020 AM ao 92,7 FM, em Medianeira e toda a Região Oeste do Paraná.">
+
+  <!-- ícones do site -->
+  <link rel="icon" href="img/logos/favicon.ico" sizes="32x32">
+  <link rel="icon" href="img/logos/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/logos/apple-touch-icon.png">
+
+  <!-- fontes usadas pelo projeto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=DM+Sans:wght@400;500;600&display=swap">
+
+  <!-- estilos compartilhados do projeto -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/historia.css">
+</head>
+
+<body>
+
+  <!-- Ícones usados pela interface -->
+  <svg class="sprite-icones" aria-hidden="true" focusable="false"
+       style="position:absolute;width:0;height:0;overflow:hidden;">
+
+    <symbol id="icone-play" viewBox="0 0 24 24">
+      <path d="M8 5.8v12.4L18 12 8 5.8Z" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icone-pausa" viewBox="0 0 24 24">
+      <rect x="7" y="6" width="3.5" height="12" rx="1" fill="currentColor"/>
+      <rect x="13.5" y="6" width="3.5" height="12" rx="1" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icone-volume" viewBox="0 0 24 24">
+      <path d="M4 9h4l4-4v14l-4-4H4V9Z" fill="currentColor"/>
+      <path d="M15 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M17.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icone-mudo" viewBox="0 0 24 24">
+      <path d="M4 9h4l4-4v14l-4-4H4V9Z" fill="currentColor"/>
+      <path d="m15.5 9.5 5 5M20.5 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icone-menu" viewBox="0 0 24 24">
+      <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icone-fechar" viewBox="0 0 24 24">
+      <path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icone-seta-direita" viewBox="0 0 24 24">
+      <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icone-mapa" viewBox="0 0 24 24">
+      <path d="M12 21s6-6.1 6-11A6 6 0 0 0 6 10c0 4.9 6 11 6 11Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <circle cx="12" cy="10" r="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    </symbol>
+
+    <symbol id="icone-whatsapp" viewBox="0 0 24 24">
+      <path d="M12 4.2a7.6 7.6 0 0 0-6.5 11.6L4.3 20l4.3-1.1A7.7 7.7 0 1 0 12 4.2Z" fill="none" stroke="currentColor" stroke-width="1.7"/>
+      <path d="M9.1 8.6c.2-.4.4-.4.8-.4h.3c.2 0 .4.1.5.4l.7 1.6c.1.3.1.5-.1.7l-.6.7c.6 1 1.4 1.8 2.5 2.4l.7-.6c.2-.2.4-.2.7-.1l1.5.7c.3.1.4.3.4.5v.3c0 .4-.1.6-.4.8-.4.3-1 .5-1.5.4-1.4-.3-2.9-1.2-4.1-2.4-1.2-1.2-2.1-2.7-2.4-4.1-.1-.5.1-1.1.4-1.5Z" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icone-check" viewBox="0 0 24 24">
+      <path d="m5 12.5 4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icone-musica" viewBox="0 0 24 24">
+      <path d="M9 18V6l9-2v12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <circle cx="6.5" cy="18" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <circle cx="15.5" cy="16" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    </symbol>
+
+    <symbol id="icone-sol" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M12 2.8v2M12 19.2v2M21.2 12h-2M4.8 12h-2M18.5 5.5l-1.4 1.4M6.9 17.1l-1.4 1.4M18.5 18.5l-1.4-1.4M6.9 6.9 5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icone-lua" viewBox="0 0 24 24">
+      <path d="M18.2 15.8A7.3 7.3 0 0 1 8.2 5.8 7.6 7.6 0 1 0 18.2 15.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+
+  <!-- link para pular direto ao conteúdo principal -->
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- cabeçalho compartilhado com a home -->
+  <header class="cabecalho">
+
+    <a class="logo" href="index.html#inicio" aria-label="Rádio Independência 92,7 FM, página inicial">
+      <img class="logo-imagem" src="img/logos/logo-horizontal.svg" alt="">
+    </a>
+
+    <nav class="menu" aria-label="Menu principal">
+      <ul class="menu-lista">
+        <li><a href="index.html#inicio">Início</a></li>
+        <li><a href="index.html#quem-somos" class="menu-link-ativo">Quem Somos</a></li>
+        <li><a href="index.html#programacao">Programação</a></li>
+        <li><a href="index.html#equipe">Equipe</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <button class="botao-tema" type="button" aria-label="Ativar modo escuro" aria-pressed="false">
+      <span class="botao-tema-bolinha" aria-hidden="true">
+        <svg class="tema-icone" viewBox="0 0 24 24" focusable="false">
+          <use href="#icone-sol"></use>
+        </svg>
+      </span>
+    </button>
+
+    <button class="botao botao-escuro botao-ouvir" type="button" data-acao="tocar">
+      <span class="ponto-ao-vivo" aria-hidden="true"></span>
+      Ouça ao vivo
+    </button>
+
+    <button class="botao-menu-celular" type="button" aria-label="Abrir menu" aria-expanded="false">
+      <svg class="icone icone-svg" aria-hidden="true" focusable="false">
+        <use href="#icone-menu"></use>
+      </svg>
+    </button>
+
+  </header>
+
+  <main id="conteudo">
+
+    <!-- caminho da página conforme o Figma -->
+    <nav class="migalhas" aria-label="Você está em">
+      <a href="index.html#inicio">Início</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">Nossa história</span>
+    </nav>
+
+    <!-- abertura da página histórica -->
+    <section class="historia-hero" aria-labelledby="historia-titulo">
+
+      <div class="historia-hero-texto">
+        <p class="secao-rotulo">Desde 1978 · Medianeira – PR</p>
+
+        <h1 class="historia-hero-titulo" id="historia-titulo">
+          Da 1020 AM ao 92,7 FM: a história da <span class="destaque">Rádio da Família</span>
+        </h1>
+
+        <p class="historia-hero-descricao">
+          Há mais de 45 anos levando informação, música e companhia para Medianeira e toda a Região Oeste do Paraná.
+        </p>
+      </div>
+
+      <!-- imagem histórica: o Figma usa um espaço reservado enquanto as fotos reais não chegam -->
+      <figure class="historia-imagem historia-imagem-placeholder">
+        <figcaption>Foto histórica: fachada ou estúdio da Rádio Independência</figcaption>
+      </figure>
+
+      <!-- player ao vivo incorporado à área histórica -->
+      <article class="player-card historia-player" aria-label="Player ao vivo">
+
+        <figure class="player-card-foto historia-player-foto">
+          <figcaption class="historia-player-placeholder">
+            [ foto histórica ou arte do estúdio da rádio ]
+          </figcaption>
+          <span class="selo-vermelho">Ao vivo</span>
+        </figure>
+
+        <div class="player-card-info">
+          <p class="player-card-rotulo">Tocando agora em 92,7 FM</p>
+          <h2 class="player-card-programa" data-programa-atual>Show da Tarde</h2>
+          <p class="player-card-locutor" data-locutor-atual>com Jeferson Luis "Black"</p>
+        </div>
+
+        <div class="player-controles">
+
+          <button class="botao-play" type="button" data-acao="tocar" aria-label="Tocar rádio ao vivo" aria-pressed="false">
+            <svg class="icone icone-svg" aria-hidden="true" focusable="false">
+              <use href="#icone-play"></use>
+            </svg>
+          </button>
+
+          <div class="volume">
+            <button class="botao-mudo" type="button" aria-label="Tirar o som" aria-pressed="false" data-mudo>
+              <svg class="icone icone-svg" aria-hidden="true" focusable="false">
+                <use href="#icone-volume"></use>
+              </svg>
+            </button>
+
+            <span class="volume-rotulo" aria-hidden="true">Volume</span>
+
+            <input
+              class="volume-barra"
+              type="range"
+              min="0"
+              max="100"
+              value="70"
+              aria-label="Volume"
+              data-volume>
+          </div>
+
+          <button class="botao botao-contorno-claro" type="button" data-abrir-modal="modal-pedido">
+            Peça uma música
+          </button>
+
+        </div>
+      </article>
+
+    </section>
+
+    <!-- início da narrativa -->
+    <section class="historia-comeco" aria-labelledby="historia-comeco-titulo">
+
+      <div class="historia-comeco-texto">
+        <p class="secao-rotulo">O Começo</p>
+
+        <h2 class="secao-titulo" id="historia-comeco-titulo">
+          Um sonho que virou rádio
+        </h2>
+
+        <p>
+          A história da Rádio Independência começou em 4 de dezembro de 1978. Depois de muito esforço, dedicação e trabalho, o sonho se tornou realidade: entrava no ar a Rádio 1020 AM, em Medianeira.
+        </p>
+
+        <p>
+          Em pouco tempo, a programação se expandiu de Medianeira para toda a Região Oeste Paranaense, com informação, música e prestação de serviço para quem ouve.
+        </p>
+      </div>
+
+      <!-- foto dos primeiros anos: placeholder previsto no Figma -->
+      <figure class="historia-imagem historia-comeco-imagem">
+        <figcaption>Foto: os primeiros anos da 1020 AM</figcaption>
+      </figure>
+
+    </section>
+
+    <!-- linha do tempo principal da história -->
+    <section class="linha-do-tempo-historia" aria-labelledby="linha-do-tempo-titulo">
+
+      <div class="secao-topo">
+        <div>
+          <p class="secao-rotulo">Linha do tempo</p>
+          <h2 class="secao-titulo" id="linha-do-tempo-titulo">
+            Momentos que marcaram a Independência
+          </h2>
+        </div>
+      </div>
+
+      <ol class="historia-timeline">
+
+        <li class="historia-marco">
+          <figure class="historia-marco-imagem">
+            <figcaption>Foto 1978</figcaption>
+          </figure>
+
+          <span class="historia-marco-ano">1978</span>
+          <p class="historia-marco-data">4 de dezembro de 1978</p>
+          <h3 class="historia-marco-titulo">Nasce a Rádio Independência</h3>
+          <p class="historia-marco-texto">
+            Entra no ar em 1020 AM, em Medianeira, e logo chega a toda a Região Oeste.
+          </p>
+        </li>
+
+        <li class="historia-marco">
+          <figure class="historia-marco-imagem">
+            <figcaption>Foto 2000</figcaption>
+          </figure>
+
+          <span class="historia-marco-ano">2000</span>
+          <p class="historia-marco-data">20 de janeiro de 2000</p>
+          <h3 class="historia-marco-titulo">A Rádio da Família</h3>
+          <p class="historia-marco-texto">
+            Moacir José Hanzen assume a emissora e adota o slogan que ela leva até hoje.
+          </p>
+        </li>
+
+        <li class="historia-marco">
+          <figure class="historia-marco-imagem">
+            <figcaption>Foto 2021</figcaption>
+          </figure>
+
+          <span class="historia-marco-ano">2021</span>
+          <p class="historia-marco-data">Dezembro de 2021</p>
+          <h3 class="historia-marco-titulo">Chegada ao FM</h3>
+          <p class="historia-marco-texto">
+            A Independência passa a operar no FM, em 92,7.
+          </p>
+        </li>
+
+        <li class="historia-marco historia-marco-atual">
+          <figure class="historia-marco-imagem">
+            <figcaption>Foto Hoje</figcaption>
+          </figure>
+
+          <span class="historia-marco-ano">Hoje</span>
+          <h3 class="historia-marco-titulo">No 92,7 FM e na internet</h3>
+          <p class="historia-marco-subtitulo">Informação, música e companhia</p>
+          <p class="historia-marco-texto">
+            Jornalismo, entretenimento e prestação de serviço para Medianeira e região.
+          </p>
+        </li>
+
+      </ol>
+
+    </section>
+
+    <!-- homenagem a Moacir José Hanzen -->
+    <section class="historia-homenagem" aria-labelledby="homenagem-titulo">
+
+      <figure class="historia-homenagem-imagem">
+        <img
+          src="img/equipe/moacir-hanzen.jpg"
+          alt="Moacir José Hanzen"
+          loading="lazy">
+        <figcaption>Foto: Moacir José Hanzen</figcaption>
+      </figure>
+
+      <div class="historia-homenagem-texto">
+        <p class="secao-rotulo">Homenagem</p>
+
+        <h2 class="secao-titulo" id="homenagem-titulo">
+          Moacir José Hanzen
+        </h2>
+
+        <p class="historia-homenagem-status">(Em memória)</p>
+
+        <p>
+          Em 20 de janeiro de 2000, Moacir José Hanzen assumiu a Rádio Independência e adotou o slogan "A Rádio da Família", que a emissora carrega até hoje.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- galeria histórica -->
+    <section class="historia-galeria" aria-labelledby="galeria-titulo">
+
+      <div class="historia-galeria-topo">
+        <p class="secao-rotulo">Galeria</p>
+        <h2 class="secao-titulo" id="galeria-titulo">Fotos da nossa história</h2>
+      </div>
+
+      <ul class="galeria-lista">
+
+        <li class="galeria-item">
+          <figure class="galeria-figura galeria-placeholder">
+            <figcaption>Jeferson Luis “Black”, locutor do Show da Tarde</figcaption>
+          </figure>
+        </li>
+
+        <li class="galeria-item">
+          <figure class="galeria-figura galeria-placeholder">
+            <figcaption>Fachada da Rádio Independência</figcaption>
+          </figure>
+        </li>
+
+        <li class="galeria-item">
+          <figure class="galeria-figura galeria-placeholder">
+            <figcaption>O estúdio nos tempos do AM</figcaption>
+          </figure>
+        </li>
+
+        <li class="galeria-item">
+          <figure class="galeria-figura galeria-placeholder">
+            <figcaption>Transmissor e antena</figcaption>
+          </figure>
+        </li>
+
+        <li class="galeria-item">
+          <figure class="galeria-figura galeria-placeholder">
+            <figcaption>A equipe da Independência</figcaption>
+          </figure>
+        </li>
+
+        <li class="galeria-item">
+          <figure class="galeria-figura galeria-placeholder">
+            <figcaption>Estreia no 92,7 FM, em 2021</figcaption>
+          </figure>
+        </li>
+
+      </ul>
+
+    </section>
+
+    <!-- equipe de direção -->
+    <section class="historia-direcao" aria-labelledby="direcao-titulo">
+
+      <div class="historia-direcao-topo">
+        <p class="secao-rotulo">Quem conduz a rádio</p>
+        <h2 class="secao-titulo" id="direcao-titulo">Direção</h2>
+      </div>
+
+      <ul class="direcao-lista">
+
+        <li class="direcao-card">
+          <figure class="direcao-foto-placeholder">
+            <img
+              src="img/equipe/jane-vergopolan.jpg"
+              alt="Jane Vergopolan"
+              loading="lazy">
+            <figcaption>Foto de Jane Vergopolan</figcaption>
+          </figure>
+
+          <div class="direcao-informacoes">
+            <h3>Jane Vergopolan</h3>
+            <p>Diretora Geral</p>
+          </div>
+        </li>
+
+        <li class="direcao-card">
+          <figure class="direcao-foto-placeholder">
+            <img
+              src="img/equipe/josias-lima.jpg"
+              alt="Josias de Lima"
+              loading="lazy">
+            <figcaption>Foto de Josias de Lima</figcaption>
+          </figure>
+
+          <div class="direcao-informacoes">
+            <h3>Josias de Lima</h3>
+            <p>Gerente Geral</p>
+          </div>
+        </li>
+
+      </ul>
+
+    </section>
+
+    <!-- chamada final da página -->
+    <section class="historia-cta" aria-labelledby="historia-cta-titulo">
+
+      <div class="historia-cta-texto">
+        <h2 id="historia-cta-titulo">Faça parte dessa história</h2>
+        <p>
+          Sintonize 92,7 FM em Medianeira e região ou ouça ao vivo pela internet.
+        </p>
+      </div>
+
+      <div class="historia-cta-botoes">
+        <button class="botao botao-verde" type="button" data-acao="tocar">
+          Ouvir ao vivo
+        </button>
+
+        <button class="botao botao-contorno-claro" type="button" data-abrir-modal="modal-pedido">
+          Peça uma música
+          <svg class="icone icone-svg" aria-hidden="true" focusable="false">
+            <use href="#icone-musica"></use>
+          </svg>
+        </button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- rodapé compartilhado -->
+  <footer class="rodape">
+
+    <div class="rodape-marca">
+      <a class="logo" href="index.html#inicio" aria-label="Rádio Independência 92,7 FM, página inicial">
+        <img class="rodape-logo" src="img/logos/logo-branca.svg" alt="">
+      </a>
+
+      <p>
+        No ar desde 1978 levando informação e companhia para toda a Região Oeste do Paraná.
+      </p>
+    </div>
+
+    <nav class="rodape-coluna" aria-label="Navegação do rodapé">
+      <h2 class="rodape-titulo">Navegação</h2>
+      <ul>
+        <li><a href="index.html#inicio">Início</a></li>
+        <li><a href="index.html#quem-somos">Quem Somos</a></li>
+        <li><a href="index.html#programacao">Programação</a></li>
+        <li><a href="index.html#equipe">Equipe</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="rodape-coluna">
+      <h2 class="rodape-titulo">Sintonize</h2>
+      <ul>
+        <li><button class="link-rodape" type="button" data-acao="tocar">Ouvir ao vivo</button></li>
+        <li>92,7 FM em Medianeira</li>
+        <li><a href="historia.html" aria-current="page">História da rádio</a></li>
+      </ul>
+    </div>
+
+    <div class="rodape-coluna">
+      <h2 class="rodape-titulo">Contato</h2>
+      <ul>
+        <li><a href="https://wa.me/5545999358890" target="_blank" rel="noopener">(45) 9 9935-8890</a></li>
+        <li><a href="tel:+554532641713">(45) 3264-1713</a></li>
+        <li><a href="mailto:dep.comercial1020@hotmail.com">dep.comercial1020@hotmail.com</a></li>
+        <li>Av. Pedro Soccol, 452</li>
+        <li>Medianeira PR</li>
+      </ul>
+    </div>
+
+    <p class="rodape-direitos">
+      © 2026 Rádio Independência 92,7 FM. A Rádio da Família. Medianeira PR
+    </p>
+
+  </footer>
+
+  <!-- player fixo compartilhado, exibido quando a área principal do player sai da tela -->
+  <aside class="player-fixo escondido" aria-label="Player ao vivo">
+
+    <button class="botao-play" type="button" data-acao="tocar" aria-label="Tocar rádio ao vivo">
+      <svg class="icone icone-svg" aria-hidden="true" focusable="false">
+        <use href="#icone-play"></use>
+      </svg>
+    </button>
+
+    <div class="player-fixo-info">
+      <p class="player-fixo-rotulo">
+        <span class="ponto-ao-vivo" aria-hidden="true"></span>
+        <span><span data-estado-player>Pausado</span> · 92,7 FM</span>
+      </p>
+
+      <p class="player-fixo-programa" data-programa-atual>Show da Tarde</p>
+      <p class="player-fixo-locutor" data-locutor-atual>com Jeferson Luis "Black"</p>
+    </div>
+
+    <div class="volume">
+      <button class="botao-mudo" type="button" aria-label="Tirar o som" aria-pressed="false" data-mudo>
+        <svg class="icone icone-svg" aria-hidden="true" focusable="false">
+          <use href="#icone-volume"></use>
+        </svg>
+      </button>
+
+      <span class="volume-rotulo" aria-hidden="true">Volume</span>
+
+      <input
+        class="volume-barra"
+        type="range"
+        min="0"
+        max="100"
+        value="70"
+        aria-label="Volume"
+        data-volume>
+    </div>
+
+    <button class="botao botao-verde" type="button" data-abrir-modal="modal-pedido">
+      <svg class="icone icone-svg" aria-hidden="true" focusable="false">
+        <use href="#icone-musica"></use>
+      </svg>
+      Peça uma música
+    </button>
+
+  </aside>
+
+  <!-- elemento de áudio usado pelo player global -->
+  <audio
+    id="radio-audio"
+    src="https://str1.streamhostpg.com.br:8128/stream"
+    preload="none">
+  </audio>
+
+  <!-- modal de pedido de música -->
+  <dialog class="modal" id="modal-pedido" aria-labelledby="modal-pedido-titulo">
+
+    <div class="modal-topo">
+      <div>
+        <p class="secao-rotulo">Peça uma música</p>
+        <h2 class="modal-titulo" id="modal-pedido-titulo">O que você quer ouvir?</h2>
+      </div>
+
+      <button class="modal-fechar" type="button" aria-label="Fechar" data-fechar-modal>
+        <svg class="icone icone-svg" aria-hidden="true" focusable="false">
+          <use href="#icone-fechar"></use>
+        </svg>
+      </button>
+    </div>
+
+    <p class="modal-texto">
+      Seu pedido chega ao estúdio da 92,7. Aproveite e mande um recado para alguém especial.
+    </p>
+
+    <form class="formulario" id="form-pedido-modal" data-form-pedido>
+
+      <div class="campos-lado-a-lado">
+
+        <label class="campo">
+          <span class="campo-rotulo">Seu nome</span>
+          <input type="text" name="nome" placeholder="Ex.: Maria" required>
+        </label>
+
+        <label class="campo">
+          <span class="campo-rotulo">Cidade ou bairro</span>
+          <input type="text" name="cidade" placeholder="Ex.: Medianeira, Centro">
+        </label>
+
+      </div>
+
+      <label class="campo">
+        <span class="campo-rotulo">Música e artista</span>
+        <input type="text" name="musica" placeholder="Ex.: Evidências, Chitãozinho & Xororó" required>
+      </label>
+
+      <label class="campo">
+        <span class="campo-rotulo">Recado (opcional)</span>
+        <textarea name="recado" rows="3" placeholder="Manda um abraço pra…"></textarea>
+      </label>
+
+      <button class="botao botao-verde botao-largo" type="submit">
+        Enviar pedido
+      </button>
+
+      <p class="separador-ou">ou</p>
+
+      <button class="botao botao-contorno botao-largo" type="button" data-enviar-whatsapp>
+        <svg class="icone icone-svg" aria-hidden="true" focusable="false">
+          <use href="#icone-whatsapp"></use>
+        </svg>
+        Enviar pelo WhatsApp
+      </button>
+
+    </form>
+
+  </dialog>
+
+  <!-- estado de sucesso do pedido -->
+  <dialog class="modal modal-sucesso" id="modal-sucesso" aria-labelledby="modal-sucesso-titulo">
+
+    <svg class="icone icone-svg" aria-hidden="true" focusable="false">
+      <use href="#icone-check"></use>
+    </svg>
+
+    <h2 class="modal-titulo" id="modal-sucesso-titulo">
+      Pedido enviado!
+    </h2>
+
+    <p class="modal-texto">
+      Fica ligado na 92,7 FM: seu pedido chegou ao estúdio. Obrigado por fazer parte da Rádio da Família.
+    </p>
+
+    <button class="botao botao-verde botao-largo" type="button" data-fechar-modal>
+      Voltar a ouvir
+    </button>
+
+  </dialog>
+
+  <!--
+    A página foi estruturada somente em HTML nesta etapa.
+    O JavaScript compartilhado deverá ser adaptado para esta página antes de ser carregado,
+    pois o script atual do projeto depende dos componentes específicos da página inicial.
+  -->
+
+</body>
+</html>
