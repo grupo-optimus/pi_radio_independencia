@@ -85,5 +85,5 @@ img/
 ## Pendências
 
 - Definir a programação real da rádio e colocar em `js/programacao.js` (a grade atual é ilustrativa)
-- Fotos da equipe que faltam (a do Neilor está vazia) e as fotos da história
+- Fotos da equipe que faltam e as fotos da história
 - Links das redes sociais (Instagram, Facebook e YouTube ainda estão com `#`)
