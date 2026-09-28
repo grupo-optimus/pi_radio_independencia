@@ -101,13 +101,14 @@
       <img class="logo-imagem" src="img/logos/logo-horizontal.svg" alt="">
     </a>
 
-    <nav class="menu" aria-label="Menu principal">
+    <!-- menu com as seções da própria página de história -->
+    <nav class="menu" aria-label="Seções da história">
       <ul class="menu-lista">
-        <li><a href="index.html#inicio">Início</a></li>
-        <li><a href="index.html#quem-somos" class="menu-link-ativo">Quem Somos</a></li>
-        <li><a href="index.html#programacao">Programação</a></li>
-        <li><a href="index.html#equipe">Equipe</a></li>
-        <li><a href="index.html#contato">Contato</a></li>
+        <li><a href="#comeco">O começo</a></li>
+        <li><a href="#linha-do-tempo">Linha do tempo</a></li>
+        <li><a href="#homenagem">Homenagem</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#direcao">Direção</a></li>
       </ul>
     </nav>
 
@@ -214,7 +215,7 @@
     </section>
 
     <!-- início da narrativa -->
-    <section class="historia-comeco" aria-labelledby="historia-comeco-titulo">
+    <section class="historia-comeco" id="comeco" aria-labelledby="historia-comeco-titulo">
 
       <div class="historia-comeco-texto">
         <p class="secao-rotulo">O Começo</p>
@@ -240,7 +241,7 @@
     </section>
 
     <!-- linha do tempo principal da história -->
-    <section class="linha-do-tempo-historia" aria-labelledby="linha-do-tempo-titulo">
+    <section class="linha-do-tempo-historia" id="linha-do-tempo" aria-labelledby="linha-do-tempo-titulo">
 
       <div class="secao-topo">
         <div>
@@ -314,7 +315,7 @@
     </section>
 
     <!-- homenagem a Moacir José Hanzen -->
-    <section class="historia-homenagem" aria-labelledby="homenagem-titulo">
+    <section class="historia-homenagem" id="homenagem" aria-labelledby="homenagem-titulo">
 
       <figure class="historia-homenagem-imagem">
         <img
@@ -341,7 +342,7 @@
     </section>
 
     <!-- galeria histórica -->
-    <section class="historia-galeria" aria-labelledby="galeria-titulo">
+    <section class="historia-galeria" id="galeria" aria-labelledby="galeria-titulo">
 
       <div class="historia-galeria-topo">
         <p class="secao-rotulo">Galeria</p>
@@ -381,7 +382,12 @@
         </li>
 
         <li class="galeria-item">
-          <figure class="galeria-figura galeria-placeholder">
+          <figure class="galeria-figura">
+            <img
+              class="galeria-imagem"
+              src="img/historia/foto-historica2021.jpg"
+              alt="Equipe da Rádio Independência reunida no novo estúdio, em 2021"
+              loading="lazy">
             <figcaption>Estreia no 92,7 FM, em 2021</figcaption>
           </figure>
         </li>
@@ -391,7 +397,7 @@
     </section>
 
     <!-- equipe de direção -->
-    <section class="historia-direcao" aria-labelledby="direcao-titulo">
+    <section class="historia-direcao" id="direcao" aria-labelledby="direcao-titulo">
 
       <div class="historia-direcao-topo">
         <p class="secao-rotulo">Quem conduz a rádio</p>
@@ -477,11 +483,12 @@
     <nav class="rodape-coluna" aria-label="Navegação do rodapé">
       <h2 class="rodape-titulo">Navegação</h2>
       <ul>
-        <li><a href="index.html#inicio">Início</a></li>
-        <li><a href="index.html#quem-somos">Quem Somos</a></li>
-        <li><a href="index.html#programacao">Programação</a></li>
-        <li><a href="index.html#equipe">Equipe</a></li>
-        <li><a href="index.html#contato">Contato</a></li>
+        <li><a href="index.html#inicio">Voltar ao início</a></li>
+        <li><a href="#comeco">O começo</a></li>
+        <li><a href="#linha-do-tempo">Linha do tempo</a></li>
+        <li><a href="#homenagem">Homenagem</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#direcao">Direção</a></li>
       </ul>
     </nav>
 
@@ -649,11 +656,11 @@
 
   </dialog>
 
-  <!--
-    A página foi estruturada somente em HTML nesta etapa.
-    O JavaScript compartilhado deverá ser adaptado para esta página antes de ser carregado,
-    pois o script atual do projeto depende dos componentes específicos da página inicial.
-  -->
+  <!-- grade da programação (tem que vir antes do script.js, que usa ela) -->
+  <script src="js/programacao.js" defer></script>
+
+  <!-- javascript do site: player, programa no ar e modo escuro -->
+  <script src="js/script.js" defer></script>
 
 </body>
 </html>
