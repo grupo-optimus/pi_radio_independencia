@@ -644,7 +644,6 @@ html[data-tema="escuro"] .botao-escuro:hover {
 /* seções de baixo: conteúdo de 1200px no meio, com a mesma margem lateral do cabeçalho e do hero */
 .numeros-lista,
 .programacao .secao-topo,
-.aviso,
 .equipe .secao-topo,
 .carrossel-pontos,
 .contato {
@@ -748,6 +747,7 @@ html[data-tema="escuro"] .botao-escuro:hover {
     color: var(--cor-texto);
     font-size: 14px;
     font-weight: 500;
+    white-space: nowrap;
     cursor: pointer;
 }
 
@@ -947,13 +947,6 @@ html[data-tema="escuro"] .botao-escuro:hover {
     height: 100%;
     border-radius: inherit;
     background-color: var(--cor-branco);
-}
-
-.aviso {
-    margin-top: 20px;
-    font-size: 13px;
-    line-height: 1.3;
-    color: var(--cor-texto-suave);
 }
 
 /* quem somos: fundo verde claro, texto e foto na esquerda (500px) e a linha do tempo na direita */
@@ -1908,7 +1901,6 @@ html[data-tema="escuro"] .mapa-area iframe {
     /* seções de baixo com 20px de margem, igual ao hero */
     .numeros-lista,
     .programacao .secao-topo,
-    .aviso,
     .equipe .secao-topo,
     .carrossel-pontos,
     .contato {
@@ -2019,6 +2011,15 @@ html[data-tema="escuro"] .mapa-area iframe {
     .numero-legenda {
         margin-top: 2px;
         font-size: 14px;
+    }
+
+    /* as 4 abas da programação ficam mais estreitas para caber numa linha só no celular */
+    .aba {
+        padding: 0 8px;
+    }
+
+    .aba[aria-selected="true"] {
+        padding: 0 12px;
     }
 
     .linha-programas {
