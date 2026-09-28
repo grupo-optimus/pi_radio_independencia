@@ -216,9 +216,9 @@
               data-volume>
           </div>
 
-          <button class="botao botao-contorno-claro" type="button" data-abrir-modal="modal-pedido">
+          <a class="botao botao-contorno-claro" href="index.html#peca-uma-musica">
             Peça uma música
-          </button>
+          </a>
 
         </div>
       </article>
@@ -466,12 +466,12 @@
           Ouvir ao vivo
         </button>
 
-        <button class="botao botao-contorno-claro" type="button" data-abrir-modal="modal-pedido">
+        <a class="botao botao-contorno-claro" href="index.html#peca-uma-musica">
           Peça uma música
           <svg class="icone icone-svg" aria-hidden="true" focusable="false">
             <use href="#icone-musica"></use>
           </svg>
-        </button>
+        </a>
       </div>
 
     </section>
@@ -567,12 +567,12 @@
         data-volume>
     </div>
 
-    <button class="botao botao-verde" type="button" data-abrir-modal="modal-pedido">
+    <a class="botao botao-verde" href="index.html#peca-uma-musica">
       <svg class="icone icone-svg" aria-hidden="true" focusable="false">
         <use href="#icone-musica"></use>
       </svg>
       Peça uma música
-    </button>
+    </a>
 
   </aside>
 
@@ -582,90 +582,6 @@
     src="https://str1.streamhostpg.com.br:8128/stream"
     preload="none">
   </audio>
-
-  <!-- modal de pedido de música -->
-  <dialog class="modal" id="modal-pedido" aria-labelledby="modal-pedido-titulo">
-
-    <div class="modal-topo">
-      <div>
-        <p class="secao-rotulo">Peça uma música</p>
-        <h2 class="modal-titulo" id="modal-pedido-titulo">O que você quer ouvir?</h2>
-      </div>
-
-      <button class="modal-fechar" type="button" aria-label="Fechar" data-fechar-modal>
-        <svg class="icone icone-svg" aria-hidden="true" focusable="false">
-          <use href="#icone-fechar"></use>
-        </svg>
-      </button>
-    </div>
-
-    <p class="modal-texto">
-      Seu pedido chega ao estúdio da 92,7. Aproveite e mande um recado para alguém especial.
-    </p>
-
-    <form class="formulario" id="form-pedido-modal" data-form-pedido>
-
-      <div class="campos-lado-a-lado">
-
-        <label class="campo">
-          <span class="campo-rotulo">Seu nome</span>
-          <input type="text" name="nome" placeholder="Ex.: Maria" required>
-        </label>
-
-        <label class="campo">
-          <span class="campo-rotulo">Cidade ou bairro</span>
-          <input type="text" name="cidade" placeholder="Ex.: Medianeira, Centro">
-        </label>
-
-      </div>
-
-      <label class="campo">
-        <span class="campo-rotulo">Música e artista</span>
-        <input type="text" name="musica" placeholder="Ex.: Evidências, Chitãozinho & Xororó" required>
-      </label>
-
-      <label class="campo">
-        <span class="campo-rotulo">Recado (opcional)</span>
-        <textarea name="recado" rows="3" placeholder="Manda um abraço pra…"></textarea>
-      </label>
-
-      <button class="botao botao-verde botao-largo" type="submit">
-        Enviar pedido
-      </button>
-
-      <p class="separador-ou">ou</p>
-
-      <button class="botao botao-contorno botao-largo" type="button" data-enviar-whatsapp>
-        <svg class="icone icone-svg" aria-hidden="true" focusable="false">
-          <use href="#icone-whatsapp"></use>
-        </svg>
-        Enviar pelo WhatsApp
-      </button>
-
-    </form>
-
-  </dialog>
-
-  <!-- estado de sucesso do pedido -->
-  <dialog class="modal modal-sucesso" id="modal-sucesso" aria-labelledby="modal-sucesso-titulo">
-
-    <svg class="icone icone-svg" aria-hidden="true" focusable="false">
-      <use href="#icone-check"></use>
-    </svg>
-
-    <h2 class="modal-titulo" id="modal-sucesso-titulo">
-      Pedido enviado!
-    </h2>
-
-    <p class="modal-texto">
-      Fica ligado na 92,7 FM: seu pedido chegou ao estúdio. Obrigado por fazer parte da Rádio da Família.
-    </p>
-
-    <button class="botao botao-verde botao-largo" type="button" data-fechar-modal>
-      Voltar a ouvir
-    </button>
-
-  </dialog>
 
   <!-- grade da programação (tem que vir antes do script.js, que usa ela) -->
   <script src="js/programacao.js" defer></script>
