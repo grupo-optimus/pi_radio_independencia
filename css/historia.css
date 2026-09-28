@@ -19,11 +19,11 @@
    BASE DA PÁGINA
    ========================= */
 
-/* cores do frame "História — Desktop 1440 · Escuro" do figma */
+/* modo escuro: os mesmos verdes escuros do style.css (verde-claro, cartao e borda-clara) */
 html[data-tema="escuro"] {
-    --historia-fundo-secao: #16211b;
-    --historia-fundo-cartao: #151d18;
-    --historia-borda: #26332b;
+    --historia-fundo-secao: #0d2418;
+    --historia-fundo-cartao: #0f1d16;
+    --historia-borda: #20362a;
     --historia-texto-suave: #a3b1a9;
 }
 

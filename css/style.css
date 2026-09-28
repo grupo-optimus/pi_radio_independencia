@@ -9,7 +9,7 @@
     --cor-borda-clara: #e3e8e5;
     --cor-verde-acinzentado: #dce9e1; /* fundo da foto e do mapa e a linha do tempo do quem somos */
     --cor-borda-verde: #c9ddd1; /* borda e trilho do volume do player fixo */
-    --cor-verde-texto: #0c8a40; /* verde dos textos e links, no modo escuro ele fica mais claro para dar leitura */
+    --cor-verde-texto: #0c8a40; /* verde dos textos e links, o mesmo nos dois modos */
     --cor-cartao: #ffffff; /* fundo dos cards da programação e do formulário de pedido */
     --cor-placeholder: #9aa59f;
     --cor-branco: #ffffff; /* texto e ícones em cima do verde e das partes pretas, é branco nos dois modos */
@@ -31,24 +31,25 @@
     --espaco-player-fixo: 100px;
 }
 
-/* modo escuro: as mesmas variáveis com as cores dos frames "· Escuro" do figma */
+/* modo escuro: as mesmas variáveis, com base nos frames "· Escuro" do figma */
+/* os fundos, cartões e bordas são verdes escuros mais saturados que os do figma, que ficavam cinzentos e sem vida */
 /* o script no <head> e o botão de tema colocam data-tema="escuro" no <html> */
 html[data-tema="escuro"] {
-    --cor-fundo: #0e1311;
+    --cor-fundo: #0a120e;
     --cor-texto: #f2f5f3;
     --cor-texto-suave: #a3b1a9;
-    --cor-verde-claro: #16211b;
+    --cor-verde-claro: #0d2418;
     --cor-vermelho: #f2555a;
-    --cor-borda-clara: #26332b;
-    --cor-verde-acinzentado: #1f2c25;
-    --cor-borda-verde: #2c3e33;
-    --cor-verde-texto: #4cc47f;
-    --cor-cartao: #151d18;
+    --cor-borda-clara: #20362a;
+    --cor-verde-acinzentado: #143323;
+    --cor-borda-verde: #1d4430;
+    --cor-verde-texto: #0c8a40;
+    --cor-cartao: #0f1d16;
     --cor-placeholder: #6d7a73;
 
-    --cor-fundo-escuro: #18221c;
-    --cor-cinza-escuro: #222d26;
-    --cor-borda-escura: #2c3831;
+    --cor-fundo-escuro: #0c1f15;
+    --cor-cinza-escuro: #15301f;
+    --cor-borda-escura: #1f3a2b;
     --cor-texto-apagado: #9aa69f;
 
     /* barras de rolagem, campos e a janela de pedido do navegador também ficam escuros */
@@ -73,6 +74,13 @@ body {
     background-color: var(--cor-fundo);
 }
 
+/* modo escuro: brilho verde no alto da página, do tamanho da primeira tela, atrás do cabeçalho e do hero */
+html[data-tema="escuro"] body {
+    background-image: radial-gradient(60% 70% at 85% 20%, rgba(12, 138, 64, 0.22), transparent 70%);
+    background-size: 100% 100svh;
+    background-repeat: no-repeat;
+}
+
 /* botões e campos usam a fonte da página em vez da fonte padrão do navegador */
 button,
 input,
@@ -95,6 +103,11 @@ a {
     background-color: var(--cor-fundo);
     position: relative;
     z-index: 10;
+}
+
+/* no modo escuro o cabeçalho fica transparente para o brilho verde do fundo passar por trás dele */
+html[data-tema="escuro"] .cabecalho {
+    background-color: transparent;
 }
 
 .logo {
