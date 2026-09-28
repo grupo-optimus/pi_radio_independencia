@@ -1407,7 +1407,7 @@ a {
 }
 
 /* player fixo: flutua na base da tela, centralizado (componente "Player fixo" do figma, 880x76) */
-/* por enquanto aparece sempre, depois o js esconde enquanto o card do player do hero estiver na tela */
+/* o js esconde ele enquanto o card do player do hero estiver na tela */
 .player-fixo {
     position: fixed;
     right: 0;
@@ -1428,7 +1428,7 @@ a {
     transition: transform 0.4s ease, opacity 0.4s ease, visibility 0.4s;
 }
 
-/* classe que o js vai colocar para esconder o player, ele desce pra fora da tela e some */
+/* com essa classe o player desce pra fora da tela e some, o js coloca e tira ela */
 .player-fixo.escondido {
     transform: translateY(calc(100% + 24px));
     opacity: 0;
