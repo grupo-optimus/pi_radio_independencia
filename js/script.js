@@ -165,17 +165,20 @@ function paraHorario(minutos) {
     return horas + ":" + resto;
 }
 
-// qual lista da grade vale hoje: getUTCDay dá 0 no domingo e 6 no sábado
+// qual lista da grade vale hoje: getUTCDay dá 0 no domingo, 5 na sexta e 6 no sábado
 function diaDeHoje() {
     const dia = horarioDeBrasilia().getUTCDay();
 
     if (dia === 0) {
         return "domingo";
     }
+    if (dia === 5) {
+        return "sexta";
+    }
     if (dia === 6) {
         return "sabado";
     }
-    return "semana";
+    return "segunda-a-quinta";
 }
 
 // procura na grade de hoje o programa que começou e ainda não terminou

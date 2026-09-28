@@ -41,16 +41,16 @@ No celular, o cabeçalho, o hero, a faixa dos números e o player fixo seguem o 
 
 A grade fica em `js/programacao.js`. É só editar esse arquivo que o card do player, o player fixo e a linha do tempo mudam juntos.
 
-A grade que está lá hoje é só ilustrativa: ainda falta definir a programação real da rádio (programas, horários e locutores de cada dia).
+A grade é a real da rádio, tirada do documento "Programação 2026 - 92 FM".
 
 Cada programa é uma linha:
 
 ```js
-{ "inicio": "14:00", "fim": "17:00", "programa": "Show da Tarde", "locutor": "Jeferson “Black”", "foto": "img/equipe/jeferson-black.jpg" },
+{ "inicio": "15:00", "fim": "17:00", "programa": "Show da Tarde", "locutor": "Jeferson Luis “Black”", "foto": "img/equipe/jeferson-black.jpg" },
 ```
 
-- `"semana"` vale de segunda a sexta, e também tem `"sabado"` e `"domingo"`.
-- Os programas de cada dia ficam em ordem de horário.
+- `"segunda-a-quinta"` vale de segunda a quinta, `"sexta"` só na sexta, e também tem `"sabado"` e `"domingo"` (uma aba para cada).
+- Os programas de cada dia ficam em ordem de horário, sem um passar por cima do outro. Um programa curto no meio de outro divide ele em dois (a Revista Costa Oeste antes e depois do Programa da Lar).
 - Programa sem locutor: `"locutor": ""` (a linha "com ..." some).
 - Sem foto: `"foto": ""` (aparece a logo da rádio no lugar).
 - Programa que vai até a meia-noite termina em `"24:00"`.
@@ -84,6 +84,5 @@ img/
 
 ## Pendências
 
-- Definir a programação real da rádio e colocar em `js/programacao.js` (a grade atual é ilustrativa)
 - Fotos da equipe que faltam e as fotos da história
 - Links das redes sociais (Instagram, Facebook e YouTube ainda estão com `#`)

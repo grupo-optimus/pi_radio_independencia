@@ -276,9 +276,10 @@
           <h2 class="secao-titulo" id="programacao-titulo">Hoje na Independência</h2>
         </div>
 
-        <!-- abas para trocar entre dias da semana sábado e domingo -->
+        <!-- abas para trocar entre segunda a quinta, sexta, sábado e domingo -->
         <div class="abas" role="tablist" aria-label="Dias da programação">
-          <button class="aba" type="button" role="tab" aria-selected="true" data-dia="semana">Seg a Sex</button>
+          <button class="aba" type="button" role="tab" aria-selected="true" data-dia="segunda-a-quinta">Seg a Qui</button>
+          <button class="aba" type="button" role="tab" aria-selected="false" data-dia="sexta">Sexta</button>
           <button class="aba" type="button" role="tab" aria-selected="false" data-dia="sabado">Sábado</button>
           <button class="aba" type="button" role="tab" aria-selected="false" data-dia="domingo">Domingo</button>
         </div>
@@ -288,9 +289,6 @@
       <!-- os cards são montados pelo javascript com a grade do arquivo js/programacao.js -->
       <!-- o programa no ar ganha a classe no-ar com o marcador "Agora" e a barra de andamento, os que já passaram ganham a classe ja-passou -->
       <ol class="linha-programas" data-lista-programas></ol>
-
-      <!-- aviso temporário até chegar a grade real da rádio -->
-      <p class="aviso">Horários ilustrativos, aguardando a grade real da rádio.</p>
     </section>
 
     <!-- seção quem somos com resumo da história foto e linha do tempo -->
@@ -377,14 +375,21 @@
           <img class="membro-foto" src="img/equipe/joao-hermes.jpg" alt="João Hermes">
           <h3 class="membro-nome">João Hermes</h3>
           <p class="membro-cargo">Jornalista</p>
-          <span class="membro-programa">Costa Oeste News</span>
+          <span class="membro-programa">Tudo Sob Controle</span>
         </li>
 
         <li class="membro">
-          <img class="membro-foto" src="img/equipe/neilor.jpg" alt="Neilor de C.">
-          <h3 class="membro-nome">Neilor de C.</h3>
+          <img class="membro-foto" src="img/equipe/carlinhos-pessoa.jpg" alt="Carlinhos Pessoa">
+          <h3 class="membro-nome">Carlinhos Pessoa</h3>
           <p class="membro-cargo">Locutor</p>
-          <span class="membro-programa">Serranópolis em Destaque</span>
+          <span class="membro-programa">Bom dia Costa Oeste</span>
+        </li>
+
+        <li class="membro">
+          <img class="membro-foto" src="img/equipe/sergio-giembra.jpg" alt="Sergio Giembra">
+          <h3 class="membro-nome">Sergio Giembra</h3>
+          <p class="membro-cargo">Locutor</p>
+          <span class="membro-programa">Revista Costa Oeste</span>
         </li>
 
         <li class="membro">
