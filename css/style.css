@@ -471,6 +471,17 @@ a {
     height: 24px;
 }
 
+/* botão de mudo: é só o alto-falante, sem o visual padrão de botão do navegador */
+.botao-mudo {
+    display: flex;
+    flex-shrink: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+}
+
 /* começa junto com a barra: 24px do alto-falante + 6px de gap */
 .volume-rotulo {
     position: absolute;
@@ -489,7 +500,7 @@ a {
     cursor: pointer;
 }
 
-/* chrome e edge: a parte branca vai até o valor, o js vai atualizar o --volume quando mexer */
+/* chrome e edge: a parte branca vai até o valor, o js atualiza o --volume quando mexe */
 .volume-barra::-webkit-slider-runnable-track {
     height: 4px;
     border-radius: 999px;
@@ -524,6 +535,19 @@ a {
     border: none;
     border-radius: 50%;
     background-color: var(--cor-fundo);
+}
+
+/* mudo: o alto-falante ganha um x, ele e a bolinha ficam apagados e o js leva a barra pro zero */
+.volume.mudo .icone-svg {
+    color: var(--cor-texto-apagado);
+}
+
+.volume.mudo .volume-barra::-webkit-slider-thumb {
+    background-color: var(--cor-texto-apagado);
+}
+
+.volume.mudo .volume-barra::-moz-range-thumb {
+    background-color: var(--cor-texto-apagado);
 }
 
 /* peça uma música vai pro canto direito do card */
@@ -1466,6 +1490,15 @@ a {
     color: var(--cor-texto-suave);
 }
 
+/* bolinha cinza quando está pausado e vermelha quando está tocando (o js coloca a classe tocando) */
+.player-fixo .ponto-ao-vivo {
+    background-color: var(--cor-texto-suave);
+}
+
+.player-fixo.tocando .ponto-ao-vivo {
+    background-color: var(--cor-vermelho);
+}
+
 .player-fixo-programa,
 .player-fixo-locutor {
     overflow: hidden;
@@ -1492,13 +1525,9 @@ a {
     gap: 10px;
 }
 
-/* o texto "Volume" não aparece, mas continua lá pro leitor de tela */
+/* sem o texto "Volume", o leitor de tela lê o nome da barra pelo aria-label */
 .player-fixo .volume-rotulo {
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
+    display: none;
 }
 
 .player-fixo .volume-barra {
@@ -1529,6 +1558,19 @@ a {
     width: 14px;
     height: 14px;
     background-color: var(--cor-texto);
+}
+
+/* no fundo claro o mudo usa o cinza do texto suave, igual ao figma */
+.player-fixo .volume.mudo .icone-svg {
+    color: var(--cor-texto-suave);
+}
+
+.player-fixo .volume.mudo .volume-barra::-webkit-slider-thumb {
+    background-color: var(--cor-texto-suave);
+}
+
+.player-fixo .volume.mudo .volume-barra::-moz-range-thumb {
+    background-color: var(--cor-texto-suave);
 }
 
 .player-fixo .botao-verde {
@@ -1723,13 +1765,9 @@ a {
         height: 32px;
     }
 
-    /* no figma do celular não aparece o texto "Volume", mas ele continua lá pro leitor de tela */
+    /* no figma do celular não aparece o texto "Volume" (o leitor de tela usa o aria-label da barra) */
     .volume-rotulo {
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        clip-path: inset(50%);
-        white-space: nowrap;
+        display: none;
     }
 
     .volume-barra {
@@ -1815,10 +1853,10 @@ a {
         height: 26px;
     }
 
-    /* no celular o volume é pelo botão do aparelho, fica só o alto-falante numa bolinha (o js pode usar pra tirar o som) */
-    .player-fixo .volume {
+    /* no celular o volume é pelo botão do aparelho, fica só o botão de mudo numa bolinha */
+    .player-fixo .botao-mudo {
+        align-items: center;
         justify-content: center;
-        flex-shrink: 0;
         width: 40px;
         height: 40px;
         border: 1px solid var(--cor-borda-verde);

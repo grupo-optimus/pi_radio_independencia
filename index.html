@@ -40,6 +40,11 @@
       <path d="M17.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
     </symbol>
 
+    <symbol id="icone-mudo" viewBox="0 0 24 24">
+      <path d="M4 9h4l4-4v14l-4-4H4V9Z" fill="currentColor"/>
+      <path d="m15.5 9.5 5 5M20.5 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+
     <symbol id="icone-menu" viewBox="0 0 24 24">
       <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
     </symbol>
@@ -213,12 +218,14 @@
             <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-play"></use></svg>
           </button>
 
-          <!-- controle de volume -->
-          <label class="volume">
-            <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-volume"></use></svg>
-            <span class="volume-rotulo">Volume</span>
-            <input class="volume-barra" type="range" min="0" max="100" value="70" data-volume>
-          </label>
+          <!-- controle de volume com o botão de mudo no alto-falante -->
+          <div class="volume">
+            <button class="botao-mudo" type="button" aria-label="Tirar o som" aria-pressed="false" data-mudo>
+              <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-volume"></use></svg>
+            </button>
+            <span class="volume-rotulo" aria-hidden="true">Volume</span>
+            <input class="volume-barra" type="range" min="0" max="100" value="70" aria-label="Volume" data-volume>
+          </div>
 
           <!-- botão que abre a janela de pedido de música -->
           <button class="botao botao-contorno-claro" type="button" data-abrir-modal="modal-pedido">Peça uma música</button>
@@ -598,17 +605,20 @@
 
     <!-- informações do programa no ar -->
     <div class="player-fixo-info">
-      <p class="player-fixo-rotulo"><span class="ponto-ao-vivo" aria-hidden="true"></span> Ao vivo em 92,7 FM</p>
+      <!-- o javascript troca "Pausado" por "Ao vivo" quando a rádio está tocando -->
+      <p class="player-fixo-rotulo"><span class="ponto-ao-vivo" aria-hidden="true"></span> <span><span data-estado-player>Pausado</span> · 92,7 FM</span></p>
       <p class="player-fixo-programa" data-programa-atual>Show da Tarde</p>
       <p class="player-fixo-locutor" data-locutor-atual>com Jeferson Luis "Black"</p>
     </div>
 
-    <!-- controle de volume do player fixo -->
-    <label class="volume">
-      <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-volume"></use></svg>
-      <span class="volume-rotulo">Volume</span>
-      <input class="volume-barra" type="range" min="0" max="100" value="70" data-volume>
-    </label>
+    <!-- controle de volume do player fixo com o botão de mudo -->
+    <div class="volume">
+      <button class="botao-mudo" type="button" aria-label="Tirar o som" aria-pressed="false" data-mudo>
+        <svg class="icone icone-svg" aria-hidden="true" focusable="false"><use href="#icone-volume"></use></svg>
+      </button>
+      <span class="volume-rotulo" aria-hidden="true">Volume</span>
+      <input class="volume-barra" type="range" min="0" max="100" value="70" aria-label="Volume" data-volume>
+    </div>
 
     <!-- botão que abre a janela de pedido de música -->
     <button class="botao botao-verde" type="button" data-abrir-modal="modal-pedido">
