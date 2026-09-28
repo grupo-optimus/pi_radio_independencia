@@ -1025,8 +1025,14 @@ a {
     height: 24px;
 }
 
+/* seta apagada quando o carrossel já está no começo ou no fim (o js marca com aria-disabled) */
+.seta[aria-disabled="true"] {
+    opacity: 0.4;
+    cursor: default;
+}
+
 /* 4 cards de 282px enchem os 1200px, o quinto aparece cortado na borda */
-/* sem barra de rolagem porque o carrossel anda pelas setas (js depois) ou arrastando */
+/* sem barra de rolagem porque o carrossel anda pelas setas ou arrastando */
 .carrossel {
     display: flex;
     gap: 24px;
@@ -1097,6 +1103,7 @@ a {
     height: 8px;
     border-radius: 999px;
     background-color: var(--cor-borda-clara);
+    transition: width 0.3s ease, background-color 0.3s ease;
 }
 
 .ponto.ativo {
