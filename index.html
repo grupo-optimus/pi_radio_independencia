@@ -199,7 +199,7 @@
       <article class="player-card" aria-label="Player ao vivo">
 
         <!-- foto do locutor que está no ar com selo ao vivo por cima -->
-        <!-- a foto muda conforme o horário da programação -->
+        <!-- a foto, o programa e o locutor mudam conforme o horário da programação (javascript) -->
         <figure class="player-card-foto">
           <img src="img/equipe/jeferson-black.jpg" alt="Locutor no estúdio da Rádio Independência" data-foto-atual>
           <span class="selo-vermelho">Ao vivo</span>
@@ -275,44 +275,9 @@
       </div>
 
       <!-- lista de programas em ordem de horário -->
-      <!-- o programa no ar recebe a classe no-ar e o javascript marca pelo horário -->
-      <ol class="linha-programas" data-dia-lista="semana">
-        <li class="programa" data-inicio="06:00" data-fim="09:00">
-          <time class="programa-horario">06:00 às 09:00</time>
-          <h3 class="programa-nome">Amanhecer na Costa Oeste</h3>
-          <p class="programa-locutor">Valdecir "Xi"</p>
-        </li>
-        <li class="programa" data-inicio="09:00" data-fim="12:00">
-          <time class="programa-horario">09:00 às 12:00</time>
-          <h3 class="programa-nome">Programa Livre</h3>
-          <p class="programa-locutor">Valdecir "Xi"</p>
-        </li>
-        <li class="programa" data-inicio="12:00" data-fim="13:00">
-          <time class="programa-horario">12:00 às 13:00</time>
-          <h3 class="programa-nome">Costa Oeste News</h3>
-          <p class="programa-locutor">João Hermes</p>
-        </li>
-        <li class="programa no-ar" data-inicio="14:00" data-fim="17:00" aria-current="true">
-          <!-- marcador que mostra a hora atual na linha do tempo, fica em cima do programa no ar e o javascript leva ele junto com a classe no-ar -->
-          <p class="agora-marcador" data-hora-atual>Agora 15:20</p>
-          <time class="programa-horario">14:00 às 17:00</time>
-          <span class="selo-no-ar">No ar</span>
-          <h3 class="programa-nome">Show da Tarde</h3>
-          <p class="programa-locutor">Jeferson "Black"</p>
-          <!-- barra que mostra quanto do programa já passou -->
-          <span class="programa-progresso" aria-hidden="true"><span class="programa-progresso-barra"></span></span>
-        </li>
-        <li class="programa" data-inicio="17:00" data-fim="18:00">
-          <time class="programa-horario">17:00 às 18:00</time>
-          <h3 class="programa-nome">Serranópolis em Destaque</h3>
-          <p class="programa-locutor">Neilor de C.</p>
-        </li>
-        <li class="programa" data-inicio="18:00" data-fim="19:00">
-          <time class="programa-horario">18:00 às 19:00</time>
-          <h3 class="programa-nome">Encontro de Bandas</h3>
-          <p class="programa-locutor">Valdir H. Brod</p>
-        </li>
-      </ol>
+      <!-- os cards são montados pelo javascript com a grade do arquivo js/programacao.js -->
+      <!-- o programa no ar ganha a classe no-ar com o marcador "Agora" e a barra de andamento, os que já passaram ganham a classe ja-passou -->
+      <ol class="linha-programas" data-lista-programas></ol>
 
       <!-- aviso temporário até chegar a grade real da rádio -->
       <p class="aviso">Horários ilustrativos, aguardando a grade real da rádio.</p>
@@ -692,7 +657,10 @@
     <button class="botao botao-verde botao-largo" type="button" data-fechar-modal>Voltar a ouvir</button>
   </dialog>
 
-  <!-- arquivo de javascript que vamos criar depois para player carrossel programação e modo escuro -->
+  <!-- grade da programação (tem que vir antes do script.js, que usa ela) -->
+  <script src="js/programacao.js" defer></script>
+
+  <!-- javascript do site: player, programação, modo escuro e o resto -->
   <script src="js/script.js" defer></script>
 </body>
 </html>
