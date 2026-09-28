@@ -9,8 +9,13 @@
     --cor-borda-clara: #e3e8e5;
     --cor-verde-acinzentado: #dce9e1; /* fundo da foto e do mapa e a linha do tempo do quem somos */
     --cor-borda-verde: #c9ddd1; /* borda e trilho do volume do player fixo */
+    --cor-verde-texto: #0c8a40; /* verde dos textos e links, o mesmo nos dois modos */
+    --cor-cartao: #ffffff; /* fundo dos cards da programação e do formulário de pedido */
+    --cor-placeholder: #9aa59f;
+    --cor-branco: #ffffff; /* texto e ícones em cima do verde e das partes pretas, é branco nos dois modos */
 
-    /* cores do card do player (fundo preto) */
+    /* cores das partes pretas: card do player, faixa dos números e rodapé */
+    --cor-fundo-escuro: #111111;
     --cor-verde-brilhante: #6fd39a;
     --cor-cinza-escuro: #1f1f1f;
     --cor-borda-escura: #2a2a2a;
@@ -24,6 +29,31 @@
 
     /* espaço que o player fixo ocupa na base da tela: 76px de altura + 24px de distância da base */
     --espaco-player-fixo: 100px;
+}
+
+/* modo escuro: as mesmas variáveis, com base nos frames "· Escuro" do figma */
+/* os fundos, cartões e bordas são verdes escuros mais saturados que os do figma, que ficavam cinzentos e sem vida */
+/* o script no <head> e o botão de tema colocam data-tema="escuro" no <html> */
+html[data-tema="escuro"] {
+    --cor-fundo: #0a120e;
+    --cor-texto: #f2f5f3;
+    --cor-texto-suave: #a3b1a9;
+    --cor-verde-claro: #0d2418;
+    --cor-vermelho: #f2555a;
+    --cor-borda-clara: #20362a;
+    --cor-verde-acinzentado: #143323;
+    --cor-borda-verde: #1d4430;
+    --cor-verde-texto: #0c8a40;
+    --cor-cartao: #0f1d16;
+    --cor-placeholder: #6d7a73;
+
+    --cor-fundo-escuro: #0c1f15;
+    --cor-cinza-escuro: #15301f;
+    --cor-borda-escura: #1f3a2b;
+    --cor-texto-apagado: #9aa69f;
+
+    /* barras de rolagem, campos e a janela de pedido do navegador também ficam escuros */
+    color-scheme: dark;
 }
 
 *,
@@ -42,6 +72,13 @@ body {
     font-family: var(--fonte-texto);
     color: var(--cor-texto);
     background-color: var(--cor-fundo);
+}
+
+/* modo escuro: brilho verde no alto da página, do tamanho da primeira tela, atrás do cabeçalho e do hero */
+html[data-tema="escuro"] body {
+    background-image: radial-gradient(60% 70% at 85% 20%, rgba(12, 138, 64, 0.22), transparent 70%);
+    background-size: 100% 100svh;
+    background-repeat: no-repeat;
 }
 
 /* botões e campos usam a fonte da página em vez da fonte padrão do navegador */
@@ -68,6 +105,11 @@ a {
     z-index: 10;
 }
 
+/* no modo escuro o cabeçalho fica transparente para o brilho verde do fundo passar por trás dele */
+html[data-tema="escuro"] .cabecalho {
+    background-color: transparent;
+}
+
 .logo {
     display: flex;
     align-items: center;
@@ -80,6 +122,16 @@ a {
     display: block;
     height: 56px;
     width: auto;
+}
+
+/* no modo escuro entra a logo com as letras brancas, a normal tem partes cinza escuro que somem no fundo escuro */
+.logo-modo-escuro,
+html[data-tema="escuro"] .logo-modo-claro {
+    display: none;
+}
+
+html[data-tema="escuro"] .logo-modo-escuro {
+    display: block;
 }
 
 /* o menu vai pra direita e fica a 64px do botão de tema (36 de margem + 28 do gap do cabeçalho) */
@@ -106,7 +158,7 @@ a {
 /* link da seção atual fica verde e sublinhado igual ao hover */
 .menu a:hover,
 .menu a[aria-current="page"] {
-    color: var(--cor-verde);
+    color: var(--cor-verde-texto);
 }
 
 .menu a:hover {
@@ -142,6 +194,7 @@ a {
     border-radius: 999px;
     background-color: var(--cor-texto-suave);
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .botao-tema-bolinha {
@@ -149,16 +202,35 @@ a {
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background-color: var(--cor-fundo);
+    background-color: var(--cor-branco);
+    transition: transform 0.3s ease;
 }
 
-/* sol verde dentro da bolinha do botão de tema */
+/* sol verde dentro da bolinha do botão de tema, no modo escuro vira a lua */
 .tema-icone {
     display: block;
     width: 16px;
     height: 16px;
     margin: 3px;
     color: var(--cor-verde);
+}
+
+.tema-icone-lua,
+html[data-tema="escuro"] .tema-icone-sol {
+    display: none;
+}
+
+html[data-tema="escuro"] .tema-icone-lua {
+    display: block;
+}
+
+/* modo escuro ligado: fundo verde e a bolinha vai pra direita (52 de largura - 3 - 3 de padding - 22 da bolinha = 24) */
+html[data-tema="escuro"] .botao-tema {
+    background-color: var(--cor-verde);
+}
+
+html[data-tema="escuro"] .botao-tema-bolinha {
+    transform: translateX(24px);
 }
 
 /* o botão do menu só aparece no tablet e no celular (ver o responsivo no fim do arquivo) */
@@ -208,9 +280,14 @@ a {
     background-color: #000000;
 }
 
+/* no modo escuro o botão escuro é claro, então no hover ele clareia em vez de escurecer */
+html[data-tema="escuro"] .botao-escuro:hover {
+    background-color: var(--cor-branco);
+}
+
 .botao-verde {
     background-color: var(--cor-verde);
-    color: var(--cor-fundo);
+    color: var(--cor-branco);
 }
 
 .botao-verde:hover {
@@ -234,16 +311,16 @@ a {
 
 /* contorno branco para usar em cima de fundo escuro */
 .botao-contorno-claro {
-    border: 1.5px solid var(--cor-fundo);
+    border: 1.5px solid var(--cor-branco);
     background-color: transparent;
-    color: var(--cor-fundo);
+    color: var(--cor-branco);
     transition: transform 0.6s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .botao-contorno-claro:hover {
     transform: scale(1.05);
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
+    background-color: var(--cor-branco);
+    color: var(--cor-fundo-escuro);
 }
 
 /* botão que ocupa a largura toda, usado nos formulários de pedido */
@@ -293,7 +370,7 @@ a {
     padding: 9px 16px;
     border-radius: 999px;
     background-color: var(--cor-verde-claro);
-    color: var(--cor-verde);
+    color: var(--cor-verde-texto);
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -309,7 +386,7 @@ a {
 }
 
 .destaque {
-    color: var(--cor-verde);
+    color: var(--cor-verde-texto);
 }
 
 .hero-descricao {
@@ -348,7 +425,7 @@ a {
     height: 40px;
     padding: 6px;
     border-radius: 50%;
-    background-color: var(--cor-fundo);
+    background-color: var(--cor-branco);
     color: var(--cor-verde);
 }
 
@@ -356,8 +433,8 @@ a {
 .player-card {
     padding: 16px;
     border-radius: 28px;
-    background-color: var(--cor-texto);
-    color: var(--cor-fundo);
+    background-color: var(--cor-fundo-escuro);
+    color: var(--cor-branco);
 }
 
 /* área da foto, o selo ao vivo fica por cima */
@@ -394,7 +471,7 @@ a {
     padding: 0 18px;
     border-radius: 999px;
     background-color: var(--cor-vermelho);
-    color: var(--cor-fundo);
+    color: var(--cor-branco);
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -448,7 +525,7 @@ a {
     border: none;
     border-radius: 50%;
     background-color: var(--cor-verde);
-    color: var(--cor-fundo);
+    color: var(--cor-branco);
     cursor: pointer;
     transition: transform 0.6s ease;
 }
@@ -510,7 +587,7 @@ a {
 .volume-barra::-webkit-slider-runnable-track {
     height: 4px;
     border-radius: 999px;
-    background: linear-gradient(to right, var(--cor-fundo) var(--volume, 70%), var(--cor-borda-escura) var(--volume, 70%));
+    background: linear-gradient(to right, var(--cor-branco) var(--volume, 70%), var(--cor-borda-escura) var(--volume, 70%));
 }
 
 .volume-barra::-webkit-slider-thumb {
@@ -519,7 +596,7 @@ a {
     height: 16px;
     margin-top: -6px; /* centraliza a bolinha de 16px no trilho de 4px */
     border-radius: 50%;
-    background-color: var(--cor-fundo);
+    background-color: var(--cor-branco);
 }
 
 /* firefox: tem a parte cheia pronta (progress) */
@@ -532,7 +609,7 @@ a {
 .volume-barra::-moz-range-progress {
     height: 4px;
     border-radius: 999px;
-    background-color: var(--cor-fundo);
+    background-color: var(--cor-branco);
 }
 
 .volume-barra::-moz-range-thumb {
@@ -540,7 +617,7 @@ a {
     height: 16px;
     border: none;
     border-radius: 50%;
-    background-color: var(--cor-fundo);
+    background-color: var(--cor-branco);
 }
 
 /* mudo: o alto-falante ganha um x, ele e a bolinha ficam apagados e o js leva a barra pro zero */
@@ -598,7 +675,7 @@ a {
     line-height: 1.3;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--cor-verde);
+    color: var(--cor-verde-texto);
 }
 
 .secao-titulo {
@@ -610,8 +687,8 @@ a {
 
 /* faixa preta dos números: 180px de altura, 4 colunas de 300px separadas por uma linha de 84px */
 .numeros {
-    background-color: var(--cor-texto);
-    color: var(--cor-fundo);
+    background-color: var(--cor-fundo-escuro);
+    color: var(--cor-branco);
 }
 
 .numeros-lista {
@@ -642,7 +719,7 @@ a {
 }
 
 .numero-verde {
-    color: var(--cor-verde);
+    color: var(--cor-verde-texto);
 }
 
 .numero-legenda {
@@ -706,7 +783,7 @@ a {
     padding: 19px 19px 41px;
     border: 1px solid var(--cor-borda-clara);
     border-radius: 20px;
-    background-color: var(--cor-fundo);
+    background-color: var(--cor-cartao);
 }
 
 /* pedaço da linha do tempo em cima do card, vai até o card seguinte */
@@ -765,7 +842,7 @@ a {
 .programa.no-ar {
     border-color: var(--cor-verde);
     background-color: var(--cor-verde);
-    color: var(--cor-fundo);
+    color: var(--cor-branco);
 }
 
 .programa.no-ar .programa-horario,
@@ -795,7 +872,7 @@ a {
     padding: 0 12px;
     border-radius: 999px;
     background-color: var(--cor-verde);
-    color: var(--cor-fundo);
+    color: var(--cor-branco);
     font-size: 12px;
     font-weight: 600;
     line-height: 1.3;
@@ -843,7 +920,7 @@ a {
     height: 24px;
     padding: 0 11px;
     border-radius: 999px;
-    background-color: var(--cor-fundo);
+    background-color: var(--cor-branco);
     color: var(--cor-verde);
     font-size: 11px;
     font-weight: 600;
@@ -869,7 +946,7 @@ a {
     width: 45%;
     height: 100%;
     border-radius: inherit;
-    background-color: var(--cor-fundo);
+    background-color: var(--cor-branco);
 }
 
 .aviso {
@@ -903,8 +980,8 @@ a {
     width: fit-content;
     margin-top: 20px;
     padding-bottom: 1px;
-    border-bottom: 2px solid var(--cor-verde);
-    color: var(--cor-verde);
+    border-bottom: 2px solid var(--cor-verde-texto);
+    color: var(--cor-verde-texto);
     font-size: 16px;
     font-weight: 500;
     line-height: 1.5;
@@ -947,6 +1024,11 @@ a {
     background-color: var(--cor-verde-acinzentado);
 }
 
+/* no figma escuro a linha é um pouco mais clara que o fundo da foto */
+html[data-tema="escuro"] .linha-tempo::before {
+    background-color: var(--cor-borda-verde);
+}
+
 .marco {
     position: relative;
 }
@@ -974,7 +1056,7 @@ a {
     font-size: 28px;
     font-weight: 800;
     line-height: 1.2;
-    color: var(--cor-verde);
+    color: var(--cor-verde-texto);
 }
 
 .marco-titulo {
@@ -1085,7 +1167,7 @@ a {
     padding: 0 14px;
     border-radius: 999px;
     background-color: var(--cor-verde-claro);
-    color: var(--cor-verde);
+    color: var(--cor-verde-texto);
     font-size: 12px;
     font-weight: 500;
 }
@@ -1119,7 +1201,7 @@ a {
     column-gap: 80px;
     padding: 80px max(24px, calc((100% - var(--largura-conteudo)) / 2));
     background-color: var(--cor-verde);
-    color: var(--cor-fundo);
+    color: var(--cor-branco);
 }
 
 /* o card do formulário fica 16px mais alto que o texto */
@@ -1170,7 +1252,7 @@ a {
 .pedido .formulario {
     padding: 32px 32px 16px;
     border-radius: 24px;
-    background-color: var(--cor-fundo);
+    background-color: var(--cor-cartao);
     color: var(--cor-texto);
 }
 
@@ -1211,7 +1293,7 @@ a {
 
 .campo input::placeholder,
 .campo textarea::placeholder {
-    color: #9aa59f;
+    color: var(--cor-placeholder);
     opacity: 1;
 }
 
@@ -1354,6 +1436,11 @@ a {
   height: 100%;
 }
 
+/* o google maps não tem modo escuro no embed: o filtro inverte as cores e o hue-rotate devolve o verde e o azul */
+html[data-tema="escuro"] .mapa-area iframe {
+  filter: invert(90%) hue-rotate(180deg);
+}
+
 .mapa-info {
   flex: 1;
   display: flex;
@@ -1368,7 +1455,7 @@ a {
 }
 
 .mapa-endereco {
-  color: #555;
+  color: var(--cor-texto-suave);
 }
 
 /* no celular, empilha o mapa em cima e as infos embaixo */
@@ -1381,11 +1468,12 @@ a {
     min-height: 280px;
   }
 }
-/* no figma o como chegar é preto */
+/* no figma o como chegar é preto (no modo escuro fica claro com o texto escuro) */
 .mapa-info .botao-verde {
     height: 48px;
     margin-top: 12px;
     background-color: var(--cor-texto);
+    color: var(--cor-fundo);
 }
 
 /* rodapé: fundo preto, logo e frase na esquerda e as 3 colunas de links (200px) na direita */
@@ -1395,7 +1483,7 @@ a {
     grid-template-columns: minmax(0, 1fr) repeat(3, 200px);
     column-gap: 40px;
     padding: 72px max(24px, calc((100% - var(--largura-conteudo)) / 2)) calc(28px + var(--espaco-player-fixo));
-    background-color: var(--cor-texto);
+    background-color: var(--cor-fundo-escuro);
     color: var(--cor-texto-apagado);
 }
 
@@ -1417,7 +1505,7 @@ a {
     font-size: 14px;
     font-weight: 600;
     line-height: 1.3;
-    color: var(--cor-fundo);
+    color: var(--cor-branco);
 }
 
 .rodape-coluna ul {
@@ -1445,7 +1533,7 @@ a {
 
 .rodape-coluna a:hover,
 .link-rodape:hover {
-    color: var(--cor-fundo);
+    color: var(--cor-branco);
 }
 
 .rodape-direitos {

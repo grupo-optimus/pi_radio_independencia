@@ -19,11 +19,12 @@
    BASE DA PÁGINA
    ========================= */
 
+/* modo escuro: os mesmos verdes escuros do style.css (verde-claro, cartao e borda-clara) */
 html[data-tema="escuro"] {
-    --historia-fundo-secao: #14251c;
-    --historia-fundo-cartao: #111814;
-    --historia-borda: #2c4437;
-    --historia-texto-suave: #a4b0aa;
+    --historia-fundo-secao: #0d2418;
+    --historia-fundo-cartao: #0f1d16;
+    --historia-borda: #20362a;
+    --historia-texto-suave: #a3b1a9;
 }
 
 body {
@@ -46,7 +47,7 @@ body {
 }
 
 .migalhas a:hover {
-    color: var(--cor-verde);
+    color: var(--cor-verde-texto);
 }
 
 .migalhas span[aria-current="page"] {
@@ -71,7 +72,7 @@ body {
 
 .historia-hero .secao-rotulo {
     margin-bottom: 12px;
-    color: var(--cor-verde);
+    color: var(--cor-verde-texto);
 }
 
 .historia-hero-titulo {
@@ -86,7 +87,7 @@ body {
 }
 
 .historia-hero-titulo .destaque {
-    color: var(--cor-verde);
+    color: var(--cor-verde-texto);
 }
 
 .historia-hero-descricao {
@@ -190,7 +191,7 @@ body {
 }
 
 .historia-player .player-card-rotulo {
-    color: var(--cor-verde);
+    color: var(--cor-verde-texto);
     font-size: 9px;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -447,7 +448,7 @@ body {
 .historia-marco-ano {
     display: block;
     margin-top: 14px;
-    color: var(--cor-verde);
+    color: var(--cor-verde-texto);
     font-family: var(--fonte-titulo);
     font-size: 23px;
     font-weight: 800;
@@ -697,8 +698,8 @@ body {
     gap: 36px;
     align-items: center;
     padding: 54px max(var(--historia-gutter), calc((100% - var(--historia-largura)) / 2));
-    background: var(--cor-texto);
-    color: var(--cor-fundo);
+    background: var(--cor-fundo-escuro);
+    color: var(--cor-branco);
 }
 
 .historia-cta-texto h2 {
