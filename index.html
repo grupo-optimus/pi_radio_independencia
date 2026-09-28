@@ -29,6 +29,11 @@
       <path d="M8 5.8v12.4L18 12 8 5.8Z" fill="currentColor"/>
     </symbol>
 
+    <symbol id="icone-pausa" viewBox="0 0 24 24">
+      <rect x="7" y="6" width="3.5" height="12" rx="1" fill="currentColor"/>
+      <rect x="13.5" y="6" width="3.5" height="12" rx="1" fill="currentColor"/>
+    </symbol>
+
     <symbol id="icone-volume" viewBox="0 0 24 24">
       <path d="M4 9h4l4-4v14l-4-4H4V9Z" fill="currentColor"/>
       <path d="M15 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
@@ -583,7 +588,8 @@
   </footer>
 
   <!-- player fixo no rodapé da tela que aparece em todas as páginas -->
-  <aside class="player-fixo" aria-label="Player ao vivo">
+  <!-- aqui ele começa escondido e o javascript mostra quando o card grande do player sai da tela -->
+  <aside class="player-fixo escondido" aria-label="Player ao vivo">
 
     <!-- botão de tocar e pausar -->
     <button class="botao-play" type="button" data-acao="tocar" aria-label="Tocar rádio ao vivo">
@@ -611,9 +617,8 @@
     </button>
   </aside>
 
-  <!-- áudio do streaming ao vivo -->
-  <!-- o link do streaming da rádio entra no src -->
-  <audio id="radio-audio" src="" preload="none"></audio>
+  <!-- áudio do streaming ao vivo da rádio, só começa a baixar quando alguém aperta o play -->
+  <audio id="radio-audio" src="https://str1.streamhostpg.com.br:8128/stream" preload="none"></audio>
 
   <!-- janela de pedido de música que abre pelos botões peça uma música -->
   <dialog class="modal" id="modal-pedido" aria-labelledby="modal-pedido-titulo">
