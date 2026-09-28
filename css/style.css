@@ -8,6 +8,7 @@
     --cor-vermelho: #e5484d;
     --cor-borda-clara: #e3e8e5;
     --cor-verde-acinzentado: #dce9e1; /* fundo da foto e do mapa e a linha do tempo do quem somos */
+    --cor-borda-verde: #c9ddd1; /* borda e trilho do volume do player fixo */
 
     /* cores do card do player (fundo preto) */
     --cor-verde-brilhante: #6fd39a;
@@ -20,6 +21,9 @@
 
     --largura-conteudo: 1200px;
     --espacamento-secao: 96px;
+
+    /* espaço que o player fixo ocupa na base da tela: 76px de altura + 24px de distância da base */
+    --espaco-player-fixo: 100px;
 }
 
 *,
@@ -252,12 +256,14 @@ a {
     transform: none;
 }
 
+/* o flex-shrink 0 impede a bolinha de encolher até sumir quando falta espaço */
 .ponto-ao-vivo {
     width: 8px;
     height: 8px;
     border-radius: 50%;
     background-color: var(--cor-vermelho);
     display: inline-block;
+    flex-shrink: 0;
 }
 
 /* ícones em svg: o desenho de cada um fica no sprite no começo do index.html e usa a cor do texto (currentColor) */
@@ -270,12 +276,13 @@ a {
 }
 
 /* hero: texto na esquerda e card do player na direita (card tem 520px no figma) */
+/* a altura enche a tela menos o cabeçalho (88px) e a faixa dos números (180px), assim a faixa preta aparece encaixada na base ao entrar no site */
 .hero {
     display: grid;
     grid-template-columns: 1fr 520px;
     gap: 80px;
     align-items: center;
-    min-height: 640px;
+    min-height: calc(100svh - 88px - 180px);
     padding: 64px max(24px, calc((100% - var(--largura-conteudo)) / 2));
 }
 
@@ -605,7 +612,7 @@ a {
 }
 
 .numero-verde {
-    color: var(--cor-verde-brilhante);
+    color: var(--cor-verde);
 }
 
 .numero-legenda {
@@ -1331,11 +1338,12 @@ a {
 }
 
 /* rodapé: fundo preto, logo e frase na esquerda e as 3 colunas de links (200px) na direita */
+/* embaixo tem os 28px do figma mais o espaço do player fixo, para ele não cobrir a linha dos direitos */
 .rodape {
     display: grid;
     grid-template-columns: minmax(0, 1fr) repeat(3, 200px);
     column-gap: 40px;
-    padding: 72px max(24px, calc((100% - var(--largura-conteudo)) / 2)) 28px;
+    padding: 72px max(24px, calc((100% - var(--largura-conteudo)) / 2)) calc(28px + var(--espaco-player-fixo));
     background-color: var(--cor-texto);
     color: var(--cor-texto-apagado);
 }
@@ -1396,6 +1404,141 @@ a {
     border-top: 1px solid var(--cor-borda-escura);
     font-size: 13px;
     line-height: 1.3;
+}
+
+/* player fixo: flutua na base da tela, centralizado (componente "Player fixo" do figma, 880x76) */
+/* por enquanto aparece sempre, depois o js esconde enquanto o card do player do hero estiver na tela */
+.player-fixo {
+    position: fixed;
+    right: 0;
+    bottom: 24px;
+    left: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: min(880px, 100% - 48px);
+    height: 76px;
+    margin-inline: auto;
+    padding: 0 14px;
+    border: 1px solid var(--cor-borda-verde);
+    border-radius: 20px;
+    background-color: var(--cor-verde-claro);
+    box-shadow: 0 12px 32px rgba(17, 17, 17, 0.14);
+    transition: transform 0.4s ease, opacity 0.4s ease, visibility 0.4s;
+}
+
+/* classe que o js vai colocar para esconder o player, ele desce pra fora da tela e some */
+.player-fixo.escondido {
+    transform: translateY(calc(100% + 24px));
+    opacity: 0;
+    visibility: hidden;
+}
+
+.player-fixo .botao-play {
+    width: 48px;
+    height: 48px;
+}
+
+.player-fixo .botao-play .icone-svg {
+    width: 28px;
+    height: 28px;
+}
+
+/* os textos ficam no espaço do meio, nome comprido demais termina em reticências */
+/* o overflow hidden corta o rótulo em telas apertadas para ele não passar por cima do volume */
+.player-fixo-info {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.player-fixo-rotulo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--cor-texto-suave);
+}
+
+.player-fixo-programa,
+.player-fixo-locutor {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.player-fixo-programa {
+    margin-top: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.player-fixo-locutor {
+    margin-top: 4px;
+    font-size: 13px;
+    line-height: 1.2;
+    color: var(--cor-texto-suave);
+}
+
+/* volume do player fixo: barra de 120px preta no fundo claro e sem o texto "Volume" embaixo */
+.player-fixo .volume {
+    gap: 10px;
+}
+
+/* o texto "Volume" não aparece, mas continua lá pro leitor de tela */
+.player-fixo .volume-rotulo {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.player-fixo .volume-barra {
+    width: 120px;
+    height: 14px;
+}
+
+.player-fixo .volume-barra::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, var(--cor-texto) var(--volume, 70%), var(--cor-borda-verde) var(--volume, 70%));
+}
+
+.player-fixo .volume-barra::-webkit-slider-thumb {
+    width: 14px;
+    height: 14px;
+    margin-top: -5px; /* centraliza a bolinha de 14px no trilho de 4px */
+    background-color: var(--cor-texto);
+}
+
+.player-fixo .volume-barra::-moz-range-track {
+    background-color: var(--cor-borda-verde);
+}
+
+.player-fixo .volume-barra::-moz-range-progress {
+    background-color: var(--cor-texto);
+}
+
+.player-fixo .volume-barra::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background-color: var(--cor-texto);
+}
+
+.player-fixo .botao-verde {
+    height: 48px;
+    padding: 0 21px;
+}
+
+/* no figma a nota musical fica depois do texto */
+.player-fixo .botao-verde .icone-svg {
+    order: 1;
 }
 
 .pular-conteudo {
@@ -1646,7 +1789,58 @@ a {
 
     .rodape {
         grid-template-columns: minmax(0, 1fr);
-        padding: 56px 20px 28px;
+        padding: 56px 20px calc(28px + var(--espaco-player-fixo));
+    }
+
+    /* player fixo compacto do figma: 16px das bordas, play menor e o volume e o pedido viram bolinhas */
+    /* 76px de altura + 16px da base */
+    :root {
+        --espaco-player-fixo: 92px;
+    }
+
+    .player-fixo {
+        bottom: 16px;
+        gap: 12px;
+        width: calc(100% - 32px);
+        padding: 0 12px;
+    }
+
+    .player-fixo .botao-play {
+        width: 44px;
+        height: 44px;
+    }
+
+    .player-fixo .botao-play .icone-svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    /* no celular o volume é pelo botão do aparelho, fica só o alto-falante numa bolinha (o js pode usar pra tirar o som) */
+    .player-fixo .volume {
+        justify-content: center;
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--cor-borda-verde);
+        border-radius: 50%;
+    }
+
+    .player-fixo .volume .icone-svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .player-fixo .volume-barra {
+        display: none;
+    }
+
+    /* só a nota musical aparece, o font-size 0 esconde o texto mas ele continua sendo o nome do botão pro leitor de tela */
+    .player-fixo .botao-verde {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        gap: 0;
+        font-size: 0;
     }
 
     /* números em 2 colunas e 2 linhas, sem as linhas divisórias (228px de altura no figma) */
