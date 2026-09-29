@@ -1536,6 +1536,11 @@ html[data-tema="escuro"] .mapa-area iframe {
     color: var(--cor-branco);
 }
 
+/* o e-mail tem um <wbr> depois do @ para quebrar no tablet, no desktop ele fica escondido e o e-mail fica numa linha só como no figma */
+.rodape-coluna wbr {
+    display: none;
+}
+
 .rodape-direitos {
     grid-column: 1 / -1;
     margin-top: 22px;
@@ -1789,6 +1794,11 @@ html[data-tema="escuro"] .mapa-area iframe {
 
     .rodape-marca {
         grid-column: 1 / -1;
+    }
+
+    /* nas colunas estreitas o e-mail inteiro não cabe e estourava a página para o lado: aqui ele quebra depois do @ */
+    .rodape-coluna wbr {
+        display: inline;
     }
 }
 
