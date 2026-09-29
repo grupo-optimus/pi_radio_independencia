@@ -5,7 +5,8 @@
 //   "inicio" e "fim": horário no formato "hh:mm" (um programa que vai até a meia-noite termina em "24:00")
 //   "programa": nome do programa
 //   "locutor": quem apresenta, deixe "" quando o programa não tem locutor
-//   "foto": caminho da foto do locutor, deixe "" para aparecer a logo da rádio no lugar
+//   "foto": caminho da foto do locutor (img/equipe) ou da imagem do programa (img/programas),
+//           deixe "" para aparecer a logo da rádio no lugar
 //
 // "segunda-a-quinta" vale de segunda a quinta, "sexta" só na sexta (muda só o fim da noite)
 // os programas de cada dia ficam em ordem de horário, sem um passar por cima do outro:
@@ -18,9 +19,9 @@ const programacao = {
         { "inicio": "05:00", "fim": "07:00", "programa": "Amanhecer na Costa Oeste", "locutor": "Valdecir Gonçalves “Xi”", "foto": "img/equipe/valdecir-xi.jpg" },
         { "inicio": "07:00", "fim": "08:00", "programa": "Tudo Sob Controle", "locutor": "João Hermes e Sergio Giembra", "foto": "img/equipe/joao-hermes.jpg" },
         { "inicio": "08:00", "fim": "10:00", "programa": "Bom dia Costa Oeste", "locutor": "Carlinhos Pessoa", "foto": "img/equipe/carlinhos-pessoa.jpg" },
-        { "inicio": "10:00", "fim": "11:00", "programa": "Experiência de Deus", "locutor": "Pe. Reginaldo Manzotti", "foto": "" },
+        { "inicio": "10:00", "fim": "11:00", "programa": "Experiência de Deus", "locutor": "Pe. Reginaldo Manzotti", "foto": "img/programas/experiencia-de-deus.jpg" },
         { "inicio": "11:00", "fim": "12:00", "programa": "Revista Costa Oeste", "locutor": "Sergio Giembra", "foto": "img/equipe/sergio-giembra.jpg" },
-        { "inicio": "12:00", "fim": "12:10", "programa": "Programa da Lar", "locutor": "", "foto": "" },
+        { "inicio": "12:00", "fim": "12:10", "programa": "Programa da Lar", "locutor": "", "foto": "img/programas/programa-da-lar.png" },
         { "inicio": "12:10", "fim": "13:00", "programa": "Revista Costa Oeste", "locutor": "Sergio Giembra", "foto": "img/equipe/sergio-giembra.jpg" },
         { "inicio": "13:00", "fim": "14:55", "programa": "Programa Livre", "locutor": "Valdecir Gonçalves “Xi”", "foto": "img/equipe/valdecir-xi.jpg" },
         { "inicio": "14:55", "fim": "15:00", "programa": "Momento Espírita", "locutor": "", "foto": "" },
@@ -28,7 +29,7 @@ const programacao = {
         { "inicio": "17:00", "fim": "18:00", "programa": "Canta Brasil", "locutor": "Carlinhos Pessoa", "foto": "img/equipe/carlinhos-pessoa.jpg" },
         { "inicio": "18:00", "fim": "18:05", "programa": "A Hora do Ângelus", "locutor": "", "foto": "" },
         { "inicio": "18:05", "fim": "19:00", "programa": "Canta Brasil", "locutor": "Carlinhos Pessoa", "foto": "img/equipe/carlinhos-pessoa.jpg" },
-        { "inicio": "19:10", "fim": "20:00", "programa": "Voz do Brasil", "locutor": "", "foto": "" },
+        { "inicio": "19:10", "fim": "20:00", "programa": "Voz do Brasil", "locutor": "", "foto": "img/programas/voz-do-brasil.png" },
         { "inicio": "20:00", "fim": "22:00", "programa": "Play List da 92", "locutor": "", "foto": "" },
         { "inicio": "22:10", "fim": "22:30", "programa": "Programa Tabernáculo da Fé", "locutor": "", "foto": "" },
         { "inicio": "22:30", "fim": "24:00", "programa": "Boa Noite da 92", "locutor": "", "foto": "" }
@@ -39,9 +40,9 @@ const programacao = {
         { "inicio": "05:00", "fim": "07:00", "programa": "Amanhecer na Costa Oeste", "locutor": "Valdecir Gonçalves “Xi”", "foto": "img/equipe/valdecir-xi.jpg" },
         { "inicio": "07:00", "fim": "08:00", "programa": "Tudo Sob Controle", "locutor": "João Hermes e Sergio Giembra", "foto": "img/equipe/joao-hermes.jpg" },
         { "inicio": "08:00", "fim": "10:00", "programa": "Bom dia Costa Oeste", "locutor": "Carlinhos Pessoa", "foto": "img/equipe/carlinhos-pessoa.jpg" },
-        { "inicio": "10:00", "fim": "11:00", "programa": "Experiência de Deus", "locutor": "Pe. Reginaldo Manzotti", "foto": "" },
+        { "inicio": "10:00", "fim": "11:00", "programa": "Experiência de Deus", "locutor": "Pe. Reginaldo Manzotti", "foto": "img/programas/experiencia-de-deus.jpg" },
         { "inicio": "11:00", "fim": "12:00", "programa": "Revista Costa Oeste", "locutor": "Sergio Giembra", "foto": "img/equipe/sergio-giembra.jpg" },
-        { "inicio": "12:00", "fim": "12:10", "programa": "Programa da Lar", "locutor": "", "foto": "" },
+        { "inicio": "12:00", "fim": "12:10", "programa": "Programa da Lar", "locutor": "", "foto": "img/programas/programa-da-lar.png" },
         { "inicio": "12:10", "fim": "13:00", "programa": "Revista Costa Oeste", "locutor": "Sergio Giembra", "foto": "img/equipe/sergio-giembra.jpg" },
         { "inicio": "13:00", "fim": "14:55", "programa": "Programa Livre", "locutor": "Valdecir Gonçalves “Xi”", "foto": "img/equipe/valdecir-xi.jpg" },
         { "inicio": "14:55", "fim": "15:00", "programa": "Momento Espírita", "locutor": "", "foto": "" },
@@ -49,7 +50,7 @@ const programacao = {
         { "inicio": "17:00", "fim": "18:00", "programa": "Canta Brasil", "locutor": "Carlinhos Pessoa", "foto": "img/equipe/carlinhos-pessoa.jpg" },
         { "inicio": "18:00", "fim": "18:05", "programa": "A Hora do Ângelus", "locutor": "", "foto": "" },
         { "inicio": "18:05", "fim": "19:00", "programa": "Canta Brasil", "locutor": "Carlinhos Pessoa", "foto": "img/equipe/carlinhos-pessoa.jpg" },
-        { "inicio": "19:10", "fim": "20:00", "programa": "Voz do Brasil", "locutor": "", "foto": "" },
+        { "inicio": "19:10", "fim": "20:00", "programa": "Voz do Brasil", "locutor": "", "foto": "img/programas/voz-do-brasil.png" },
         { "inicio": "20:00", "fim": "22:00", "programa": "Play List da 92", "locutor": "", "foto": "" },
         { "inicio": "22:00", "fim": "24:00", "programa": "Boa Noite da 92", "locutor": "", "foto": "" }
     ],
@@ -57,14 +58,14 @@ const programacao = {
     "sabado": [
         { "inicio": "00:10", "fim": "05:00", "programa": "Madrugadão da 92", "locutor": "", "foto": "" },
         { "inicio": "05:00", "fim": "06:00", "programa": "Chimarrão e Viola", "locutor": "Valdecir Gonçalves “Xi”", "foto": "img/equipe/valdecir-xi.jpg" },
-        { "inicio": "06:00", "fim": "06:03", "programa": "Expedição Costa Oeste", "locutor": "", "foto": "" },
+        { "inicio": "06:00", "fim": "06:03", "programa": "Expedição Costa Oeste", "locutor": "", "foto": "img/programas/expedicao-costa-oeste.png" },
         { "inicio": "06:03", "fim": "06:50", "programa": "Chimarrão e Viola", "locutor": "Valdecir Gonçalves “Xi”", "foto": "img/equipe/valdecir-xi.jpg" },
         { "inicio": "06:50", "fim": "07:00", "programa": "Programa do Sindicato Rural Patronal", "locutor": "", "foto": "" },
         { "inicio": "07:00", "fim": "08:00", "programa": "Costa Oeste em Pauta", "locutor": "João Hermes e Sergio Giembra", "foto": "img/equipe/joao-hermes.jpg" },
         { "inicio": "08:00", "fim": "10:00", "programa": "Sabashow", "locutor": "Carlinhos Pessoa", "foto": "img/equipe/carlinhos-pessoa.jpg" },
-        { "inicio": "10:00", "fim": "11:00", "programa": "Experiência de Deus", "locutor": "Pe. Reginaldo Manzotti", "foto": "" },
+        { "inicio": "10:00", "fim": "11:00", "programa": "Experiência de Deus", "locutor": "Pe. Reginaldo Manzotti", "foto": "img/programas/experiencia-de-deus.jpg" },
         { "inicio": "11:00", "fim": "12:00", "programa": "Sabashow", "locutor": "Carlinhos Pessoa", "foto": "img/equipe/carlinhos-pessoa.jpg" },
-        { "inicio": "12:00", "fim": "12:10", "programa": "Programa da Lar", "locutor": "", "foto": "" },
+        { "inicio": "12:00", "fim": "12:10", "programa": "Programa da Lar", "locutor": "", "foto": "img/programas/programa-da-lar.png" },
         { "inicio": "12:10", "fim": "12:20", "programa": "Programa da Paróquia de Medianeira", "locutor": "", "foto": "" },
         { "inicio": "12:20", "fim": "12:30", "programa": "Programa do Sindicato dos Trabalhadores Rurais de Medianeira", "locutor": "", "foto": "" },
         { "inicio": "12:30", "fim": "12:40", "programa": "Programa do Yanten", "locutor": "", "foto": "" },

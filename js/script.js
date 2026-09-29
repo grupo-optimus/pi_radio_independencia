@@ -241,7 +241,12 @@ function atualizarPlayerNoAr() {
         foto.src = caminhoFoto;
     }
 
-    foto.alt = programa.locutor ? programa.locutor + " no estúdio da Rádio Independência" : "Logo da Rádio Independência";
+    // o texto da imagem diz o que ela mostra: o locutor, a imagem do programa (programa sem locutor) ou a logo da rádio
+    if (!programa.foto) {
+        foto.alt = "Logo da Rádio Independência";
+    } else {
+        foto.alt = programa.locutor || programa.programa;
+    }
     foto.parentElement.classList.toggle("sem-foto", !programa.foto);
 }
 

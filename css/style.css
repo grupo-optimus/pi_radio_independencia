@@ -1138,6 +1138,13 @@ html[data-tema="escuro"] .linha-tempo::before {
     object-fit: cover;
 }
 
+/* membro sem foto: a logo branca da rádio aparece inteira no meio do fundo cinza, como no card do player */
+.membro-foto.sem-foto {
+    padding: 64px;
+    background-color: var(--cor-cinza-escuro);
+    object-fit: contain;
+}
+
 .membro-nome {
     margin-top: 24px;
     font-size: 19px;
