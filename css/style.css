@@ -985,7 +985,8 @@ html[data-tema="escuro"] .botao-escuro:hover {
     height: 16px;
 }
 
-/* foto histórica: enquanto a foto não chega fica o fundo verde acinzentado do figma */
+/* foto histórica: o fundo verde acinzentado do figma aparece enquanto a foto carrega */
+/* a faixa é baixa, então o enquadramento sobe e vai um pouco para a esquerda, assim o selo dos 35 anos e o letreiro aparecem em qualquer tela */
 .quem-somos-foto {
     display: block;
     width: 100%;
@@ -994,6 +995,7 @@ html[data-tema="escuro"] .botao-escuro:hover {
     border-radius: 20px;
     background-color: var(--cor-verde-acinzentado);
     object-fit: cover;
+    object-position: 30% 30%;
 }
 
 /* linha do tempo: a linha fica atrás das bolinhas e vai até o fim da coluna */

@@ -126,7 +126,6 @@ img/
 
 ## Pendências
 
-- A foto do Quem Somos aparece quebrada: o `index.html` aponta para `img/historia/foto-historica.jpg`, que foi apagada (a foto que existe é `foto-historica2021.jpg`)
 - Fotos que faltam: a do Joel Araújo e as fotos históricas da página de história (abertura, player, primeiros anos, 1978, 2000, hoje e cinco fotos da galeria)
 - Links das redes sociais (Instagram, Facebook e YouTube ainda estão com `#`)
 - Em telas de uns 640px, o e-mail do rodapé não cabe na coluna e cria uma rolagem para o lado
