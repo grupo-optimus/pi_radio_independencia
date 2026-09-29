@@ -1318,7 +1318,7 @@ html[data-tema="escuro"] .linha-tempo::before {
 }
 
 .contato-topo {
-    grid-column: 1 / -1;
+    grid-column: 1;
 }
 
 .contato-topo .secao-titulo + p {
@@ -1416,24 +1416,22 @@ html[data-tema="escuro"] .linha-tempo::before {
     color: var(--cor-texto-suave);
 }
 
-/* mapa: enquanto o google maps não entra, fica o desenho do figma com as ruas claras */
 .mapa {
-  display: flex;
-  gap: 24px;
-  align-items: stretch; /* faz os dois filhos terem a mesma altura */
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: start;
 }
 
 .mapa-area {
-  flex: 1.5; /* mapa ocupa mais espaço que as infos */
   min-height: 350px;
   border-radius: 12px;
-  overflow: hidden; /* arredonda as bordas do iframe também */
+  overflow: hidden;
 }
 
 .mapa-area iframe {
   display: block;
   width: 100%;
-  height: 100%;
+  height: 350px;
 }
 
 /* o google maps não tem modo escuro no embed: o filtro inverte as cores e o hue-rotate devolve o verde e o azul */
@@ -1442,14 +1440,17 @@ html[data-tema="escuro"] .mapa-area iframe {
 }
 
 .mapa-info {
-  flex: 1;
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  flex-direction: row;
+  gap: 38px;
+  align-items: center;
+  text-align: start;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .mapa-nome {
+  justify-content: center;
   font-weight: 700;
   font-size: 1.1rem;
 }
@@ -1468,10 +1469,11 @@ html[data-tema="escuro"] .mapa-area iframe {
     min-height: 280px;
   }
 }
-/* no figma o como chegar é preto (no modo escuro fica claro com o texto escuro) */
-.mapa-info .botao-verde {
+
+.mapa .botao-verde {
     height: 48px;
-    margin-top: 12px;
+    width: 100%;
+    margin-top: 50px;
     background-color: var(--cor-texto);
     color: var(--cor-fundo);
 }
