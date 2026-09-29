@@ -1722,6 +1722,24 @@ html[data-tema="escuro"] .mapa-area iframe {
         display: flex;
     }
 
+    /* com o botão apertado o menu desce embaixo do cabeçalho, com um link por linha */
+    .cabecalho.menu-aberto .menu {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 16px 24px 24px;
+        background-color: var(--cor-fundo);
+        border-bottom: 1px solid var(--cor-borda-clara);
+    }
+
+    .cabecalho.menu-aberto .menu-lista {
+        flex-direction: column;
+        gap: 20px;
+    }
+
     .hero {
         grid-template-columns: 1fr;
         gap: 32px;
