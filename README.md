@@ -127,5 +127,3 @@ img/
 ## Pendências
 
 - Fotos que faltam: a do Joel Araújo e as fotos históricas da página de história (abertura, player, primeiros anos, 1978, 2000, hoje e quatro fotos da galeria)
-- Links das redes sociais (Instagram, Facebook e YouTube ainda estão com `#`)
-- Conferir com a rádio: a fonte do "1º em audiência na região", os cargos de Carlinhos, Sergio e Joel, o nome completo do Kaike e o título da página de história ("Da 1020 AM", mas a rádio começou na AM 1580)
