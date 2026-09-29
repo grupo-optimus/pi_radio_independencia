@@ -53,7 +53,7 @@ Cada programa é uma linha:
 - Os programas de cada dia ficam em ordem de horário, sem um passar por cima do outro. Um programa curto no meio de outro divide ele em dois (a Revista Costa Oeste antes e depois do Programa da Lar).
 - Programa sem locutor: `"locutor": ""` (a linha "com ..." some).
 - Sem foto: `"foto": ""` (aparece a logo da rádio no lugar).
-- Programa que vai até a meia-noite termina em `"24:00"`.
+- Programa que vai até a meia-noite termina em `"00:00"` (o site entende que é a meia-noite do fim do dia).
 - Nos horários sem nenhum programa, o player mostra o que estiver em `programaForaDaGrade`.
 - Para colocar aspas num nome use “ ”, porque as aspas retas `"` quebram o arquivo.
 

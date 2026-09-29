@@ -179,6 +179,15 @@ function paraMinutos(horario) {
     return Number(partes[0]) * 60 + Number(partes[1]);
 }
 
+// minutos em que o programa termina: quem termina às "00:00" acaba na meia-noite do fim do dia, então vale 1440 e não 0
+function fimEmMinutos(programa) {
+    if (programa.fim === "00:00") {
+        return 24 * 60;
+    }
+
+    return paraMinutos(programa.fim);
+}
+
 // 870 vira "14:30"
 function paraHorario(minutos) {
     const horas = String(Math.floor(minutos / 60)).padStart(2, "0");
@@ -207,7 +216,7 @@ function programaNoAr() {
     const agora = minutosAgora();
 
     const programa = programacao[diaDeHoje()].find(function (programa) {
-        return agora >= paraMinutos(programa.inicio) && agora < paraMinutos(programa.fim);
+        return agora >= paraMinutos(programa.inicio) && agora < fimEmMinutos(programa);
     });
 
     return programa || programaForaDaGrade;
@@ -263,7 +272,7 @@ function mostrarProgramacao(dia) {
 
     programacao[dia].forEach(function (programa) {
         const inicio = paraMinutos(programa.inicio);
-        const fim = paraMinutos(programa.fim);
+        const fim = fimEmMinutos(programa);
         const noAr = hoje && agora >= inicio && agora < fim;
 
         const item = document.createElement("li");
