@@ -588,11 +588,16 @@
     preload="none">
   </audio>
 
-  <!-- grade da programação (tem que vir antes do script.js, que usa ela) -->
+  <!-- grade da programação (tem que vir antes do programa-no-ar.js, que usa ela) -->
   <script src="js/programacao.js" defer></script>
 
-  <!-- javascript do site: player, programa no ar e modo escuro -->
-  <script src="js/script.js" defer></script>
+  <!-- javascript do site, um arquivo por parte (a ordem importa: o volume usa o áudio do player, e o player usa o player fixo) -->
+  <!-- esta página não tem carrossel da equipe nem formulário de pedido, então o carrossel.js e o pedido.js ficam de fora -->
+  <script src="js/tema.js" defer></script>
+  <script src="js/menu.js" defer></script>
+  <script src="js/player.js" defer></script>
+  <script src="js/volume.js" defer></script>
+  <script src="js/programa-no-ar.js" defer></script>
 
 </body>
 </html>

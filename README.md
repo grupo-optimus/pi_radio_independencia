@@ -54,7 +54,9 @@ Os fatos da história foram tirados da matéria da revista Mosaicos sobre os 43 
 - Um script no `<head>` aplica o tema antes de pintar a página, assim ela não pisca branca
 - No escuro a logo do cabeçalho troca pela versão branca e o mapa do Google fica escuro
 
-### JavaScript (`js/script.js`)
+### JavaScript (`js/`)
+
+Cada parte do site tem seu arquivo em `js/`, e as páginas carregam eles em ordem no fim do `<body>` (o `volume.js` usa o áudio do `player.js`, e o `programa-no-ar.js` usa a grade do `programacao.js`).
 
 - **Player ao vivo:** toca o streaming da rádio. Todos os botões de ouvir (cabeçalho, hero, card, player fixo e rodapé) tocam e pausam o mesmo áudio.
 - **Player fixo:** aparece na base da tela quando o card grande do player sai da tela, com os estados "Ao vivo" e "Pausado".
@@ -99,7 +101,7 @@ Os cards do carrossel ficam no `index.html`, dentro de `<ul class="carrossel">`.
 
 ## Como mudar o WhatsApp
 
-O número que recebe os pedidos de música fica na variável `whatsappRadio`, no fim do `js/script.js`, só com números (`55` + DDD + número). Os links "(45) 9 9935-8890" do `index.html` e do `historia.html` usam o mesmo número e precisam mudar junto.
+O número que recebe os pedidos de música fica na variável `whatsappRadio`, no começo do `js/pedido.js`, só com números (`55` + DDD + número). Os links "(45) 9 9935-8890" do `index.html` e do `historia.html` usam o mesmo número e precisam mudar junto.
 
 ## Estrutura de pastas
 
@@ -111,7 +113,13 @@ css/
   historia.css      estilos que só a página de história usa
 js/
   programacao.js    grade da programação
-  script.js         modo escuro, menu do celular, player, programação, carrossel e pedido de música
+  tema.js           modo escuro
+  menu.js           menu do celular
+  player.js         player ao vivo e player fixo
+  volume.js         barras de volume e mudo
+  programa-no-ar.js programa no ar, abas e linha do tempo da programação
+  carrossel.js      carrossel da equipe (só na página inicial)
+  pedido.js         pedido de música pelo WhatsApp (só na página inicial)
 img/
   equipe/           fotos da equipe (330x330)
   historia/         fotos da história da rádio
