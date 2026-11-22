@@ -1703,14 +1703,24 @@ html[data-tema="escuro"] .mapa-area iframe {
     order: 1;
 }
 
+/* fica fora da tela até receber o foco do teclado */
 .pular-conteudo {
     position: absolute;
     left: -9999px;
 }
 
+/* com o foco ele aparece no canto, por cima do cabeçalho (z-index 10) e do player fixo (20) */
+/* sem o z-index e o fundo ele ficava escondido atrás do cabeçalho */
 .pular-conteudo:focus {
-    left: 10px;
     top: 10px;
+    left: 10px;
+    z-index: 30;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background-color: var(--cor-texto);
+    color: var(--cor-fundo);
+    font-size: 15px;
+    font-weight: 600;
 }
 
 /* responsivo: tablet, o menu vira o botão de três risquinhos e o card do player desce pra baixo do texto */
@@ -2065,5 +2075,31 @@ html[data-tema="escuro"] .mapa-area iframe {
     .linha-programas {
         padding-right: 20px;
         padding-left: 20px;
+    }
+}
+
+/* responsivo: celulares estreitos (320px), onde a página passava da tela para o lado */
+/* a palavra "Independência" dos títulos não cabia em 44px, e as quatro abas da programação não cabiam numa linha */
+@media (max-width: 359px) {
+    .secao-titulo {
+        font-size: 38px;
+    }
+
+    .abas {
+        gap: 4px;
+    }
+
+    .aba {
+        padding: 0 6px;
+        font-size: 13px;
+    }
+
+    .aba[aria-selected="true"] {
+        padding: 0 8px;
+    }
+
+    /* o e-mail do card de contato era mais largo que o card e encostava na borda dele */
+    .card-contato-titulo + p {
+        font-size: 14px;
     }
 }

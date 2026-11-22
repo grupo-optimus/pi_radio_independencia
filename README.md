@@ -30,17 +30,23 @@ O site tem duas páginas:
 
 Todas as seções seguem o Figma no desktop. Ao entrar no site, o hero ocupa a tela e a faixa preta dos números fica encaixada na base.
 
-No celular, o cabeçalho (com o menu que abre e fecha), o hero, a faixa dos números, as abas da programação e o player fixo seguem o Figma. As outras seções por enquanto só ficam uma embaixo da outra.
+No celular, o cabeçalho (com o menu que abre e fecha), o hero, a faixa dos números, as abas da programação e o player fixo seguem o Figma. As outras seções por enquanto só ficam uma embaixo da outra. Nos celulares mais estreitos (menos de 360px de largura) os títulos das seções, as abas da programação e os dados dos cards de contato ficam um pouco menores, para nada passar da tela ou do card.
+
+Quem navega pelo teclado tem o link "Pular para o conteúdo": ele aparece no canto de cima ao apertar Tab, nas duas páginas.
 
 ### Página de história
 
-- Abertura com o título, uma foto e o player ao vivo
+- Abertura com o título, o player ao vivo e a foto da fachada da rádio nos 35 anos, em 2013
 - O começo da rádio, em 1978, na AM 1580
-- Linha do tempo com os momentos que marcaram a rádio (1978, 2000, 2021 e hoje)
+- Linha do tempo com os momentos que marcaram a rádio (1978, 2000, 2021 e hoje), cada um com uma placa mostrando a frequência da época
 - Homenagem a Moacir José Hanzen
-- Galeria de fotos
+- Galeria com a logo antiga do AM, a foto da estreia no FM e um mosaico da equipe de hoje
 - Direção da rádio
 - Chamada final para ouvir e pedir música
+
+A página só usa as imagens que a rádio tem. Onde o Figma previa uma foto que não existe (os primeiros anos e os marcos da linha do tempo), entra texto ou a frequência da época, e não um espaço vazio.
+
+O player ao vivo fica antes da foto de abertura para aparecer na primeira tela em qualquer monitor. Em cima da foto, como no Figma, ele ficava abaixo da tela nos notebooks, e o player fixo entrava cobrindo o letreiro da fachada.
 
 O cabeçalho, o rodapé, o player fixo e o modo escuro são os mesmos da página inicial. O menu leva para as seções da própria página. Os estilos que só ela usa ficam em `css/historia.css`.
 
@@ -98,6 +104,7 @@ Os cards do carrossel ficam no `index.html`, dentro de `<ul class="carrossel">`.
 - As fotos ficam em `img/equipe/`, em JPG quadrado de 330x330.
 - Quem ainda não tem foto usa a logo branca com a classe `sem-foto` (como o card do Joel).
 - Se a pessoa apresenta um programa, a mesma foto também vai na grade de `js/programacao.js`.
+- A galeria da página de história tem um mosaico com oito dessas fotos (no `historia.html`, dentro de `<div class="galeria-mosaico">`). São duas fileiras de quatro, então para colocar alguém é só trocar o `src` e o `alt` de uma das fotos.
 
 ## Como mudar o WhatsApp
 
@@ -129,9 +136,10 @@ img/
 
 ## Próximos passos
 
-- Versão de celular do Figma para a programação (a linha do tempo fica na vertical) e para as seções de baixo: Quem Somos, equipe, Peça uma música, contato e rodapé. Junto, resolver os celulares de 320px, onde os títulos da Programação e da Equipe e as abas dos dias passam da tela
+- Versão de celular do Figma para a programação (a linha do tempo fica na vertical) e para as seções de baixo: Quem Somos, equipe, Peça uma música, contato e rodapé
 - Media Session: mostrar o programa no ar na tela de bloqueio do celular, como pedem as notas do Figma
 
 ## Pendências
 
-- Fotos que faltam: a do Joel Araújo e as fotos históricas da página de história (abertura, player, primeiros anos, 1978, 2000, hoje e quatro fotos da galeria)
+- Foto que falta: a do Joel Araújo (o card dele usa a logo da rádio, e ele ainda não está no mosaico da galeria da história)
+- Se a rádio encontrar fotos antigas (o estúdio do AM, o transmissor, os primeiros anos), elas podem entrar na galeria da página de história. Hoje a galeria é montada para três peças: para pôr mais uma é preciso refazer as colunas do `.galeria-lista` no `css/historia.css` (25, 52 e 40, e as do bloco de até 900px)
