@@ -168,20 +168,9 @@
         </p>
       </div>
 
-      <!-- imagem histórica: o Figma usa um espaço reservado enquanto as fotos reais não chegam -->
-      <figure class="historia-imagem historia-imagem-placeholder">
-        <figcaption>Foto histórica: fachada ou estúdio da Rádio Independência</figcaption>
-      </figure>
-
-      <!-- player ao vivo incorporado à área histórica -->
+      <!-- player ao vivo: fica antes da foto para aparecer na primeira tela em qualquer monitor -->
+      <!-- (o player fixo só entra quando este card sai da tela, e numa tela baixa ele entrava por cima da foto) -->
       <article class="player-card historia-player" aria-label="Player ao vivo">
-
-        <figure class="player-card-foto historia-player-foto">
-          <figcaption class="historia-player-placeholder">
-            [ foto histórica ou arte do estúdio da rádio ]
-          </figcaption>
-          <span class="selo-vermelho">Ao vivo</span>
-        </figure>
 
         <div class="player-card-info">
           <p class="player-card-rotulo">Tocando agora em 92,7 FM</p>
@@ -223,18 +212,30 @@
         </div>
       </article>
 
+      <!-- foto de abertura: a fachada da rádio nos 35 anos, em 2013, ainda na AM 1020 -->
+      <figure class="historia-imagem">
+        <img
+          src="img/historia/foto-aniversario-35-anos.jpg"
+          width="1672"
+          height="705"
+          alt="Fachada da Rádio Independência em 2013, com o letreiro da AM 1020, a frase “A rádio da família!” e o selo dos 35 anos">
+        <figcaption>A fachada da rádio nos 35 anos, em 2013, ainda na AM 1020.</figcaption>
+      </figure>
+
     </section>
 
-    <!-- início da narrativa -->
+    <!-- início da narrativa: não temos foto de 1978, então o título fica de um lado e o texto do outro -->
     <section class="historia-comeco" id="comeco" aria-labelledby="historia-comeco-titulo">
 
-      <div class="historia-comeco-texto">
+      <div class="historia-comeco-topo">
         <p class="secao-rotulo">O Começo</p>
 
         <h2 class="secao-titulo" id="historia-comeco-titulo">
           Um sonho que virou rádio
         </h2>
+      </div>
 
+      <div class="historia-comeco-texto">
         <p>
           A história da Rádio Independência começou em 4 de dezembro de 1978. Depois de muito esforço, dedicação e trabalho, o sonho se tornou realidade: entrava no ar, em Medianeira, a Rádio Independência AM 1580 kHz, com Irineo Pelissari como diretor e sócio-proprietário.
         </p>
@@ -243,11 +244,6 @@
           Em pouco tempo, a programação se expandiu de Medianeira para toda a Região Oeste Paranaense, com informação, música e prestação de serviço para quem ouve.
         </p>
       </div>
-
-      <!-- foto dos primeiros anos: placeholder previsto no Figma -->
-      <figure class="historia-imagem historia-comeco-imagem">
-        <figcaption>Foto: os primeiros anos da AM 1580</figcaption>
-      </figure>
 
     </section>
 
@@ -263,12 +259,16 @@
         </div>
       </div>
 
+      <!-- cada marco tem uma placa com a frequência da época, como o mostrador de um rádio antigo -->
+      <!-- a placa é só enfeite (aria-hidden), porque o texto do marco já diz a frequência -->
+      <!-- o --agulha diz onde a agulha vermelha fica na escala: 0 é o começo da faixa e 1 é o fim -->
       <ol class="historia-timeline">
 
         <li class="historia-marco">
-          <figure class="historia-marco-imagem">
-            <figcaption>Foto 1978</figcaption>
-          </figure>
+          <p class="historia-marco-dial" style="--agulha: 0.9" aria-hidden="true">
+            <span class="dial-faixa">AM</span>
+            <strong class="dial-valor">1580 <small>kHz</small></strong>
+          </p>
 
           <span class="historia-marco-ano">1978</span>
           <p class="historia-marco-data">4 de dezembro de 1978</p>
@@ -279,9 +279,10 @@
         </li>
 
         <li class="historia-marco">
-          <figure class="historia-marco-imagem">
-            <figcaption>Foto 2000</figcaption>
-          </figure>
+          <p class="historia-marco-dial" style="--agulha: 0.42" aria-hidden="true">
+            <span class="dial-faixa">AM</span>
+            <strong class="dial-valor">1020 <small>kHz</small></strong>
+          </p>
 
           <span class="historia-marco-ano">2000</span>
           <p class="historia-marco-data">12 de janeiro de 2000</p>
@@ -292,13 +293,10 @@
         </li>
 
         <li class="historia-marco">
-          <figure class="historia-marco-imagem">
-            <img
-              src="img/historia/foto-historica2021.jpg"
-              alt="Equipe da Rádio Independência reunida no novo estúdio, em 2021"
-              loading="lazy">
-            <figcaption>Foto 2021</figcaption>
-          </figure>
+          <p class="historia-marco-dial" style="--agulha: 0.25" aria-hidden="true">
+            <span class="dial-faixa">FM</span>
+            <strong class="dial-valor">92,7</strong>
+          </p>
 
           <span class="historia-marco-ano">2021</span>
           <p class="historia-marco-data">4 de dezembro de 2021</p>
@@ -308,10 +306,13 @@
           </p>
         </li>
 
+        <!-- o marco de hoje tem a placa verde com o selo "No ar" e a bolinha cheia, como o "Hoje" da linha do tempo da home -->
         <li class="historia-marco historia-marco-atual">
-          <figure class="historia-marco-imagem">
-            <figcaption>Foto Hoje</figcaption>
-          </figure>
+          <p class="historia-marco-dial" style="--agulha: 0.25" aria-hidden="true">
+            <span class="dial-faixa">FM</span>
+            <strong class="dial-valor">92,7</strong>
+            <span class="selo-no-ar">No ar</span>
+          </p>
 
           <span class="historia-marco-ano">Hoje</span>
           <h3 class="historia-marco-titulo">No 92,7 FM e na internet</h3>
@@ -333,7 +334,6 @@
           src="img/equipe/moacir-hanzen.jpg"
           alt="Moacir José Hanzen"
           loading="lazy">
-        <figcaption>Foto: Moacir José Hanzen</figcaption>
       </figure>
 
       <div class="historia-homenagem-texto">
@@ -352,48 +352,26 @@
 
     </section>
 
-    <!-- galeria histórica -->
+    <!-- galeria: só com as imagens que a rádio tem, em ordem de tempo (a marca do AM, a estreia no FM e a equipe de hoje) -->
     <section class="historia-galeria" id="galeria" aria-labelledby="galeria-titulo">
 
       <div class="historia-galeria-topo">
         <p class="secao-rotulo">Galeria</p>
-        <h2 class="secao-titulo" id="galeria-titulo">Fotos da nossa história</h2>
+        <h2 class="secao-titulo" id="galeria-titulo">Imagens da nossa história</h2>
       </div>
 
       <ul class="galeria-lista">
 
-        <li class="galeria-item">
-          <figure class="galeria-figura galeria-placeholder">
-            <figcaption>Jeferson Luis “Black”, locutor do Show da Tarde</figcaption>
-          </figure>
-        </li>
-
+        <!-- a logo antiga tem letras pretas, então fica sempre numa placa branca, até no modo escuro -->
         <li class="galeria-item">
           <figure class="galeria-figura">
-            <img
-              class="galeria-imagem"
-              src="img/historia/foto-aniversario-35-anos.jpg"
-              alt="Fachada da Rádio Independência com o letreiro da AM 1020 e o selo dos 35 anos"
-              loading="lazy">
-            <figcaption>Fachada da rádio nos 35 anos, em 2013</figcaption>
-          </figure>
-        </li>
-
-        <li class="galeria-item">
-          <figure class="galeria-figura galeria-placeholder">
-            <figcaption>O estúdio nos tempos do AM</figcaption>
-          </figure>
-        </li>
-
-        <li class="galeria-item">
-          <figure class="galeria-figura galeria-placeholder">
-            <figcaption>Transmissor e antena</figcaption>
-          </figure>
-        </li>
-
-        <li class="galeria-item">
-          <figure class="galeria-figura galeria-placeholder">
-            <figcaption>A equipe da Independência</figcaption>
+            <div class="galeria-marca">
+              <img
+                src="img/logos/logo-radio-independencia-2013.svg"
+                alt="Logo antiga da Rádio Independência: um “i” branco num círculo vermelho com ondas de som, AM 1020 kHz e a frase “A Rádio da Família!”"
+                loading="lazy">
+            </div>
+            <figcaption>A marca da rádio nos tempos da AM 1020</figcaption>
           </figure>
         </li>
 
@@ -405,6 +383,23 @@
               alt="Equipe da Rádio Independência reunida no novo estúdio, em 2021"
               loading="lazy">
             <figcaption>Estreia no 92,7 FM, em 2021</figcaption>
+          </figure>
+        </li>
+
+        <!-- mosaico com as fotos da equipe que também estão no carrossel da home (o Joel ainda não tem foto) -->
+        <li class="galeria-item">
+          <figure class="galeria-figura">
+            <div class="galeria-mosaico">
+              <img src="img/equipe/valdecir-xi.jpg" alt="Valdecir Gonçalves, o Xi" loading="lazy">
+              <img src="img/equipe/jeferson-black.jpg" alt="Jeferson Luis, o Black" loading="lazy">
+              <img src="img/equipe/joao-hermes.jpg" alt="João Hermes" loading="lazy">
+              <img src="img/equipe/carlinhos-pessoa.jpg" alt="Carlinhos Pessoa" loading="lazy">
+              <img src="img/equipe/sergio-giembra.jpg" alt="Sergio Giembra" loading="lazy">
+              <img src="img/equipe/valdir-brod.jpg" alt="Valdir Henrique Brod" loading="lazy">
+              <img src="img/equipe/katia-vanessa.jpg" alt="Katia Vanessa" loading="lazy">
+              <img src="img/equipe/kaike.jpg" alt="Kaike Zummach" loading="lazy">
+            </div>
+            <figcaption>Parte da equipe que faz a rádio hoje</figcaption>
           </figure>
         </li>
 
@@ -423,12 +418,11 @@
       <ul class="direcao-lista">
 
         <li class="direcao-card">
-          <figure class="direcao-foto-placeholder">
+          <figure class="direcao-foto">
             <img
               src="img/equipe/jane-vergopolan.jpg"
               alt="Jane Vergopolan"
               loading="lazy">
-            <figcaption>Foto de Jane Vergopolan</figcaption>
           </figure>
 
           <div class="direcao-informacoes">
@@ -438,12 +432,11 @@
         </li>
 
         <li class="direcao-card">
-          <figure class="direcao-foto-placeholder">
+          <figure class="direcao-foto">
             <img
               src="img/equipe/josias-lima.jpg"
               alt="Josias de Lima"
               loading="lazy">
-            <figcaption>Foto de Josias de Lima</figcaption>
           </figure>
 
           <div class="direcao-informacoes">
